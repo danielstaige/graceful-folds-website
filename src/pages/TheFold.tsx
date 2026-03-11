@@ -1,103 +1,207 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Heart } from "lucide-react";
+import { ArrowRight, CheckCircle2, Heart, MapPin, Car, Sparkles, Home, Shield } from "lucide-react";
 
-const teamMembers = [
+const folders = [
   {
-    name: "Danielle Reyes",
-    role: "Founder & Operations Lead",
-    bio: "Danielle started Folds of Grace out of a genuine desire to lighten the load for families. She oversees every aspect of the business with attention to detail and warmth.",
+    initials: "SM",
+    name: "Sarah M.",
+    neighborhood: "Frisco & Allen",
+    bio: "A mom of three who joined Folds of Grace to serve her community and make time for what matters. Philippians 4:13 is the verse she returns to on hard days.",
+    gradient: "linear-gradient(135deg, hsl(133 20% 62%), hsl(39 46% 61%))",
+  },
+  {
+    initials: "KT",
+    name: "Keisha T.",
+    neighborhood: "McKinney & Prosper",
+    bio: "Former teacher turned full-time mama who loves the flexibility of folding on her own schedule. She says the job lets her pour into her family while still contributing meaningfully.",
+    gradient: "linear-gradient(135deg, hsl(210 54% 30%), hsl(133 20% 62%))",
+  },
+  {
+    initials: "MV",
+    name: "Marisol V.",
+    neighborhood: "Plano & Richardson",
+    bio: "Marisol has been with Folds of Grace since the beginning. She takes quiet pride in returning laundry so neat, customers text her to say it made their week.",
+    gradient: "linear-gradient(135deg, hsl(39 46% 61%), hsl(39 46% 50%))",
+  },
+  {
+    initials: "BH",
+    name: "Brittany H.",
+    neighborhood: "Garland & Rowlett",
+    bio: "A caregiver by nature, Brittany joined because she wanted work that felt like love. Her customers know her by name and always look forward to her smile.",
+    gradient: "linear-gradient(135deg, hsl(133 20% 62%), hsl(210 54% 30%))",
+  },
+  {
     initials: "DR",
+    name: "Danielle R.",
+    neighborhood: "Carrollton & Farmers Branch",
+    bio: "Danielle leads by example, treating every bag as if it belongs to her own family. She's the one who trained the rest of the team.",
+    gradient: "linear-gradient(135deg, hsl(210 54% 23%), hsl(39 46% 61%))",
   },
   {
-    name: "Marcus Johnson",
-    role: "Route Driver & Pickup Specialist",
-    bio: "Marcus is the friendly face at your door. He's known for his reliability, care, and the way he treats every bag like it's his own family's laundry.",
-    initials: "MJ",
+    initials: "TW",
+    name: "Tanya W.",
+    neighborhood: "Irving & Grand Prairie",
+    bio: "Tanya likes to say she doesn't just wash clothes — she lightens loads. She joined Folds of Grace because she believes service is a calling.",
+    gradient: "linear-gradient(135deg, hsl(39 46% 50%), hsl(133 20% 62%))",
   },
-  {
-    name: "Sofia Gutierrez",
-    role: "Laundry Care Specialist",
-    bio: "Sofia has over 8 years of experience in garment care. She handles each item with precision and love, ensuring your clothes come back better than they left.",
-    initials: "SG",
-  },
+];
+
+const benefits = [
+  "Flexible hours — you set your own schedule",
+  "Work from home, in your neighborhood",
+  "Meaningful income doing work that matters",
+  "Be part of a faith-inspired, women-led team",
+];
+
+const qualifications = [
+  { icon: Home, text: "Working washer and dryer in your home" },
+  { icon: Car, text: "Reliable vehicle for pickup and delivery" },
+  { icon: Sparkles, text: "Attention to detail and care for quality" },
+  { icon: Heart, text: "A heart for service and community" },
 ];
 
 const TheFold = () => {
   return (
     <main className="pt-20">
+
       {/* Hero */}
       <section className="bg-primary py-24 px-4">
         <div className="container max-w-3xl mx-auto text-center">
-          <span className="font-body text-xs tracking-widest uppercase text-gold mb-4 block">Our Team</span>
-          <h1 className="font-display text-5xl md:text-6xl font-semibold text-primary-foreground mb-6">
-            The Fold
+          <span className="font-body text-xs tracking-widest uppercase text-gold mb-4 block">The Fold</span>
+          <h1 className="font-display text-5xl md:text-6xl font-semibold text-primary-foreground mb-6 leading-tight">
+            Meet the Women Who Serve Our Community.
           </h1>
           <p className="font-body text-primary-foreground/80 text-lg leading-relaxed">
-            The people behind your clean clothes. Trusted, trained, and genuinely committed to serving your family well.
+            Your Folder is your neighbor. She cares about your family.
           </p>
         </div>
       </section>
 
-      {/* Team */}
+      {/* Folder Profiles */}
       <section className="section-padding bg-background">
-        <div className="container max-w-5xl mx-auto">
+        <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <h2 className="font-display text-4xl font-semibold text-primary mb-4">Meet Our Team</h2>
+            <h2 className="font-display text-4xl font-semibold text-primary mb-4">
+              Your Neighbors. Your Folders.
+            </h2>
             <div className="gold-divider mb-5" />
-            <p className="font-body text-muted-foreground max-w-lg mx-auto">
-              Every member of the Folds of Grace team is background-checked, trained, and chosen for their character as much as their skills.
+            <p className="font-body text-muted-foreground max-w-lg mx-auto text-sm leading-relaxed">
+              Every Folder is background-checked, trained, and chosen for her character. These are the women who show up for your family, week after week.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            {teamMembers.map((member) => (
-              <div key={member.name} className="bg-card rounded-xl p-8 shadow-card text-center hover:-translate-y-1 transition-transform duration-300">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {folders.map((folder) => (
+              <div
+                key={folder.name}
+                className="bg-card rounded-xl p-8 shadow-card hover:-translate-y-1 transition-transform duration-300 flex flex-col items-center text-center"
+              >
+                {/* Avatar */}
                 <div
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-5 font-display text-2xl font-semibold text-primary-foreground"
-                  style={{ background: "var(--gradient-hero)" }}
+                  className="w-24 h-24 rounded-full flex items-center justify-center mb-5 font-display text-2xl font-semibold text-primary-foreground shrink-0"
+                  style={{ background: folder.gradient }}
                 >
-                  {member.initials}
+                  {folder.initials}
                 </div>
-                <h3 className="font-display text-xl font-semibold text-primary mb-1">{member.name}</h3>
-                <p className="font-body text-xs text-gold uppercase tracking-widest mb-4">{member.role}</p>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
+
+                <h3 className="font-display text-xl font-semibold text-primary mb-1">{folder.name}</h3>
+
+                <div className="flex items-center gap-1.5 mb-4">
+                  <MapPin size={12} className="text-gold shrink-0" />
+                  <span className="font-body text-xs text-gold uppercase tracking-widest">
+                    Serving {folder.neighborhood}
+                  </span>
+                </div>
+
+                <p className="font-body text-sm text-muted-foreground leading-relaxed">{folder.bio}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Recruitment */}
-          <div className="bg-sage-light rounded-xl p-10 md:p-14">
-            <div className="max-w-2xl mx-auto text-center">
-              <Heart size={32} className="text-gold mx-auto mb-5" />
-              <h2 className="font-display text-3xl font-semibold text-primary mb-4">
-                Join the Fold
+      {/* Folder Testimonial */}
+      <section className="section-padding bg-secondary px-4">
+        <div className="container max-w-3xl mx-auto text-center">
+          <span
+            className="font-display text-8xl leading-none block mb-0 -mb-4"
+            style={{ color: "hsl(var(--gold) / 0.35)" }}
+          >
+            "
+          </span>
+          <blockquote className="font-display text-2xl md:text-3xl italic font-semibold text-primary leading-relaxed mb-8">
+            This job gave me the freedom to be present for my kids and still do something that feels like it matters. Every time I fold someone's laundry, I'm saying — I see you, I've got you.
+          </blockquote>
+          <p className="font-body text-xs text-muted-foreground tracking-widest uppercase">
+            — Keisha T., Folder since 2023
+          </p>
+        </div>
+      </section>
+
+      {/* Join the Fold */}
+      <section className="section-padding bg-background px-4">
+        <div className="container max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+            {/* Left: Role description */}
+            <div>
+              <span className="font-body text-xs tracking-widest uppercase text-gold mb-3 block">We're Hiring</span>
+              <h2 className="font-display text-4xl font-semibold text-primary mb-5 leading-snug">
+                Ready to Serve Your Community?
               </h2>
-              <p className="font-body text-foreground/75 leading-relaxed mb-6">
-                We're looking for reliable, caring people who love to serve. If you have a servant's heart and take pride in a job well done, we'd love to meet you.
+              <p className="font-body text-muted-foreground leading-relaxed mb-8">
+                Folding for Folds of Grace is flexible, fulfilling work you can do in your own home on your own schedule. You'll serve families in your neighborhood, earn meaningful income, and be part of a team that genuinely cares about each other and the people we serve.
               </p>
-              <ul className="space-y-2 text-left max-w-sm mx-auto mb-8">
-                {[
-                  "Flexible schedule — you set your hours",
-                  "Competitive pay",
-                  "Work independently in your own vehicle",
-                  "Be part of something meaningful",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 font-body text-sm text-foreground/80">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 shrink-0" />
-                    {item}
+
+              <ul className="space-y-3 mb-10">
+                {benefits.map((benefit) => (
+                  <li key={benefit} className="flex items-start gap-3 font-body text-sm text-foreground/80">
+                    <CheckCircle2 size={18} className="text-sage shrink-0 mt-0.5" style={{ color: "hsl(var(--sage))" }} />
+                    {benefit}
                   </li>
                 ))}
               </ul>
+
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-md font-body text-sm font-semibold shadow-gold hover:-translate-y-0.5 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 shadow-gold"
                 style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
               >
-                Apply to Join the Team <ArrowRight size={15} />
+                Apply to Become a Folder <ArrowRight size={15} />
               </Link>
             </div>
+
+            {/* Right: Qualifications box */}
+            <div className="bg-secondary rounded-xl p-8 lg:p-10">
+              <h3 className="font-display text-2xl font-semibold text-primary mb-3">What We Look For</h3>
+              <div className="gold-divider mb-7" style={{ marginLeft: 0 }} />
+
+              <ul className="space-y-5 mb-7">
+                {qualifications.map(({ icon: Icon, text }) => (
+                  <li key={text} className="flex items-start gap-4">
+                    <div
+                      className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
+                      style={{ background: "hsl(var(--gold) / 0.15)" }}
+                    >
+                      <Icon size={16} style={{ color: "hsl(var(--gold-dark))" }} />
+                    </div>
+                    <span className="font-body text-sm text-foreground/80 leading-relaxed pt-1.5">{text}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex items-start gap-2.5 pt-5 border-t border-border/50">
+                <Shield size={14} style={{ color: "hsl(var(--sage))" }} className="shrink-0 mt-0.5" />
+                <p className="font-body text-xs text-muted-foreground leading-relaxed">
+                  All Folders are background-checked and trained before their first order.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
+
     </main>
   );
 };
