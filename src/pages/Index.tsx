@@ -1,43 +1,83 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle, Star } from "lucide-react";
+import { ArrowRight, Sparkles, Clock, Tag, Star, DoorOpen, Shirt, Home } from "lucide-react";
 import heroImg from "@/assets/hero-laundry.jpg";
 
-const trustBadges = [
-  "Same-Week Pickup Available",
-  "Free First Bag Promo",
-  "Insured & Trusted",
-  "Dallas-Fort Worth Only",
-];
-
-const problems = [
+const promises = [
   {
-    icon: "⏰",
-    title: "No Time",
-    desc: "Between work, kids, and everything else — laundry keeps piling up.",
+    icon: Sparkles,
+    title: "Done For You",
+    desc: "Every item washed, dried, and folded — ready to put away.",
   },
   {
-    icon: "😓",
-    title: "Overwhelmed",
-    desc: "It's not just the washing. It's the drying, folding, and putting it all away.",
+    icon: Clock,
+    title: "Back in 24–48 Hours",
+    desc: "Fast turnaround so you're never without what you need.",
   },
   {
-    icon: "🏠",
-    title: "Back to Your Life",
-    desc: "Imagine coming home to clean, folded laundry — without lifting a finger.",
+    icon: Tag,
+    title: "Simple, Flat-Rate Pricing",
+    desc: "No surprises. Just one clear price per bag.",
   },
 ];
 
 const steps = [
-  { num: "01", title: "Schedule", desc: "Book a pickup online in under 2 minutes." },
-  { num: "02", title: "We Pick Up", desc: "We come to your door at your chosen time." },
-  { num: "03", title: "We Wash & Fold", desc: "Cleaned with care and folded beautifully." },
-  { num: "04", title: "We Deliver", desc: "Fresh laundry back on your doorstep." },
+  {
+    icon: DoorOpen,
+    num: "1",
+    title: "Set It on the Porch",
+    desc: "Leave your bag out at your scheduled pickup time — no waiting around.",
+  },
+  {
+    icon: Shirt,
+    num: "2",
+    title: "We Wash & Fold",
+    desc: "We handle everything with care — washed, dried, and neatly folded.",
+  },
+  {
+    icon: Home,
+    num: "3",
+    title: "It's Back at Your Door",
+    desc: "Fresh laundry delivered back to your doorstep, right on schedule.",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Sarah M.",
+    location: "Frisco, TX",
+    quote:
+      "I honestly cried the first time I got my laundry back folded perfectly. Such a relief for our family of five.",
+  },
+  {
+    name: "James & Tina R.",
+    location: "Plano, TX",
+    quote:
+      "We've tried other services but Folds of Grace is on another level. Reliable, careful, and they actually care.",
+  },
+  {
+    name: "Michelle K.",
+    location: "Allen, TX",
+    quote:
+      "Scheduling took 90 seconds. They showed up on time. The laundry smelled amazing. I'm never going back.",
+  },
+  {
+    name: "David & Angela P.",
+    location: "McKinney, TX",
+    quote:
+      "As parents of three young kids, laundry felt endless. Folds of Grace gave us our Saturday mornings back.",
+  },
+  {
+    name: "Renee T.",
+    location: "Garland, TX",
+    quote:
+      "I've recommended this service to every mom in my neighborhood. It's not a luxury — it's a necessity.",
+  },
 ];
 
 const HomePage = () => {
   return (
     <main>
-      {/* Hero */}
+      {/* ── 1. HERO ── */}
       <section className="relative min-h-[92vh] flex items-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -53,103 +93,98 @@ const HomePage = () => {
               Dallas-Fort Worth · Premium Service
             </span>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold text-primary-foreground leading-tight mb-6">
-              Your Laundry,
+              Finally, a Solution
               <br />
-              <em className="text-gold not-italic">Done Right.</em>
+              <em className="text-gold not-italic">for Your Laundry.</em>
             </h1>
             <p className="font-body text-lg md:text-xl text-primary-foreground/85 leading-relaxed mb-10 max-w-xl">
-              We pick up, wash, fold, and deliver — so you can spend your time on what actually matters. Professional laundry service for busy DFW families.
+              Get your laundry done for you, so you can focus on what matters most. Pickup, wash, fold, and delivery — all taken care of.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md font-body text-sm font-semibold tracking-wide shadow-gold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
-                style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
-              >
-                Schedule My First Pickup
-                <ArrowRight size={16} />
-              </Link>
-              <Link
-                to="/how-it-works"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md font-body text-sm font-medium border border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-all duration-200"
-              >
-                See How It Works
-              </Link>
-            </div>
-            {/* Trust badges */}
-            <div className="flex flex-wrap gap-x-6 gap-y-2 mt-10">
-              {trustBadges.map((badge) => (
-                <span key={badge} className="flex items-center gap-1.5 font-body text-xs text-primary-foreground/70">
-                  <CheckCircle size={13} className="text-sage" />
-                  {badge}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Problem section */}
-      <section className="section-padding bg-background">
-        <div className="container max-w-7xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="font-body text-xs tracking-widest uppercase text-gold">Sound Familiar?</span>
-            <h2 className="font-display text-4xl font-semibold text-primary mt-3 mb-4">
-              Life's Too Full for Laundry
-            </h2>
-            <div className="gold-divider mb-5" />
-            <p className="font-body text-muted-foreground max-w-lg mx-auto leading-relaxed">
-              You're not behind — you're just busy. We're here to take one more thing off your plate.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {problems.map((p) => (
-              <div key={p.title} className="bg-card rounded-xl p-8 shadow-card text-center hover:-translate-y-1 transition-transform duration-300">
-                <div className="text-4xl mb-4">{p.icon}</div>
-                <h3 className="font-display text-xl font-semibold text-primary mb-3">{p.title}</h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works preview */}
-      <section className="section-padding bg-secondary">
-        <div className="container max-w-7xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="font-body text-xs tracking-widest uppercase text-gold">The Process</span>
-            <h2 className="font-display text-4xl font-semibold text-primary mt-3 mb-4">
-              Simple as 1, 2, 3, 4
-            </h2>
-            <div className="gold-divider" />
-          </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((step, i) => (
-              <div key={step.num} className="relative text-center">
-                {i < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-6 left-[60%] w-full h-px bg-border z-0" />
-                )}
-                <div className="relative z-10 w-12 h-12 rounded-full bg-primary flex items-center justify-center mx-auto mb-4">
-                  <span className="font-body text-xs font-semibold text-gold">{step.num}</span>
-                </div>
-                <h4 className="font-display text-lg font-semibold text-primary mb-2">{step.title}</h4>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-12">
             <Link
-              to="/how-it-works"
-              className="inline-flex items-center gap-2 font-body text-sm font-medium text-primary hover:text-gold transition-colors"
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md font-body text-sm font-semibold tracking-wide shadow-gold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+              style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
             >
-              Learn the full process <ArrowRight size={15} />
+              Schedule My First Pickup
+              <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Social proof */}
+      {/* ── 2. PROMISE STRIP ── */}
+      <section className="bg-primary py-14 px-4">
+        <div className="container max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+            {promises.map((p, i) => (
+              <div
+                key={p.title}
+                className="flex flex-col items-center gap-3 animate-fade-up"
+                style={{ animationDelay: `${i * 120}ms` }}
+              >
+                <div className="w-14 h-14 rounded-full flex items-center justify-center"
+                  style={{ background: "hsl(var(--gold) / 0.15)" }}>
+                  <p.icon size={26} className="text-gold" />
+                </div>
+                <h3 className="font-display text-lg font-semibold text-primary-foreground">{p.title}</h3>
+                <p className="font-body text-sm text-primary-foreground/70 leading-relaxed max-w-[200px]">{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. HOW IT WORKS ── */}
+      <section className="section-padding bg-background">
+        <div className="container max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="font-body text-xs tracking-widest uppercase text-gold">Simple Process</span>
+            <h2 className="font-display text-4xl font-semibold text-primary mt-3 mb-4">
+              How It Works
+            </h2>
+            <div className="gold-divider" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 relative">
+            {/* Dashed connector lines — desktop only */}
+            <div className="hidden md:block absolute top-8 left-[calc(33%+1rem)] right-[calc(33%+1rem)] h-px border-t-2 border-dashed border-gold/40" />
+
+            {steps.map((step) => (
+              <div key={step.num} className="flex flex-col items-center text-center gap-4 relative z-10">
+                <div className="relative">
+                  <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-soft">
+                    <step.icon size={26} className="text-gold" />
+                  </div>
+                  <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full flex items-center justify-center font-body text-xs font-bold text-primary-foreground"
+                    style={{ background: "hsl(var(--gold))" }}>
+                    {step.num}
+                  </span>
+                </div>
+                <h4 className="font-display text-xl font-semibold text-primary">{step.title}</h4>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed max-w-[220px]">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. THE DIFFERENCE ── */}
+      <section className="section-padding bg-secondary">
+        <div className="container max-w-2xl mx-auto text-center">
+          <div className="gold-divider mb-8" />
+          <h2 className="font-display text-3xl md:text-4xl font-semibold text-primary leading-snug mb-6">
+            We Wash, We Fold…
+            <br />
+            <em className="not-italic text-gold">and We Pray.</em>
+          </h2>
+          <p className="font-body text-base text-muted-foreground leading-relaxed mb-8 max-w-lg mx-auto">
+            Folds of Grace isn't just a laundry service. Every bag we handle is treated with care and intention. We believe in lightening the load — in more ways than one.
+          </p>
+          <div className="gold-divider" />
+        </div>
+      </section>
+
+      {/* ── 5. TESTIMONIALS ── */}
       <section className="section-padding bg-background">
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-14">
@@ -159,31 +194,21 @@ const HomePage = () => {
             </h2>
             <div className="gold-divider" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Sarah M.",
-                location: "Frisco, TX",
-                quote: "I honestly cried the first time I got my laundry back folded perfectly. Such a relief for our family of five.",
-              },
-              {
-                name: "James & Tina R.",
-                location: "Plano, TX",
-                quote: "We've tried other services but Folds of Grace is on another level. Reliable, careful, and they actually care.",
-              },
-              {
-                name: "Michelle K.",
-                location: "Allen, TX",
-                quote: "Scheduling took 90 seconds. They showed up on time. The laundry smelled amazing. I'm never going back.",
-              },
-            ].map((review) => (
-              <div key={review.name} className="bg-card rounded-xl p-8 shadow-card">
-                <div className="flex gap-0.5 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} className="fill-gold text-gold" />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {testimonials.map((review, i) => (
+              <div
+                key={review.name}
+                className={`bg-card rounded-xl p-8 shadow-card flex flex-col gap-4 ${
+                  i === 4 ? "md:col-span-2 lg:col-span-1 lg:col-start-2" : ""
+                }`}
+              >
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} size={13} className="fill-gold text-gold" />
                   ))}
                 </div>
-                <p className="font-body text-sm text-foreground leading-relaxed mb-5 italic">
+                <p className="font-body text-sm text-foreground leading-relaxed italic flex-1">
                   "{review.quote}"
                 </p>
                 <div>
@@ -196,14 +221,46 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="bg-primary py-20">
-        <div className="container max-w-4xl mx-auto text-center px-4">
-          <h2 className="font-display text-4xl md:text-5xl font-semibold text-primary-foreground mb-5">
-            Ready to reclaim your weekend?
+      {/* ── 6. FOUNDER ── */}
+      <section className="section-padding bg-secondary">
+        <div className="container max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            {/* Avatar placeholder */}
+            <div className="shrink-0">
+              <div className="w-40 h-40 rounded-full bg-primary flex items-center justify-center shadow-soft text-5xl font-display font-semibold text-gold select-none">
+                D
+              </div>
+            </div>
+            {/* Text */}
+            <div className="text-center md:text-left">
+              <span className="font-body text-xs tracking-widest uppercase text-gold mb-3 block">
+                Our Founder
+              </span>
+              <h2 className="font-display text-3xl font-semibold text-primary mb-4">
+                Meet Dana
+              </h2>
+              <p className="font-body text-base text-muted-foreground leading-relaxed mb-6 max-w-lg">
+                Dana started Folds of Grace after watching busy families in her community struggle to keep up with the endless pile of laundry. Her mission is simple: give people back the time and peace of mind they deserve.
+              </p>
+              <Link
+                to="/our-story"
+                className="inline-flex items-center gap-2 font-body text-sm font-medium text-primary hover:text-gold transition-colors"
+              >
+                Read Our Story <ArrowRight size={15} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. FINAL CTA ── */}
+      <section className="bg-primary py-24 px-4">
+        <div className="container max-w-3xl mx-auto text-center">
+          <h2 className="font-display text-4xl md:text-5xl font-semibold text-primary-foreground mb-5 leading-tight">
+            You Deserve a Little Grace.
           </h2>
-          <p className="font-body text-primary-foreground/75 text-lg mb-8 max-w-md mx-auto">
-            Your first pickup is just a few clicks away. Serving families across Dallas-Fort Worth.
+          <p className="font-body text-primary-foreground/75 text-lg mb-10 max-w-md mx-auto leading-relaxed">
+            Let us handle the laundry. Your first pickup is just a few clicks away — serving families across Dallas-Fort Worth.
           </p>
           <Link
             to="/contact"
