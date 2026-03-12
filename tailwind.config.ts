@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ["'Playfair Display'", "serif"],
-        body: ["'Inter'", "sans-serif"],
+        display: ["'Lora'", "serif"],
+        body: ["'Lato'", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -23,14 +23,12 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        navy: "hsl(var(--navy))",
-        sage: {
-          DEFAULT: "hsl(var(--sage))",
-          light: "hsl(var(--sage-light))",
+        "deep-gold": {
+          DEFAULT: "hsl(var(--deep-gold))",
         },
         gold: {
-          DEFAULT: "hsl(var(--gold))",
-          dark: "hsl(var(--gold-dark))",
+          DEFAULT: "hsl(var(--deep-gold))",
+          dark: "hsl(40 95% 38%)",
         },
         charcoal: "hsl(var(--charcoal))",
         primary: {
