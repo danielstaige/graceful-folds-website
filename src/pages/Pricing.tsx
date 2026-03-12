@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, Gift, Users, User } from "lucide-react";
+import { ArrowRight, Gift, Users, User } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import heroLaundry from "@/assets/hero-laundry.jpg";
 
 const estimates = [
   {
@@ -61,47 +62,53 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Standard Rate — Visual Centerpiece */}
-      <section className="section-padding bg-background text-center">
+      {/* Standard Rate — Editorial Centerpiece */}
+      <section className="py-32 px-4 bg-background text-center">
         <div className="container max-w-2xl mx-auto">
-          <p className="font-body text-sm text-muted-foreground tracking-widest uppercase mb-6">
+          <p className="font-body text-sm text-muted-foreground tracking-widest uppercase mb-8">
             Our Standard Rate
           </p>
+
+          {/* Gold rule above number */}
+          <div className="gold-divider mb-10" />
 
           {/* Big rate display */}
           <div className="flex items-end justify-center gap-3 mb-4">
             <span className="font-display text-8xl md:text-9xl font-semibold text-gold leading-none">
               $1.75
             </span>
-            <span className="font-display text-3xl text-muted-foreground mb-4">/ lb</span>
+            <span className="font-display text-4xl text-muted-foreground mb-4">/ lb</span>
           </div>
-
-          <div className="gold-divider mb-5" />
 
           <p className="font-body text-sm text-muted-foreground mb-12">
             <span className="font-semibold text-foreground">$35 minimum per order</span>
             {" "}— approximately 20 lbs
           </p>
 
-          {/* Included strip */}
+          {/* Included strip — flat dots */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
               "Pickup & Delivery Included",
               "Washed, Dried & Folded",
               "48-Hour Turnaround",
             ].map((item) => (
-              <div key={item} className="flex items-center justify-center gap-2">
-                <CheckCircle2 size={18} className="text-sage shrink-0" />
+              <div key={item} className="flex items-center justify-center gap-2.5">
+                <span
+                  className="w-1.5 h-1.5 rounded-full shrink-0"
+                  style={{ background: "hsl(var(--deep-gold))" }}
+                />
                 <span className="font-body text-sm text-foreground/80">{item}</span>
               </div>
             ))}
           </div>
+
+          <div className="gold-divider mt-12" />
         </div>
       </section>
 
-      {/* Cost Estimator */}
-      <section className="section-padding bg-secondary px-4">
-        <div className="container max-w-5xl mx-auto">
+      {/* Cost Estimator — List style */}
+      <section className="py-24 px-4 bg-secondary">
+        <div className="container max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <span className="font-body text-xs tracking-widest uppercase text-gold mb-3 block">
               What to Expect
@@ -110,43 +117,48 @@ const Pricing = () => {
               How Much Will It Cost?
             </h2>
             <p className="font-body text-secondary-foreground/70 text-sm max-w-md mx-auto">
-              These are typical weekly estimates based on household size.
+              Typical weekly estimates based on household size.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {estimates.map((est) => (
-              <div
-                key={est.label}
-                className="bg-background rounded-xl p-8 shadow-card flex flex-col items-center text-center"
-              >
-                <est.icon size={28} className="text-gold mb-4" />
-                <h3 className="font-display text-xl font-semibold text-primary mb-3">
-                  {est.label}
-                </h3>
-                <div className="flex items-end gap-1 mb-3">
-                  <span className="font-display text-3xl font-semibold text-gold">
-                    {est.range}
-                  </span>
-                  <span className="font-body text-sm text-muted-foreground mb-1">
-                    {est.unit}
-                  </span>
+          <div className="divide-y divide-border/40">
+            {estimates.map((est) => {
+              const Icon = est.icon;
+              return (
+                <div
+                  key={est.label}
+                  className="flex justify-between items-baseline gap-6 py-6"
+                >
+                  <div className="flex items-start gap-4">
+                    <Icon size={18} style={{ color: "hsl(var(--deep-gold))" }} className="shrink-0 mt-0.5" />
+                    <div>
+                      <h3 className="font-display text-xl font-semibold text-primary leading-tight mb-1">
+                        {est.label}
+                      </h3>
+                      <p className="font-body text-sm text-muted-foreground leading-relaxed">
+                        {est.description}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <span className="font-display text-3xl font-semibold text-gold whitespace-nowrap">
+                      {est.range}
+                    </span>
+                    <span className="font-body text-xs text-muted-foreground block mt-0.5">{est.unit}</span>
+                  </div>
                 </div>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                  {est.description}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
-          <p className="text-center font-display italic text-secondary-foreground/60 text-base">
+          <p className="text-center font-display italic text-secondary-foreground/50 text-sm mt-10">
             "Less than a dinner out — and one less thing on your plate."
           </p>
         </div>
       </section>
 
       {/* Special Items Table */}
-      <section className="section-padding bg-background px-4">
+      <section className="py-24 px-4 bg-background">
         <div className="container max-w-2xl mx-auto">
           <div className="text-center mb-10">
             <span className="font-body text-xs tracking-widest uppercase text-gold mb-3 block">
@@ -160,7 +172,7 @@ const Pricing = () => {
             </p>
           </div>
 
-          <div className="rounded-xl shadow-card overflow-hidden border border-border/50">
+          <div className="overflow-hidden border border-border/50">
             <Table>
               <TableHeader>
                 <TableRow className="bg-primary hover:bg-primary border-0">
@@ -178,10 +190,10 @@ const Pricing = () => {
                     key={row.item}
                     className={`border-border/40 ${i % 2 === 1 ? "bg-muted/30" : "bg-background"}`}
                   >
-                    <TableCell className="font-body font-medium text-foreground pl-6 py-4">
+                    <TableCell className="font-body font-medium text-foreground pl-6 py-5">
                       {row.item}
                     </TableCell>
-                    <TableCell className="font-body text-gold font-semibold pr-6 py-4 text-right">
+                    <TableCell className="font-display text-gold font-semibold pr-6 py-5 text-right">
                       {row.price}
                     </TableCell>
                   </TableRow>
@@ -196,31 +208,45 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Gift Cards */}
-      <section className="section-padding bg-secondary px-4">
-        <div className="container max-w-2xl mx-auto text-center">
-          <Gift size={32} className="text-gold mx-auto mb-5" />
-          <h2 className="font-display text-4xl font-semibold text-secondary-foreground mb-4">
-            Give the Gift of Grace
-          </h2>
-          <p className="font-body text-secondary-foreground/75 text-base leading-relaxed mb-8 max-w-lg mx-auto">
-            The perfect gift for new moms, friends recovering from surgery, or anyone who needs their load lightened. A little grace goes a long way.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 shadow-gold"
-            style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
-          >
-            Purchase a Gift Card <ArrowRight size={15} />
-          </Link>
+      {/* Gift Cards — Premium two-column dark section */}
+      <section className="py-0 bg-primary overflow-hidden">
+        <div className="container max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* Left: image */}
+            <div className="relative min-h-64 lg:min-h-[480px]">
+              <img
+                src={heroLaundry}
+                alt="Warm laundry basket — a beautiful gift"
+                className="absolute inset-0 w-full h-full object-cover object-center opacity-60"
+              />
+            </div>
+
+            {/* Right: content */}
+            <div className="flex flex-col justify-center py-20 px-10 lg:px-14">
+              <Gift size={28} className="text-gold mb-6" />
+              <h2 className="font-display text-4xl font-semibold text-primary-foreground mb-5 leading-snug">
+                Give the Gift of Grace
+              </h2>
+              <p className="font-body text-primary-foreground/70 text-base leading-relaxed mb-8">
+                The perfect gift for new moms, friends recovering from surgery, or anyone who needs their load lightened. A little grace goes a long way.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 shadow-gold self-start"
+                style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
+              >
+                Purchase a Gift Card <ArrowRight size={15} />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="bg-primary py-24 px-4 text-center">
+      <section className="bg-secondary py-24 px-4 text-center">
         <div className="container max-w-2xl mx-auto">
           <div className="gold-divider mb-8" />
-          <h2 className="font-display text-4xl md:text-5xl italic font-semibold text-primary-foreground mb-8 leading-snug">
+          <h2 className="font-display text-4xl md:text-5xl italic font-semibold text-secondary-foreground mb-8 leading-snug">
             You Know the Price.<br />Now Know the Peace.
           </h2>
           <Link
