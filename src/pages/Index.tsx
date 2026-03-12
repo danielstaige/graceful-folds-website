@@ -78,7 +78,7 @@ const HomePage = () => {
               Get your laundry done for you, so you can focus on what matters most. Pickup, wash, fold, and delivery — all taken care of.
             </p>
             <Link
-              to="/contact"
+              to="/schedule"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md font-body text-sm font-semibold tracking-wide hover:-translate-y-0.5 transition-all duration-200"
               style={{ background: "var(--gradient-gold)", color: "hsl(var(--soft-cream))", boxShadow: "var(--shadow-gold)" }}
             >
