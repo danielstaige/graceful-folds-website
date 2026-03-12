@@ -2,67 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Folds of Grace Design System */
+/* Folds of Grace Design System — Warm Minimalism */
 
 @layer base {
   :root {
-    /* Brand Colors (HSL) */
-    --navy: 210 54% 23%;
-    --sage: 133 20% 70%;
-    --sage-light: 133 20% 92%;
-    --gold: 39 46% 61%;
-    --gold-dark: 39 46% 50%;
-    --charcoal: 0 0% 18%;
+    /* New Palette */
+    --charcoal: 20 10% 15%;
+    --warm-beige: 38 33% 95%;
+    --deep-gold: 40 95% 45%;
+    --soft-cream: 40 33% 99%;
 
-    /* Semantic tokens */
-    --background: 60 33% 97%;
-    --foreground: 0 0% 18%;
+    /* Semantic Mapping */
+    --background: var(--warm-beige);
+    --foreground: var(--charcoal);
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 18%;
+    --card: var(--soft-cream);
+    --card-foreground: var(--charcoal);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 18%;
+    --popover: var(--soft-cream);
+    --popover-foreground: var(--charcoal);
 
-    --primary: 210 54% 23%;
-    --primary-foreground: 60 33% 97%;
+    --primary: var(--charcoal);
+    --primary-foreground: var(--soft-cream);
 
-    --secondary: 133 20% 92%;
-    --secondary-foreground: 210 54% 23%;
+    --secondary: 38 33% 92%;
+    --secondary-foreground: var(--charcoal);
 
-    --muted: 60 10% 94%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 38 33% 88%;
+    --muted-foreground: 20 10% 40%;
 
-    --accent: 39 46% 61%;
-    --accent-foreground: 0 0% 100%;
+    --accent: var(--deep-gold);
+    --accent-foreground: var(--charcoal);
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 60 10% 88%;
-    --input: 60 10% 88%;
-    --ring: 210 54% 23%;
+    --border: 38 33% 85%;
+    --input: 38 33% 85%;
+    --ring: var(--deep-gold);
 
     --radius: 0.5rem;
 
-    --sidebar-background: 210 54% 23%;
-    --sidebar-foreground: 60 33% 97%;
-    --sidebar-primary: 39 46% 61%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 54% 30%;
-    --sidebar-accent-foreground: 60 33% 97%;
-    --sidebar-border: 210 54% 30%;
-    --sidebar-ring: 39 46% 61%;
+    /* Sidebar */
+    --sidebar-background: var(--charcoal);
+    --sidebar-foreground: var(--soft-cream);
+    --sidebar-primary: var(--deep-gold);
+    --sidebar-primary-foreground: var(--charcoal);
+    --sidebar-accent: 20 10% 22%;
+    --sidebar-accent-foreground: var(--soft-cream);
+    --sidebar-border: 20 10% 22%;
+    --sidebar-ring: var(--deep-gold);
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(210 54% 23% / 0.85) 0%, hsl(210 54% 23% / 0.5) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(39 46% 61%), hsl(39 46% 50%));
-    --gradient-sage: linear-gradient(180deg, hsl(133 20% 92%), hsl(60 33% 97%));
+    --gradient-hero: linear-gradient(135deg, hsl(20 10% 15% / 0.82) 0%, hsl(20 10% 15% / 0.45) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(40 95% 45%), hsl(40 95% 38%));
+    --gradient-sage: linear-gradient(180deg, hsl(38 33% 92%), hsl(38 33% 95%));
 
     /* Shadows */
-    --shadow-soft: 0 4px 24px -4px hsl(210 54% 23% / 0.12);
-    --shadow-card: 0 2px 16px -2px hsl(210 54% 23% / 0.08);
-    --shadow-gold: 0 4px 20px -4px hsl(39 46% 61% / 0.4);
+    --shadow-soft: 0 4px 24px -4px hsl(20 10% 15% / 0.12);
+    --shadow-card: 0 2px 16px -2px hsl(20 10% 15% / 0.08);
+    --shadow-gold: 0 4px 20px -4px hsl(40 95% 45% / 0.35);
   }
 }
 
@@ -73,20 +72,20 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Lato', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', serif;
   }
 }
 
 @layer components {
   .font-display {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', serif;
   }
   .font-body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Lato', sans-serif;
   }
 
   /* Smooth scroll */
@@ -102,7 +101,7 @@
   /* Gold divider */
   .gold-divider {
     @apply h-px w-16 mx-auto;
-    background: hsl(var(--gold));
+    background: hsl(var(--deep-gold));
   }
 
   /* Nav link hover */
@@ -113,12 +112,12 @@
   .nav-link::after {
     content: '';
     @apply absolute bottom-0 left-0 w-0 h-px transition-all duration-300;
-    background: hsl(var(--gold));
+    background: hsl(var(--deep-gold));
   }
   .nav-link:hover::after {
     @apply w-full;
   }
   .nav-link:hover {
-    color: hsl(var(--gold-dark));
+    color: hsl(var(--deep-gold));
   }
 }
