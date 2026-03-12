@@ -87,11 +87,9 @@ const FAQ = () => {
       {/* FAQ list */}
       <section className="section-padding bg-background">
         <div className="container max-w-3xl mx-auto">
-          <div className="bg-card rounded-xl shadow-card divide-y divide-border overflow-hidden">
+          <div className="divide-y divide-border">
             {faqs.map((item) => (
-              <div key={item.q} className="px-8">
-                <FAQItem q={item.q} a={item.a} />
-              </div>
+              <FAQItem key={item.q} q={item.q} a={item.a} />
             ))}
           </div>
 
@@ -99,7 +97,7 @@ const FAQ = () => {
             <p className="font-body text-muted-foreground mb-4">Still have questions?</p>
             <a
               href="mailto:hello@foldsofgrace.com"
-              className="inline-flex items-center gap-2 font-body text-sm font-medium text-gold hover:text-gold-dark transition-colors"
+              className="inline-flex items-center gap-2 font-body text-sm font-medium text-gold hover:text-gold transition-colors"
             >
               Email us at hello@foldsofgrace.com →
             </a>

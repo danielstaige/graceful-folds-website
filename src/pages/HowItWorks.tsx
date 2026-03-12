@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CalendarCheck, Truck, Sparkles, Home, ShieldCheck, Droplets, Wind, Flower2, Sun, CheckCircle2, ArrowRight } from "lucide-react";
+import { CalendarCheck, Truck, Sparkles, Home, ShieldCheck, Droplets, Wind, Flower2, Sun, ArrowRight } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
 
@@ -94,59 +94,64 @@ const HowItWorks = () => {
         </div>
       </section>
 
-      {/* ── 2. THE PROCESS ── */}
-      <section className="section-padding bg-background">
-        <div className="container max-w-5xl mx-auto">
-          <div className="text-center mb-14">
+      {/* ── 2. THE PROCESS — Vertical Timeline ── */}
+      <section className="py-24 px-4 bg-background">
+        <div className="container max-w-3xl mx-auto">
+          <div className="text-center mb-16">
             <span className="font-body text-xs tracking-widest uppercase text-gold mb-3 block">Step by Step</span>
             <h2 className="font-display text-4xl font-semibold text-primary">Four Simple Steps</h2>
           </div>
 
           <div className="relative">
-            {/* vertical connector line */}
-            <div className="hidden md:block absolute left-1/2 top-10 bottom-10 w-px -translate-x-1/2"
-              style={{ background: `hsl(var(--gold) / 0.25)`, borderLeft: "2px dashed hsl(var(--gold) / 0.35)" }} />
+            {/* Continuous vertical line */}
+            <div
+              className="absolute left-6 top-0 bottom-0 w-px"
+              style={{ background: "hsl(var(--deep-gold) / 0.2)" }}
+            />
 
-            <div className="space-y-10">
+            <div className="space-y-0">
               {steps.map((step, i) => {
                 const Icon = step.icon;
-                const isRight = i % 2 === 1;
                 return (
-                  <div key={step.num} className={`flex flex-col md:flex-row gap-0 items-stretch ${isRight ? "md:flex-row-reverse" : ""}`}>
-                    {/* Card half */}
-                    <div className={`flex-1 ${isRight ? "md:pl-12" : "md:pr-12"}`}>
-                      <div className="bg-card rounded-xl p-8 shadow-card h-full">
-                        <h3 className="font-display text-2xl font-semibold text-primary mb-3">{step.title}</h3>
-                        <p className="font-body text-foreground/75 leading-relaxed mb-5">{step.desc}</p>
-                        <ul className="space-y-2">
-                          {step.details.map((d) => (
-                            <li key={d} className="flex items-center gap-2 font-body text-sm text-muted-foreground">
-                              <CheckCircle2 size={14} className="text-gold flex-shrink-0" />
-                              {d}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                  <div key={step.num} className="relative flex gap-10 pb-16 last:pb-0">
+                    {/* Left: dot + number column */}
+                    <div className="flex flex-col items-center shrink-0 w-12">
+                      {/* Gold dot on the line */}
+                      <div
+                        className="w-3 h-3 rounded-full mt-1.5 z-10 shrink-0"
+                        style={{ background: "hsl(var(--deep-gold))" }}
+                      />
                     </div>
 
-                    {/* Center dot */}
-                    <div className="hidden md:flex flex-col items-center justify-center flex-shrink-0 w-16">
-                      <div className="w-14 h-14 rounded-full bg-primary flex flex-col items-center justify-center shadow-soft z-10">
-                        <Icon size={18} className="text-gold" />
-                        <span className="font-body text-[10px] tracking-widest text-primary-foreground/60 mt-0.5">{step.num}</span>
-                      </div>
-                    </div>
+                    {/* Right: content */}
+                    <div className="flex-1 pt-0">
+                      {/* Ghost step number */}
+                      <span
+                        className="font-display text-7xl font-semibold leading-none block -mb-4 -mt-3 select-none"
+                        style={{ color: "hsl(var(--deep-gold) / 0.12)" }}
+                      >
+                        {step.num}
+                      </span>
 
-                    {/* Mobile icon (left aligned) */}
-                    <div className="flex md:hidden items-center gap-3 mb-3 order-first">
-                      <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-soft flex-shrink-0">
-                        <Icon size={18} className="text-gold" />
+                      <div className="flex items-center gap-3 mb-3">
+                        <Icon size={18} style={{ color: "hsl(var(--deep-gold))" }} />
+                        <h3 className="font-display text-2xl font-semibold text-primary">{step.title}</h3>
                       </div>
-                      <span className="font-body text-xs tracking-widest text-muted-foreground">{step.num}</span>
-                    </div>
 
-                    {/* Empty half (mirrors card) */}
-                    <div className="hidden md:block flex-1" />
+                      <p className="font-body text-foreground/70 leading-[1.8] mb-5">{step.desc}</p>
+
+                      <ul className="space-y-2">
+                        {step.details.map((d) => (
+                          <li key={d} className="flex items-center gap-2.5 font-body text-sm text-muted-foreground">
+                            <span
+                              className="w-1.5 h-1.5 rounded-full shrink-0"
+                              style={{ background: "hsl(var(--deep-gold))" }}
+                            />
+                            {d}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 );
               })}
@@ -156,24 +161,34 @@ const HowItWorks = () => {
       </section>
 
       {/* ── 3. DETAILS TABS ── */}
-      <section className="section-padding bg-muted">
-        <div className="container max-w-4xl mx-auto">
+      <section className="py-24 px-4 bg-secondary">
+        <div className="container max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <span className="font-body text-xs tracking-widest uppercase text-gold mb-3 block">Service Details</span>
             <h2 className="font-display text-4xl font-semibold text-primary">Everything You Need to Know</h2>
           </div>
 
           <Tabs defaultValue="pickup" className="w-full">
-            <TabsList className="w-full h-auto flex flex-col sm:flex-row bg-card border border-border rounded-xl p-1 mb-6">
-              <TabsTrigger value="pickup" className="flex-1 flex items-center gap-2 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg">
-                <CalendarCheck size={15} /> Pickup Day
-              </TabsTrigger>
-              <TabsTrigger value="care" className="flex-1 flex items-center gap-2 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg">
-                <ShieldCheck size={15} /> Care Standards
-              </TabsTrigger>
-              <TabsTrigger value="detergent" className="flex-1 flex items-center gap-2 py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg">
-                <Droplets size={15} /> Detergent Options
-              </TabsTrigger>
+            <TabsList
+              className="w-full h-auto flex flex-col sm:flex-row bg-transparent border-0 p-0 mb-0 gap-0"
+              style={{ borderBottom: "1px solid hsl(var(--border))" }}
+            >
+              {[
+                { value: "pickup", icon: CalendarCheck, label: "Pickup Day" },
+                { value: "care", icon: ShieldCheck, label: "Care Standards" },
+                { value: "detergent", icon: Droplets, label: "Detergent Options" },
+              ].map(({ value, icon: TabIcon, label }) => (
+                <TabsTrigger
+                  key={value}
+                  value={value}
+                  className="flex-1 flex items-center justify-center gap-2 py-3.5 px-4 rounded-none bg-transparent text-muted-foreground font-body text-sm font-medium tracking-wide border-0 border-b-2 border-transparent -mb-px data-[state=active]:text-foreground data-[state=active]:shadow-none transition-all"
+                  style={{}}
+                  data-active-style="border-color: hsl(var(--deep-gold))"
+                >
+                  <TabIcon size={14} />
+                  {label}
+                </TabsTrigger>
+              ))}
             </TabsList>
 
             {[
@@ -181,17 +196,18 @@ const HowItWorks = () => {
               { val: "care", label: "Care Standards", items: careDetails },
               { val: "detergent", label: "Detergent Options", items: detergentDetails },
             ].map(({ val, label, items }) => (
-              <TabsContent key={val} value={val}>
-                <div className="bg-card rounded-xl p-8 shadow-card">
-                  <h3 className="font-display text-xl font-semibold text-primary mb-6">{label}</h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {items.map((detail) => (
-                      <div key={detail} className="flex items-start gap-2.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-2" />
-                        <span className="font-body text-sm text-foreground/80 leading-relaxed">{detail}</span>
-                      </div>
-                    ))}
-                  </div>
+              <TabsContent key={val} value={val} className="pt-8 pb-4 mt-0">
+                <h3 className="font-display text-xl font-semibold text-primary mb-6">{label}</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {items.map((detail) => (
+                    <div key={detail} className="flex items-start gap-3">
+                      <span
+                        className="w-1.5 h-1.5 rounded-full shrink-0 mt-2"
+                        style={{ background: "hsl(var(--deep-gold))" }}
+                      />
+                      <span className="font-body text-sm text-foreground/80 leading-relaxed">{detail}</span>
+                    </div>
+                  ))}
                 </div>
               </TabsContent>
             ))}
@@ -199,44 +215,46 @@ const HowItWorks = () => {
         </div>
       </section>
 
-      {/* ── 4. TOPANGA SCENTS ── */}
-      <section className="section-padding px-4" style={{ background: `hsl(var(--gold) / 0.07)` }}>
-        <div className="container max-w-5xl mx-auto">
-          <div className="text-center mb-10">
-            <span className="font-body text-xs tracking-widest uppercase text-gold mb-3 block">Premium Add-On</span>
-            <h2 className="font-display text-4xl font-semibold text-primary mb-4">
+      {/* ── 4. TOPANGA SCENTS — Premium dark section ── */}
+      <section className="py-28 px-4 bg-primary">
+        <div className="container max-w-4xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="font-body text-xs tracking-widest uppercase text-gold mb-4 block">Premium Add-On</span>
+            <h2 className="font-display text-4xl font-semibold text-primary-foreground mb-5">
               Elevate Your Laundry with Topanga Scents
             </h2>
-            <p className="font-body text-foreground/70 text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="font-body text-primary-foreground/65 text-lg max-w-2xl mx-auto leading-relaxed mb-5">
               Upgrade your order with a signature Topanga Scents treatment — a premium, artisan scent experience
               that turns clean laundry into something you actually look forward to.
             </p>
-            <div className="mt-4 inline-block bg-gold/20 rounded-full px-4 py-1.5">
-              <span className="font-body text-sm font-semibold text-gold-dark">+$5 per bag</span>
-            </div>
+            <span className="font-body text-sm font-semibold text-gold">
+              +$5 per bag
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {scents.map(({ icon: ScentIcon, name, desc }) => (
-              <div key={name} className="bg-card rounded-xl p-7 shadow-card text-center border border-gold/20">
-                <div className="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center"
-                  style={{ background: `hsl(var(--gold) / 0.15)` }}>
+              <div key={name} className="text-center">
+                <div
+                  className="w-14 h-14 rounded-full mx-auto mb-5 flex items-center justify-center"
+                  style={{ background: "hsl(var(--deep-gold) / 0.15)" }}
+                >
                   <ScentIcon size={22} className="text-gold" />
                 </div>
-                <h3 className="font-display text-xl font-semibold text-primary mb-2">{name}</h3>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                <h3 className="font-display text-2xl font-semibold text-primary-foreground mb-3">{name}</h3>
+                <p className="font-body text-sm text-primary-foreground/65 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-center font-body text-xs text-muted-foreground mt-8">
+          <p className="text-center font-body text-xs text-primary-foreground/40 mt-12">
             Request your scent preference in the scheduling form. Available on all standard orders.
           </p>
         </div>
       </section>
 
       {/* ── 5. SPECIAL ITEMS TABLE ── */}
-      <section className="section-padding bg-background">
+      <section className="py-24 px-4 bg-background">
         <div className="container max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <span className="font-body text-xs tracking-widest uppercase text-gold mb-3 block">Add-On Pricing</span>
@@ -246,22 +264,22 @@ const HowItWorks = () => {
             </p>
           </div>
 
-          <div className="rounded-xl overflow-hidden shadow-card border border-border">
+          <div className="overflow-hidden border border-border/50">
             <Table>
               <TableHeader>
-                <TableRow className="bg-primary hover:bg-primary">
-                  <TableHead className="text-gold font-body font-semibold text-sm tracking-wide py-4">Item</TableHead>
-                  <TableHead className="text-gold font-body font-semibold text-sm tracking-wide py-4 text-right">Price</TableHead>
+                <TableRow className="bg-primary hover:bg-primary border-0">
+                  <TableHead className="text-gold font-body font-semibold text-sm tracking-wide py-4 pl-6">Item</TableHead>
+                  <TableHead className="text-gold font-body font-semibold text-sm tracking-wide py-4 pr-6 text-right">Price</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {specialItems.map((row, i) => (
                   <TableRow
                     key={row.item}
-                    className={i % 2 === 0 ? "bg-card" : "bg-muted/40"}
+                    className={`border-border/40 ${i % 2 === 0 ? "bg-background" : "bg-muted/30"}`}
                   >
-                    <TableCell className="font-body text-foreground/85 py-4">{row.item}</TableCell>
-                    <TableCell className="font-body font-semibold text-primary text-right py-4">{row.price}</TableCell>
+                    <TableCell className="font-body text-foreground/85 py-5 pl-6">{row.item}</TableCell>
+                    <TableCell className="font-display font-semibold text-gold py-5 pr-6 text-right">{row.price}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -269,13 +287,14 @@ const HowItWorks = () => {
           </div>
 
           <p className="text-center font-body text-xs text-muted-foreground mt-5">
-            Special items are billed in addition to your standard bag rate. Questions? <Link to="/contact" className="text-gold hover:underline">Contact us.</Link>
+            Special items are billed in addition to your standard bag rate. Questions?{" "}
+            <Link to="/contact" className="text-gold hover:underline">Contact us.</Link>
           </p>
         </div>
       </section>
 
       {/* ── 6. THE FINAL TOUCH ── */}
-      <section className="section-padding bg-secondary">
+      <section className="py-24 px-4 bg-secondary">
         <div className="container max-w-2xl mx-auto text-center">
           <div className="gold-divider mb-10" />
           <span className="font-body text-xs tracking-widest uppercase text-muted-foreground mb-6 block">The Final Touch</span>

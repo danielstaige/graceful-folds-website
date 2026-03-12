@@ -1,48 +1,42 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, Heart, MapPin, Car, Sparkles, Home, Shield } from "lucide-react";
+import { ArrowRight, Heart, MapPin, Car, Sparkles, Home, Shield, User } from "lucide-react";
 
 const folders = [
   {
-    initials: "SM",
     name: "Sarah M.",
     neighborhood: "Frisco & Allen",
     bio: "A mom of three who joined Folds of Grace to serve her community and make time for what matters. Philippians 4:13 is the verse she returns to on hard days.",
-    gradient: "linear-gradient(135deg, hsl(133 20% 62%), hsl(39 46% 61%))",
+    quote: "Serving others is how I remember what matters most.",
   },
   {
-    initials: "KT",
     name: "Keisha T.",
     neighborhood: "McKinney & Prosper",
     bio: "Former teacher turned full-time mama who loves the flexibility of folding on her own schedule. She says the job lets her pour into her family while still contributing meaningfully.",
-    gradient: "linear-gradient(135deg, hsl(210 54% 30%), hsl(133 20% 62%))",
+    quote: "This work gave me my mornings back — and my purpose.",
   },
   {
-    initials: "MV",
     name: "Marisol V.",
     neighborhood: "Plano & Richardson",
     bio: "Marisol has been with Folds of Grace since the beginning. She takes quiet pride in returning laundry so neat, customers text her to say it made their week.",
-    gradient: "linear-gradient(135deg, hsl(39 46% 61%), hsl(39 46% 50%))",
+    quote: "When the laundry is perfect, I know someone's day got a little lighter.",
   },
   {
-    initials: "BH",
     name: "Brittany H.",
     neighborhood: "Garland & Rowlett",
     bio: "A caregiver by nature, Brittany joined because she wanted work that felt like love. Her customers know her by name and always look forward to her smile.",
-    gradient: "linear-gradient(135deg, hsl(133 20% 62%), hsl(210 54% 30%))",
+    quote: "Every bag is someone trusting me with their home. I take that seriously.",
   },
   {
-    initials: "DR",
     name: "Danielle R.",
     neighborhood: "Carrollton & Farmers Branch",
     bio: "Danielle leads by example, treating every bag as if it belongs to her own family. She's the one who trained the rest of the team.",
-    gradient: "linear-gradient(135deg, hsl(210 54% 23%), hsl(39 46% 61%))",
+    quote: "I fold every item the way I'd want mine folded — with intention.",
   },
   {
-    initials: "TW",
     name: "Tanya W.",
     neighborhood: "Irving & Grand Prairie",
     bio: "Tanya likes to say she doesn't just wash clothes — she lightens loads. She joined Folds of Grace because she believes service is a calling.",
-    gradient: "linear-gradient(135deg, hsl(39 46% 50%), hsl(133 20% 62%))",
+    quote: "I don't just wash clothes. I lighten loads.",
   },
 ];
 
@@ -94,14 +88,18 @@ const TheFold = () => {
             {folders.map((folder) => (
               <div
                 key={folder.name}
-                className="bg-card rounded-xl p-8 shadow-card hover:-translate-y-1 transition-transform duration-300 flex flex-col items-center text-center"
+                className="bg-card rounded-xl p-7 shadow-card hover:-translate-y-1 transition-transform duration-300 flex flex-col items-center text-center"
               >
-                {/* Avatar */}
+                {/* Photo placeholder */}
                 <div
-                  className="w-24 h-24 rounded-full flex items-center justify-center mb-5 font-display text-2xl font-semibold text-primary-foreground shrink-0"
-                  style={{ background: folder.gradient }}
+                  className="w-28 h-28 rounded-full flex items-center justify-center mb-5 shrink-0 ring-2"
+                  style={{
+                    background: "hsl(var(--secondary))",
+                    ringColor: "hsl(var(--deep-gold) / 0.2)",
+                    boxShadow: "0 0 0 2px hsl(var(--deep-gold) / 0.2)",
+                  }}
                 >
-                  {folder.initials}
+                  <User size={36} style={{ color: "hsl(var(--deep-gold))" }} />
                 </div>
 
                 <h3 className="font-display text-xl font-semibold text-primary mb-1">{folder.name}</h3>
@@ -113,7 +111,15 @@ const TheFold = () => {
                   </span>
                 </div>
 
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">{folder.bio}</p>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">{folder.bio}</p>
+
+                {/* Pull-quote */}
+                <p
+                  className="font-display text-sm italic leading-relaxed"
+                  style={{ color: "hsl(var(--deep-gold) / 0.7)" }}
+                >
+                  "{folder.quote}"
+                </p>
               </div>
             ))}
           </div>
@@ -124,8 +130,8 @@ const TheFold = () => {
       <section className="section-padding bg-secondary px-4">
         <div className="container max-w-3xl mx-auto text-center">
           <span
-            className="font-display text-8xl leading-none block mb-0 -mb-4"
-            style={{ color: "hsl(var(--gold) / 0.35)" }}
+            className="font-display text-8xl leading-none block -mb-4"
+            style={{ color: "hsl(var(--deep-gold) / 0.35)" }}
           >
             "
           </span>
@@ -156,7 +162,10 @@ const TheFold = () => {
               <ul className="space-y-3 mb-10">
                 {benefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-3 font-body text-sm text-foreground/80">
-                    <CheckCircle2 size={18} className="text-sage shrink-0 mt-0.5" style={{ color: "hsl(var(--sage))" }} />
+                    <span
+                      className="w-1.5 h-1.5 rounded-full shrink-0 mt-1.5"
+                      style={{ background: "hsl(var(--deep-gold))" }}
+                    />
                     {benefit}
                   </li>
                 ))}
@@ -181,9 +190,9 @@ const TheFold = () => {
                   <li key={text} className="flex items-start gap-4">
                     <div
                       className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
-                      style={{ background: "hsl(var(--gold) / 0.15)" }}
+                      style={{ background: "hsl(var(--deep-gold) / 0.15)" }}
                     >
-                      <Icon size={16} style={{ color: "hsl(var(--gold-dark))" }} />
+                      <Icon size={16} style={{ color: "hsl(var(--deep-gold))" }} />
                     </div>
                     <span className="font-body text-sm text-foreground/80 leading-relaxed pt-1.5">{text}</span>
                   </li>
@@ -191,7 +200,7 @@ const TheFold = () => {
               </ul>
 
               <div className="flex items-start gap-2.5 pt-5 border-t border-border/50">
-                <Shield size={14} style={{ color: "hsl(var(--sage))" }} className="shrink-0 mt-0.5" />
+                <Shield size={14} style={{ color: "hsl(var(--deep-gold) / 0.7)" }} className="shrink-0 mt-0.5" />
                 <p className="font-body text-xs text-muted-foreground leading-relaxed">
                   All Folders are background-checked and trained before their first order.
                 </p>
