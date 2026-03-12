@@ -68,7 +68,7 @@ const Navbar = () => {
           {/* CTA */}
           <div className="hidden lg:block shrink-0">
             <Link
-              to="/contact"
+              to="/schedule"
               className="inline-flex items-center px-5 py-2.5 rounded-md font-body text-sm font-medium tracking-wide transition-all duration-200 shadow-gold hover:shadow-lg hover:-translate-y-0.5"
               style={{
                 background: "var(--gradient-gold)",
