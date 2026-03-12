@@ -441,7 +441,7 @@ const HomePage = () => {
             Let us handle the laundry. Your first pickup is just a few clicks away — serving families across Dallas-Fort Worth.
           </p>
           <Link
-            to="/contact"
+            to="/schedule"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-md font-body text-sm font-semibold tracking-wide hover:-translate-y-0.5 transition-all duration-200"
             style={{ background: "var(--gradient-gold)", color: "hsl(var(--soft-cream))" }}
           >

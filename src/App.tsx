@@ -14,6 +14,7 @@ import TheFold from "./pages/TheFold.tsx";
 import PrayerWall from "./pages/PrayerWall.tsx";
 import FAQ from "./pages/FAQ.tsx";
 import Contact from "./pages/Contact.tsx";
+import Schedule from "./pages/Schedule.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();

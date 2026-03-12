@@ -108,7 +108,7 @@ const Navbar = () => {
               </Link>
             ))}
             <Link
-              to="/contact"
+              to="/schedule"
               className="mt-2 text-center px-5 py-2.5 rounded-md font-body text-sm font-medium tracking-wide"
               style={{
                 background: "var(--gradient-gold)",
