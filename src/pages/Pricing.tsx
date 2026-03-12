@@ -75,7 +75,7 @@ const Pricing = () => {
           {/* Big rate display */}
           <div className="flex items-end justify-center gap-3 mb-4">
             <span className="font-display text-8xl md:text-9xl font-semibold text-gold leading-none">
-              $1.75
+              $1.85
             </span>
             <span className="font-display text-4xl text-muted-foreground mb-4">/ lb</span>
           </div>
