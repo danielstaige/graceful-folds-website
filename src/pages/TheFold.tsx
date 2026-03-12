@@ -92,10 +92,9 @@ const TheFold = () => {
               >
                 {/* Photo placeholder */}
                 <div
-                  className="w-28 h-28 rounded-full flex items-center justify-center mb-5 shrink-0 ring-2"
+                  className="w-28 h-28 rounded-full flex items-center justify-center mb-5 shrink-0"
                   style={{
                     background: "hsl(var(--secondary))",
-                    ringColor: "hsl(var(--deep-gold) / 0.2)",
                     boxShadow: "0 0 0 2px hsl(var(--deep-gold) / 0.2)",
                   }}
                 >
