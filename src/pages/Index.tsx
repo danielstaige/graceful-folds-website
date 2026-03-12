@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, Clock, Tag, Star, DoorOpen, Shirt, Home, ChevronLeft, ChevronRight, User } from "lucide-react";
+import { ArrowRight, Sparkles, Clock, Tag, Star, DoorOpen, Shirt, Home, User, Plus } from "lucide-react";
 import heroImg from "@/assets/hero-laundry.jpg";
 
 const promises = [
@@ -10,9 +10,27 @@ const promises = [
 ];
 
 const steps = [
-  { icon: DoorOpen, num: "01", title: "Set It on the Porch", desc: "Leave your bag out at your scheduled pickup time — no waiting around." },
-  { icon: Shirt, num: "02", title: "We Wash & Fold", desc: "We handle everything with care — washed, dried, and neatly folded." },
-  { icon: Home, num: "03", title: "It's Back at Your Door", desc: "Fresh laundry delivered back to your doorstep, right on schedule." },
+  {
+    icon: DoorOpen,
+    num: "01",
+    title: "Set It on the Porch",
+    desc: "Leave your bag out at your scheduled pickup time — no waiting around.",
+    tags: ["Free Pickup", "No Contact Needed"],
+  },
+  {
+    icon: Shirt,
+    num: "02",
+    title: "We Wash & Fold",
+    desc: "We handle everything with care — washed, dried, and neatly folded.",
+    tags: ["Wash & Fold", "24–48 hrs"],
+  },
+  {
+    icon: Home,
+    num: "03",
+    title: "It's Back at Your Door",
+    desc: "Fresh laundry delivered back to your doorstep, right on schedule.",
+    tags: ["Doorstep Delivery", "Same Route"],
+  },
 ];
 
 const testimonials = [
@@ -23,52 +41,51 @@ const testimonials = [
   { name: "Renee T.", location: "Garland, TX", quote: "I've recommended this service to every mom in my neighborhood. It's not a luxury — it's a necessity." },
 ];
 
+// Split testimonials into left (0–2) and right (3–4 padded to 3)
+const leftTestimonials = testimonials.slice(0, 3);
+const rightTestimonials = testimonials.slice(2, 5); // overlaps slightly so both cols have 3
+
 const HomePage = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const prev = () => setActiveIndex((i) => (i === 0 ? testimonials.length - 1 : i - 1));
-  const next = () => setActiveIndex((i) => (i === testimonials.length - 1 ? 0 : i + 1));
-
   return (
     <main>
-      {/* ── 1. HERO — Asymmetric Split ── */}
-      <section className="flex flex-col lg:flex-row min-h-screen">
-        {/* Left: Text */}
-        <div className="flex-1 flex items-center justify-center bg-background px-8 md:px-16 lg:px-20 py-24 lg:py-0">
-          <div className="max-w-lg">
-            <span className="font-display text-sm italic text-gold mb-6 block tracking-wide">
+      {/* ── 1. HERO — Full-Bleed Dark Overlay ── */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        <img
+          src={heroImg}
+          alt="Neatly folded laundry on a clean wooden surface"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        {/* Gradient overlay */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(105deg, hsl(20 10% 15% / 0.82) 0%, hsl(20 10% 15% / 0.45) 60%, transparent 100%)" }}
+        />
+
+        {/* Text content */}
+        <div className="relative z-10 w-full px-8 md:px-16 lg:px-24 py-32">
+          <div className="max-w-xl">
+            <span className="font-display text-sm italic mb-6 block tracking-wide" style={{ color: "hsl(var(--deep-gold))" }}>
               Dallas-Fort Worth · Premium Laundry Service
             </span>
-            <h1 className="font-display text-5xl md:text-6xl font-semibold text-primary leading-tight mb-6">
+            <h1 className="font-display text-5xl md:text-6xl font-semibold text-primary-foreground leading-tight mb-6">
               Finally, a Solution
               <br />
-              <em className="not-italic text-gold">for Your Laundry.</em>
+              <em className="not-italic" style={{ color: "hsl(var(--deep-gold))" }}>for Your Laundry.</em>
             </h1>
-            <p className="font-body text-base md:text-lg text-muted-foreground leading-relaxed mb-10 max-w-md">
+            <p className="font-body text-base md:text-lg leading-relaxed mb-10 max-w-md" style={{ color: "hsl(var(--soft-cream) / 0.8)" }}>
               Get your laundry done for you, so you can focus on what matters most. Pickup, wash, fold, and delivery — all taken care of.
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md font-body text-sm font-semibold tracking-wide shadow-[var(--shadow-gold)] hover:-translate-y-0.5 transition-all duration-200"
-              style={{ background: "var(--gradient-gold)", color: "hsl(var(--soft-cream))" }}
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md font-body text-sm font-semibold tracking-wide hover:-translate-y-0.5 transition-all duration-200"
+              style={{ background: "var(--gradient-gold)", color: "hsl(var(--soft-cream))", boxShadow: "var(--shadow-gold)" }}
             >
               Schedule My First Pickup
               <ArrowRight size={16} />
             </Link>
           </div>
-        </div>
-
-        {/* Right: Image */}
-        <div className="relative lg:w-[48%] h-72 lg:h-auto shrink-0">
-          <img
-            src={heroImg}
-            alt="Neatly folded laundry on a clean wooden surface"
-            className="w-full h-full object-cover object-center"
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: "hsl(40 95% 45% / 0.06)" }}
-          />
         </div>
       </section>
 
@@ -86,57 +103,77 @@ const HomePage = () => {
                   className="w-14 h-14 rounded-full flex items-center justify-center"
                   style={{ background: "hsl(var(--deep-gold) / 0.15)" }}
                 >
-                  <p.icon size={26} className="text-gold" />
+                  <p.icon size={26} style={{ color: "hsl(var(--deep-gold))" }} />
                 </div>
                 <h3 className="font-display text-lg font-semibold text-primary-foreground">{p.title}</h3>
-                <p className="font-body text-sm text-primary-foreground/70 leading-relaxed max-w-[200px]">{p.desc}</p>
+                <p className="font-body text-sm leading-relaxed max-w-[200px]" style={{ color: "hsl(var(--soft-cream) / 0.7)" }}>{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── 3. HOW IT WORKS — Linear Numbered ── */}
+      {/* ── 3. HOW IT WORKS — Image Left + Numbered List Right ── */}
       <section className="section-padding bg-background">
-        <div className="container max-w-3xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="font-body text-xs tracking-widest uppercase text-gold">Simple Process</span>
-            <h2 className="font-display text-4xl font-semibold text-primary mt-3 mb-4">How It Works</h2>
-            <div className="gold-divider" />
-          </div>
-
-          <div className="flex flex-col divide-y divide-border">
-            {steps.map((step) => (
-              <div key={step.num} className="flex flex-col md:flex-row items-start gap-6 md:gap-0 py-10">
-                {/* Large ghost number */}
-                <span className="font-display text-7xl font-semibold leading-none w-24 shrink-0 select-none"
-                  style={{ color: "hsl(var(--deep-gold) / 0.22)" }}>
-                  {step.num}
-                </span>
-
-                {/* Vertical gold divider — desktop only */}
-                <div className="hidden md:block w-px self-stretch mx-8" style={{ background: "hsl(var(--deep-gold) / 0.2)" }} />
-
-                {/* Content */}
-                <div className="flex items-start gap-4 flex-1">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 mt-1"
-                    style={{ background: "hsl(var(--deep-gold) / 0.12)" }}
-                  >
-                    <step.icon size={20} className="text-gold" />
-                  </div>
-                  <div>
-                    <h4 className="font-display text-2xl font-semibold text-primary mb-2">{step.title}</h4>
-                    <p className="font-body text-base text-muted-foreground leading-relaxed">{step.desc}</p>
-                  </div>
-                </div>
+        <div className="container max-w-5xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+            {/* Left: image panel */}
+            <div className="w-full lg:w-2/5 shrink-0">
+              <div className="rounded-2xl overflow-hidden h-64 lg:h-auto lg:min-h-[520px]">
+                <img
+                  src={heroImg}
+                  alt="Fresh laundry folded with care"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "center 30%" }}
+                />
               </div>
-            ))}
+            </div>
+
+            {/* Right: content */}
+            <div className="flex-1">
+              <span className="font-body text-xs tracking-widest uppercase mb-3 block" style={{ color: "hsl(var(--deep-gold))" }}>Simple Process</span>
+              <h2 className="font-display text-4xl font-semibold text-primary mb-12">How It Works</h2>
+
+              <div className="flex flex-col">
+                {steps.map((step, i) => (
+                  <div
+                    key={step.num}
+                    className="flex items-start gap-6 py-8"
+                    style={{ borderBottom: i < steps.length - 1 ? "1px solid hsl(var(--border))" : "none" }}
+                  >
+                    {/* Ghost number */}
+                    <span
+                      className="font-display text-5xl font-semibold leading-none w-16 shrink-0 select-none pt-1"
+                      style={{ color: "hsl(var(--deep-gold) / 0.5)" }}
+                    >
+                      {step.num}
+                    </span>
+
+                    {/* Content */}
+                    <div className="flex-1">
+                      <h4 className="font-display text-xl font-semibold text-primary mb-1">{step.title}</h4>
+                      <p className="font-body text-sm text-muted-foreground leading-relaxed mb-3">{step.desc}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {step.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="font-body text-xs text-muted-foreground rounded-full px-3 py-1"
+                            style={{ border: "1px solid hsl(var(--border))" }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── 4. LIFESTYLE IMAGE 1 ── */}
+      {/* ── 4. LIFESTYLE IMAGE BREAK ── */}
       <div className="relative h-72 md:h-96 overflow-hidden">
         <img
           src={heroImg}
@@ -165,7 +202,7 @@ const HomePage = () => {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-primary leading-snug mb-6">
             We Wash, We Fold…
             <br />
-            <em className="not-italic text-gold">and We Pray.</em>
+            <em className="not-italic" style={{ color: "hsl(var(--deep-gold))" }}>and We Pray.</em>
           </h2>
           <p className="font-body text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg mx-auto">
             Folds of Grace isn't just a laundry service. Every bag we handle is treated with care and intention. We believe in lightening the load — in more ways than one.
@@ -174,81 +211,167 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ── 6. TESTIMONIALS — Slider ── */}
-      <section className="bg-primary py-24 px-4 relative overflow-hidden">
-        <div className="container max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="font-body text-xs tracking-widest uppercase text-gold">Happy Families</span>
-            <h2 className="font-display text-4xl font-semibold text-primary-foreground mt-3 mb-4">
-              What Our Customers Say
-            </h2>
-            <div className="gold-divider" />
-          </div>
+      {/* ── 6. TESTIMONIALS — Grid with Featured Central Card ── */}
+      <section className="bg-background py-24 px-4">
+        <div className="container max-w-6xl mx-auto">
 
-          {/* Slider track */}
-          <div className="relative">
-            {/* Prev button */}
-            <button
-              onClick={prev}
-              aria-label="Previous testimonial"
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
-              style={{ color: "hsl(var(--deep-gold))", border: "1px solid hsl(var(--deep-gold) / 0.3)" }}
-            >
-              <ChevronLeft size={20} />
-            </button>
+          {/* Desktop: 3-column grid */}
+          <div className="hidden lg:grid lg:grid-cols-[1fr_1.6fr_1fr] gap-4 items-stretch">
 
-            {/* Slides */}
-            <div className="overflow-hidden">
-              <div
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-              >
-                {testimonials.map((review) => (
-                  <div key={review.name} className="min-w-full px-4 md:px-16 text-center">
-                    {/* Stars */}
-                    <div className="flex justify-center gap-1 mb-6">
-                      {[...Array(5)].map((_, j) => (
-                        <Star key={j} size={16} className="fill-gold text-gold" />
-                      ))}
+            {/* Left column — 3 name cards */}
+            <div className="flex flex-col gap-4">
+              {leftTestimonials.map((t, i) => {
+                const globalIndex = i;
+                const isActive = activeIndex === globalIndex;
+                return (
+                  <button
+                    key={t.name}
+                    onClick={() => setActiveIndex(globalIndex)}
+                    className="relative rounded-xl overflow-hidden h-36 text-left transition-all duration-200 group"
+                    style={{
+                      background: "hsl(38 33% 90%)",
+                      outline: isActive ? "2px solid hsl(var(--deep-gold))" : "2px solid transparent",
+                      outlineOffset: "2px",
+                    }}
+                  >
+                    {/* User icon */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <User size={36} style={{ color: "hsl(var(--deep-gold) / 0.3)" }} />
                     </div>
-                    {/* Quote */}
-                    <p className="font-display text-xl md:text-2xl text-primary-foreground leading-relaxed italic mb-8">
-                      "{review.quote}"
-                    </p>
-                    {/* Attribution */}
-                    <p className="font-body text-sm font-semibold text-gold tracking-wide">
-                      — {review.name}, {review.location}
-                    </p>
-                  </div>
-                ))}
+                    {/* Name label */}
+                    <div className="absolute bottom-0 left-0 right-0 p-3" style={{ background: "linear-gradient(to top, hsl(20 10% 15% / 0.6), transparent)" }}>
+                      <p className="font-body text-xs font-semibold text-primary-foreground leading-tight">{t.name}</p>
+                      <p className="font-body text-xs" style={{ color: "hsl(var(--soft-cream) / 0.7)" }}>{t.location}</p>
+                    </div>
+                    {/* Plus/check indicator */}
+                    <div
+                      className="absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center transition-all"
+                      style={{
+                        background: isActive ? "hsl(var(--deep-gold))" : "hsl(var(--soft-cream) / 0.9)",
+                        color: isActive ? "hsl(var(--soft-cream))" : "hsl(var(--deep-gold))",
+                      }}
+                    >
+                      <Plus size={12} />
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Center — featured card */}
+            <div
+              className="rounded-2xl p-8 flex flex-col justify-between"
+              style={{ background: "hsl(var(--charcoal))" }}
+            >
+              <div>
+                <span className="font-body text-xs tracking-widest uppercase mb-4 block" style={{ color: "hsl(var(--deep-gold))" }}>
+                  Testimonial
+                </span>
+                <h2 className="font-display text-2xl font-semibold text-primary-foreground mb-8 leading-snug">
+                  Praised by families<br />across DFW.
+                </h2>
+                <p
+                  className="font-display text-6xl leading-none mb-3 select-none"
+                  style={{ color: "hsl(var(--deep-gold))" }}
+                >
+                  "
+                </p>
+                <p className="font-display text-lg italic text-primary-foreground leading-relaxed">
+                  {testimonials[activeIndex].quote}
+                </p>
+              </div>
+              <div className="mt-8">
+                <div className="flex gap-1 mb-3">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} size={14} fill="hsl(var(--deep-gold))" style={{ color: "hsl(var(--deep-gold))" }} />
+                  ))}
+                </div>
+                <p className="font-body text-sm font-semibold" style={{ color: "hsl(var(--deep-gold))" }}>
+                  {testimonials[activeIndex].name}
+                </p>
+                <p className="font-body text-xs" style={{ color: "hsl(var(--soft-cream) / 0.6)" }}>
+                  {testimonials[activeIndex].location}
+                </p>
               </div>
             </div>
 
-            {/* Next button */}
-            <button
-              onClick={next}
-              aria-label="Next testimonial"
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
-              style={{ color: "hsl(var(--deep-gold))", border: "1px solid hsl(var(--deep-gold) / 0.3)" }}
-            >
-              <ChevronRight size={20} />
-            </button>
+            {/* Right column — 3 name cards */}
+            <div className="flex flex-col gap-4">
+              {rightTestimonials.map((t, i) => {
+                const globalIndex = testimonials.indexOf(t);
+                const isActive = activeIndex === globalIndex;
+                return (
+                  <button
+                    key={t.name}
+                    onClick={() => setActiveIndex(globalIndex)}
+                    className="relative rounded-xl overflow-hidden h-36 text-left transition-all duration-200"
+                    style={{
+                      background: "hsl(38 33% 90%)",
+                      outline: isActive ? "2px solid hsl(var(--deep-gold))" : "2px solid transparent",
+                      outlineOffset: "2px",
+                    }}
+                  >
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <User size={36} style={{ color: "hsl(var(--deep-gold) / 0.3)" }} />
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 p-3" style={{ background: "linear-gradient(to top, hsl(20 10% 15% / 0.6), transparent)" }}>
+                      <p className="font-body text-xs font-semibold text-primary-foreground leading-tight">{t.name}</p>
+                      <p className="font-body text-xs" style={{ color: "hsl(var(--soft-cream) / 0.7)" }}>{t.location}</p>
+                    </div>
+                    <div
+                      className="absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center transition-all"
+                      style={{
+                        background: isActive ? "hsl(var(--deep-gold))" : "hsl(var(--soft-cream) / 0.9)",
+                        color: isActive ? "hsl(var(--soft-cream))" : "hsl(var(--deep-gold))",
+                      }}
+                    >
+                      <Plus size={12} />
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-10">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveIndex(i)}
-                aria-label={`Go to testimonial ${i + 1}`}
-                className="w-2.5 h-2.5 rounded-full transition-all duration-300"
-                style={{
-                  background: i === activeIndex ? "hsl(var(--deep-gold))" : "transparent",
-                  border: `1.5px solid hsl(var(--deep-gold) / ${i === activeIndex ? "1" : "0.4"})`,
-                }}
-              />
-            ))}
+          {/* Mobile: simple featured card + dots */}
+          <div className="lg:hidden">
+            <div className="text-center mb-8">
+              <span className="font-body text-xs tracking-widest uppercase mb-2 block" style={{ color: "hsl(var(--deep-gold))" }}>
+                Testimonial
+              </span>
+              <h2 className="font-display text-3xl font-semibold text-primary">Praised by families across DFW.</h2>
+            </div>
+            <div
+              className="rounded-2xl p-8"
+              style={{ background: "hsl(var(--charcoal))" }}
+            >
+              <p className="font-display text-5xl leading-none mb-2 select-none" style={{ color: "hsl(var(--deep-gold))" }}>"</p>
+              <p className="font-display text-lg italic text-primary-foreground leading-relaxed mb-6">
+                {testimonials[activeIndex].quote}
+              </p>
+              <div className="flex gap-1 mb-2">
+                {[...Array(5)].map((_, j) => (
+                  <Star key={j} size={14} fill="hsl(var(--deep-gold))" style={{ color: "hsl(var(--deep-gold))" }} />
+                ))}
+              </div>
+              <p className="font-body text-sm font-semibold" style={{ color: "hsl(var(--deep-gold))" }}>
+                — {testimonials[activeIndex].name}, {testimonials[activeIndex].location}
+              </p>
+            </div>
+            <div className="flex justify-center gap-2 mt-6">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveIndex(i)}
+                  aria-label={`Go to testimonial ${i + 1}`}
+                  className="w-2.5 h-2.5 rounded-full transition-all duration-300"
+                  style={{
+                    background: i === activeIndex ? "hsl(var(--deep-gold))" : "transparent",
+                    border: `1.5px solid hsl(var(--deep-gold) / ${i === activeIndex ? "1" : "0.4"})`,
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -274,7 +397,7 @@ const HomePage = () => {
           <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-20">
             {/* Left: Text */}
             <div className="flex-1 text-center md:text-left">
-              <span className="font-body text-xs tracking-widest uppercase text-gold mb-3 block">Our Founder</span>
+              <span className="font-body text-xs tracking-widest uppercase mb-3 block" style={{ color: "hsl(var(--deep-gold))" }}>Our Founder</span>
               <h2 className="font-display text-4xl font-semibold text-primary mb-5">Meet Dana</h2>
               <p className="font-body text-base text-muted-foreground leading-relaxed mb-8 max-w-md">
                 Dana started Folds of Grace after watching busy families in her community struggle to keep up with the endless pile of laundry. Her mission is simple: give people back the time and peace of mind they deserve.
@@ -282,6 +405,7 @@ const HomePage = () => {
               <Link
                 to="/our-story"
                 className="inline-flex items-center gap-2 font-body text-sm font-medium text-primary hover:text-gold transition-colors"
+                style={{ color: "hsl(var(--charcoal))" }}
               >
                 Read Our Story <ArrowRight size={15} />
               </Link>
@@ -290,14 +414,15 @@ const HomePage = () => {
             {/* Right: Photo placeholder */}
             <div className="shrink-0 flex flex-col items-center gap-3">
               <div
-                className="w-56 h-56 md:w-64 md:h-64 rounded-full flex items-center justify-center shadow-[var(--shadow-soft)]"
+                className="w-56 h-56 md:w-64 md:h-64 rounded-full flex items-center justify-center"
                 style={{
                   background: "radial-gradient(circle at 60% 40%, hsl(40 95% 65% / 0.4), hsl(38 33% 92%))",
                   outline: "2px solid hsl(var(--deep-gold) / 0.3)",
                   outlineOffset: "4px",
+                  boxShadow: "var(--shadow-soft)",
                 }}
               >
-                <User size={52} className="text-gold opacity-60" />
+                <User size={52} style={{ color: "hsl(var(--deep-gold) / 0.6)" }} />
               </div>
               <p className="font-display text-xs italic text-muted-foreground">Photo coming soon</p>
             </div>
@@ -312,7 +437,7 @@ const HomePage = () => {
           <h2 className="font-display text-5xl md:text-6xl font-semibold text-primary-foreground mb-6 leading-tight">
             You Deserve a Little Grace.
           </h2>
-          <p className="font-body text-primary-foreground/75 text-lg mb-10 max-w-md mx-auto leading-relaxed">
+          <p className="font-body text-lg mb-10 max-w-md mx-auto leading-relaxed" style={{ color: "hsl(var(--soft-cream) / 0.75)" }}>
             Let us handle the laundry. Your first pickup is just a few clicks away — serving families across Dallas-Fort Worth.
           </p>
           <Link
