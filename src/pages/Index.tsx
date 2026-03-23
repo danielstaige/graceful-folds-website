@@ -34,16 +34,40 @@ const steps = [
 ];
 
 const testimonials = [
-  { name: "Sarah M.", location: "Frisco, TX", quote: "I honestly cried the first time I got my laundry back folded perfectly. Such a relief for our family of five." },
-  { name: "James & Tina R.", location: "Plano, TX", quote: "We've tried other services but Folds of Grace is on another level. Reliable, careful, and they actually care." },
-  { name: "Michelle K.", location: "Allen, TX", quote: "Scheduling took 90 seconds. They showed up on time. The laundry smelled amazing. I'm never going back." },
-  { name: "David & Angela P.", location: "McKinney, TX", quote: "As parents of three young kids, laundry felt endless. Folds of Grace gave us our Saturday mornings back." },
-  { name: "Renee T.", location: "Garland, TX", quote: "I've recommended this service to every mom in my neighborhood. It's not a luxury — it's a necessity." },
+  {
+    name: "Stephanie Snow",
+    location: "Southlake, TX",
+    quote: "Folds of Grace was such a help to me this week! To see it all clean and meticulously folded without having done any of the work was wonderful. And to know that while we went about our day someone was praying for us is such an encouragement!",
+  },
+  {
+    name: "Jennifer Stockett",
+    location: "Grapevine, TX",
+    quote: "As a working mom, this takes one thing off my never-ending to-do list and gives me more time to be a mom. My Folder is so attentive to all our high-maintenance requests. I've been impressed with the attention to detail, timeliness, and all-around customer service.",
+  },
+  {
+    name: "Baylee Cypress",
+    location: "Mansfield, TX",
+    quote: "This service was gifted to us and it was such a treat! I loved being able to set my laundry on the porch and find it neatly folded the next morning. They even got some stubborn stains out and left a note about what they prayed for us. I highly recommend Folds of Grace!",
+  },
+  {
+    name: "Jana Mayfield",
+    location: "Midlothian, TX",
+    quote: "Folds of Grace exceeded my expectation for a laundry service! They picked up my laundry, treated stains, washed, dried, folded incredibly, and delivered it all back to my front door. They even wrote a handwritten note of how they prayed for our family. I'm thankful for their care!",
+  },
+  {
+    name: "Susan Lawson",
+    location: "Waxahachie, TX",
+    quote: "Folds of Grace exceeded my expectations! The laundry was returned the same day! The kids were able to take their bags to their room and immediately put their clothes away. They even added a personal touch with a handwritten note of how the Lord led them to pray over my family. Do yourself a favor — give them a try!",
+  },
+  {
+    name: "Angela Swan",
+    location: "Arlington, TX",
+    quote: "They picked my clothes up on Tuesday and actually had them back that afternoon — which I was pleasantly surprised about! They smelled amazing, folded so neat. The prayer cards were just the sweetest! I loved it. Just the best and hope to continue!",
+  },
 ];
 
-// Split testimonials into left (0–2) and right (3–4 padded to 3)
 const leftTestimonials = testimonials.slice(0, 3);
-const rightTestimonials = testimonials.slice(2, 5); // overlaps slightly so both cols have 3
+const rightTestimonials = testimonials.slice(3, 6);
 
 const HomePage = () => {
   const [activeIndex, setActiveIndex] = useState(0);
