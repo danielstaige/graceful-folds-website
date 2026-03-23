@@ -4,11 +4,11 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 const faqs = [
   {
     q: "What areas do you serve?",
-    a: "We currently serve select zip codes across the Dallas-Fort Worth metroplex, including Frisco, Plano, Allen, McKinney, and surrounding areas. Enter your zip code at checkout or contact us to confirm your area.",
+    a: "We provide pickup and delivery laundry service across the Dallas–Fort Worth metroplex, including Southlake, Colleyville, Flower Mound, Fort Worth, Mansfield, Arlington, Rockwall, Midlothian, Waxahachie, and surrounding communities.",
   },
   {
     q: "How long does it take to get my laundry back?",
-    a: "Most orders are returned within 48 hours of pickup. Rush service (24-hour turnaround) is available on select days for an additional fee.",
+    a: "Most orders are returned within 24–36 hours of pickup, our guarantee is 24–48 hrs. Rush service (same day turnaround) is available based on order size and pickup time.",
   },
   {
     q: "Do I need to be home for pickup and delivery?",
@@ -16,31 +16,35 @@ const faqs = [
   },
   {
     q: "What detergent do you use?",
-    a: "We use a premium, hypoallergenic detergent by default. If you have a fragrance preference or specific product request (such as a free-and-clear detergent for sensitive skin), just let us know in your notes.",
+    a: "We use Tide or Gain by default for all orders. If you need Free & Clear for sensitive skin, just let us know in your notes. You're also welcome to leave out any specific product preferences — your laundry, your way.",
   },
   {
     q: "How do I know my laundry won't get mixed up with someone else's?",
-    a: "Every bag is tagged with your unique customer ID and tracked individually through our process. We never mix bags from different customers.",
+    a: "We never mix bags from different clients. Each order is handled separately, from pickup to delivery, so your clothes remain completely yours.",
   },
   {
-    q: "What items can you NOT wash?",
-    a: "We do not wash dry-clean-only garments, items marked 'hand wash only,' or heavily soiled items (e.g., items with motor oil, paint, etc.). Please separate those before pickup.",
-  },
-  {
-    q: "What if something is damaged or lost?",
-    a: "We carry insurance and take every precaution to care for your clothes. In the rare event of damage or loss, we'll work with you directly to make it right.",
-  },
-  {
-    q: "How do I pay?",
-    a: "We accept all major credit/debit cards. Payment is processed securely online when you schedule your service. We do not handle cash.",
+    q: "What if something is lost or damaged?",
+    a: "We have policies in place in case anything is lost or damaged. Please reach out to our team.",
   },
   {
     q: "Can I cancel or reschedule?",
-    a: "Yes! You can cancel or reschedule up to 2 hours before your pickup window with no charge. Changes within 2 hours may incur a small fee.",
+    a: "Yes! You can cancel or reschedule 24 hours prior to pickup with no charge. Cancellations or changes made within 24 hours of your scheduled pickup may incur a fee.",
   },
   {
     q: "Is there a minimum order?",
-    a: "Yes, we have a minimum of one bag (up to 15 lbs) per pickup. There is no maximum — just let us know ahead of time if you have a large order.",
+    a: "Yes, we have a minimum of $35 which is approximately 20 lbs of laundry. There is no maximum — just let us know ahead of time if you have a large order.",
+  },
+  {
+    q: "Who is doing my laundry?",
+    a: "Your laundry is cared for by women in your community who work out of their homes with highly sanitized machines — no smoking, no shedding pets. Every team member goes through a careful hiring process and shares our love for people and for Jesus.",
+  },
+  {
+    q: "Do you have gift cards?",
+    a: "Yes! They make thoughtful gifts for any occasion — new moms, a family experiencing loss, caring for someone in the hospital or going through treatments, a new home, foster care or adoption, or when someone is sick.",
+  },
+  {
+    q: "Is there anything that you don't clean?",
+    a: "We cannot accept items contaminated with: bodily fluids from a human or pet, excessive pet hair, moisture (if the item is still wet or damp), mildew, fuel or grease/oil, bed bugs or lice, poison ivy or poison oak oils, or hazardous chemical residue.",
   },
 ];
 
