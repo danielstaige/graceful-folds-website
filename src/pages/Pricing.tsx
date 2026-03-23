@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Gift, Users, User } from "lucide-react";
+import { ArrowRight, Gift } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -10,37 +10,16 @@ import {
 } from "@/components/ui/table";
 import heroLaundry from "@/assets/hero-laundry.jpg";
 
-const estimates = [
-  {
-    icon: User,
-    label: "Individual",
-    range: "$35–$45",
-    unit: "/ week",
-    description: "One bag, picked up weekly. Clean clothes, zero hassle.",
-  },
-  {
-    icon: Users,
-    label: "Couple",
-    range: "$45–$55",
-    unit: "/ week",
-    description: "Two people's laundry handled — more time for each other.",
-  },
-  {
-    icon: Users,
-    label: "Family of 4",
-    range: "$55–$75",
-    unit: "/ week",
-    description: "The whole household, washed and folded every week.",
-  },
+const specialItems = [
+  { item: "Comforter / Duvet Inserts", price: "$25" },
+  { item: "Blankets", price: "$15–$20" },
+  { item: "Throw Blankets", price: "$8" },
 ];
 
-const specialItems = [
-  { item: "Comforter", price: "$35" },
-  { item: "Duvet Insert", price: "$20–$35" },
-  { item: "Blanket", price: "$15–$20" },
-  { item: "Large Throw", price: "$8" },
-  { item: "Pillow", price: "$5–$15" },
-  { item: "Bathmat", price: "$5–$8" },
+const includedItems = [
+  "Free Pickup & Delivery",
+  "Washed, Dried & Folded/Hung",
+  "24–48-Hour Turnaround",
 ];
 
 const Pricing = () => {
@@ -54,25 +33,23 @@ const Pricing = () => {
             Transparent Pricing
           </span>
           <h1 className="font-display text-5xl md:text-6xl font-semibold text-primary-foreground mb-6">
-            Simple, Honest Pricing.
+            Pricing
           </h1>
           <p className="font-body text-primary-foreground/80 text-lg leading-relaxed">
-            No hidden fees. No surprises. Just clean laundry at a fair, per-pound rate.
+            No hidden fees. No surprises. Just a simple, reliable weekly solution for homes and businesses with done-for-you laundry care you can count on.
           </p>
         </div>
       </section>
 
-      {/* Standard Rate — Editorial Centerpiece */}
+      {/* Standard Rate */}
       <section className="py-32 px-4 bg-background text-center">
         <div className="container max-w-2xl mx-auto">
           <p className="font-body text-sm text-muted-foreground tracking-widest uppercase mb-8">
             Our Standard Rate
           </p>
 
-          {/* Gold rule above number */}
           <div className="gold-divider mb-10" />
 
-          {/* Big rate display */}
           <div className="flex items-end justify-center gap-3 mb-4">
             <span className="font-display text-8xl md:text-9xl font-semibold text-gold leading-none">
               $1.85
@@ -85,13 +62,8 @@ const Pricing = () => {
             {" "}— approximately 20 lbs
           </p>
 
-          {/* Included strip — flat dots */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {[
-              "Pickup & Delivery Included",
-              "Washed, Dried & Folded",
-              "48-Hour Turnaround",
-            ].map((item) => (
+            {includedItems.map((item) => (
               <div key={item} className="flex items-center justify-center gap-2.5">
                 <span
                   className="w-1.5 h-1.5 rounded-full shrink-0"
@@ -106,54 +78,42 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Cost Estimator — List style */}
-      <section className="py-24 px-4 bg-secondary">
-        <div className="container max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="font-body text-xs tracking-widest uppercase text-gold mb-3 block">
-              What to Expect
-            </span>
-            <h2 className="font-display text-4xl font-semibold text-secondary-foreground mb-3">
-              How Much Will It Cost?
-            </h2>
-            <p className="font-body text-secondary-foreground/70 text-sm max-w-md mx-auto">
-              Typical weekly estimates based on household size.
-            </p>
-          </div>
-
-          <div className="divide-y divide-border/40">
-            {estimates.map((est) => {
-              const Icon = est.icon;
-              return (
-                <div
-                  key={est.label}
-                  className="flex justify-between items-baseline gap-6 py-6"
-                >
-                  <div className="flex items-start gap-4">
-                    <Icon size={18} style={{ color: "hsl(var(--deep-gold))" }} className="shrink-0 mt-0.5" />
-                    <div>
-                      <h3 className="font-display text-xl font-semibold text-primary leading-tight mb-1">
-                        {est.label}
-                      </h3>
-                      <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                        {est.description}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="text-right shrink-0">
-                    <span className="font-display text-3xl font-semibold text-gold whitespace-nowrap">
-                      {est.range}
-                    </span>
-                    <span className="font-body text-xs text-muted-foreground block mt-0.5">{est.unit}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          <p className="text-center font-display italic text-secondary-foreground/50 text-sm mt-10">
-            "Less than a dinner out — and one less thing on your plate."
+      {/* Same Day Service */}
+      <section className="py-24 px-4 bg-secondary text-center">
+        <div className="container max-w-2xl mx-auto">
+          <p className="font-body text-sm text-muted-foreground tracking-widest uppercase mb-8">
+            For Urgent Orders
           </p>
+
+          <div className="gold-divider mb-10" />
+
+          <div className="flex items-end justify-center gap-3 mb-4">
+            <span className="font-display text-7xl md:text-8xl font-semibold text-gold leading-none">
+              $2.25
+            </span>
+            <span className="font-display text-3xl text-muted-foreground mb-3">/ lb</span>
+          </div>
+
+          <p className="font-body text-sm text-muted-foreground mb-2">
+            Based on Order Size and Pickup Time
+          </p>
+          <p className="font-body text-sm text-muted-foreground mb-12">
+            <span className="font-semibold text-foreground">$35 minimum per order</span>
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {includedItems.map((item) => (
+              <div key={item} className="flex items-center justify-center gap-2.5">
+                <span
+                  className="w-1.5 h-1.5 rounded-full shrink-0"
+                  style={{ background: "hsl(var(--deep-gold))" }}
+                />
+                <span className="font-body text-sm text-foreground/80">{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="gold-divider mt-12" />
         </div>
       </section>
 
@@ -208,7 +168,7 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Gift Cards — Premium two-column dark section */}
+      {/* Gift Cards */}
       <section className="py-0 bg-primary overflow-hidden">
         <div className="container max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -250,7 +210,7 @@ const Pricing = () => {
             You Know the Price.<br />Now Know the Peace.
           </h2>
           <Link
-            to="/contact"
+            to="/schedule"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 shadow-gold"
             style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
           >
