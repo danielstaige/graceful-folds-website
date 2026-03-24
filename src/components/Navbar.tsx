@@ -42,15 +42,12 @@ const Navbar = () => {
       <div className="container max-w-7xl mx-auto">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 shrink-0">
-            <div className="flex flex-col leading-none">
-              <span className="font-display text-xl font-semibold text-primary">
-                Folds of Grace
-              </span>
-              <span className="font-body text-[10px] tracking-widest text-gold uppercase">
-                Laundry · Pickup · Delivery
-              </span>
-            </div>
+          <Link to="/" className="flex items-center shrink-0">
+            <img
+              src={theme === "light-gold" ? lightGoldLogo : grayBlueLogo}
+              alt="Folds of Grace"
+              className="h-10 lg:h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Nav */}
