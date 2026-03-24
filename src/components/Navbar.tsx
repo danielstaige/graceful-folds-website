@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { useTheme } from "@/contexts/ThemeContext";
+import lightGoldLogo from "@/assets/light-and-gold-variant-logo.png";
+import grayBlueLogo from "@/assets/gray-blue-variant-logo.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -15,6 +18,7 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const { theme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const location = useLocation();
@@ -38,15 +42,12 @@ const Navbar = () => {
       <div className="container max-w-7xl mx-auto">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 shrink-0">
-            <div className="flex flex-col leading-none">
-              <span className="font-display text-xl font-semibold text-primary">
-                Folds of Grace
-              </span>
-              <span className="font-body text-[10px] tracking-widest text-gold uppercase">
-                Laundry · Pickup · Delivery
-              </span>
-            </div>
+          <Link to="/" className="flex items-center shrink-0">
+            <img
+              src={theme === "light-gold" ? lightGoldLogo : grayBlueLogo}
+              alt="Folds of Grace"
+              className="h-10 lg:h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -97,17 +98,11 @@ const Navbar = () => {
             >
               {/* Sheet Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-border">
-                <div className="flex flex-col leading-none">
-                  <span className="font-display text-lg font-semibold text-primary">
-                    Folds of Grace
-                  </span>
-                  <span
-                    className="font-body text-[9px] tracking-widest uppercase"
-                    style={{ color: "hsl(var(--deep-gold))" }}
-                  >
-                    Laundry · Pickup · Delivery
-                  </span>
-                </div>
+                <img
+                  src={theme === "light-gold" ? lightGoldLogo : grayBlueLogo}
+                  alt="Folds of Grace"
+                  className="h-9 w-auto"
+                />
                 <SheetClose asChild>
                   <button
                     className="p-1.5 rounded-md text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
