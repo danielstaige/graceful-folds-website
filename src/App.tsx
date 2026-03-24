@@ -30,6 +30,7 @@ const ScrollToTop = () => {
 };
 
 const App = () => (
+  <ThemeProvider>
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
