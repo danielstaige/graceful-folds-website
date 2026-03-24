@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -15,7 +16,7 @@ const navLinks = [
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -25,7 +26,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    setMobileOpen(false);
+    setSheetOpen(false);
   }, [location]);
 
   return (
@@ -65,7 +66,7 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* CTA */}
+          {/* Desktop CTA */}
           <div className="hidden lg:block shrink-0">
             <Link
               to="/schedule"
@@ -79,47 +80,90 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            className="lg:hidden p-2 rounded-md text-primary"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          {/* Mobile Sheet Trigger */}
+          <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+            <SheetTrigger asChild>
+              <button
+                className="lg:hidden p-2 rounded-md text-primary"
+                aria-label="Open menu"
+              >
+                <Menu size={22} />
+              </button>
+            </SheetTrigger>
+
+            <SheetContent
+              side="right"
+              className="w-[300px] sm:w-[340px] bg-card border-l border-border flex flex-col p-0"
+            >
+              {/* Sheet Header */}
+              <div className="flex items-center justify-between px-6 py-5 border-b border-border">
+                <div className="flex flex-col leading-none">
+                  <span className="font-display text-lg font-semibold text-primary">
+                    Folds of Grace
+                  </span>
+                  <span
+                    className="font-body text-[9px] tracking-widest uppercase"
+                    style={{ color: "hsl(var(--deep-gold))" }}
+                  >
+                    Laundry · Pickup · Delivery
+                  </span>
+                </div>
+                <SheetClose asChild>
+                  <button
+                    className="p-1.5 rounded-md text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
+                    aria-label="Close menu"
+                  >
+                    <X size={18} />
+                  </button>
+                </SheetClose>
+              </div>
+
+              {/* Nav Links */}
+              <nav className="flex flex-col gap-0.5 px-4 py-4 flex-1 overflow-y-auto">
+                {navLinks.map((link) => {
+                  const isActive = location.pathname === link.path;
+                  return (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className={`group flex items-center gap-3 px-3 py-3 rounded-lg font-body text-sm font-medium transition-all duration-150 ${
+                        isActive
+                          ? "bg-secondary text-primary"
+                          : "text-foreground hover:bg-muted"
+                      }`}
+                    >
+                      <span
+                        className={`w-0.5 h-4 rounded-full shrink-0 transition-all duration-200 ${
+                          isActive ? "opacity-100" : "opacity-0 group-hover:opacity-40"
+                        }`}
+                        style={{ background: "hsl(var(--deep-gold))" }}
+                      />
+                      {link.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+
+              {/* CTA at bottom */}
+              <div className="px-4 pb-8 pt-2 border-t border-border">
+                <Link
+                  to="/schedule"
+                  className="flex items-center justify-center w-full px-5 py-3 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 shadow-gold hover:shadow-lg hover:-translate-y-0.5"
+                  style={{
+                    background: "var(--gradient-gold)",
+                    color: "hsl(0 0% 100%)",
+                  }}
+                >
+                  Schedule My First Pickup
+                </Link>
+                <p className="text-center font-body text-xs text-muted-foreground mt-3">
+                  We wash, we fold… and we pray. 🙏
+                </p>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="lg:hidden bg-card border-t border-border shadow-soft">
-          <nav className="container py-4 flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`font-body text-sm font-medium px-3 py-2.5 rounded-md transition-colors ${
-                  location.pathname === link.path
-                    ? "bg-secondary text-primary font-semibold"
-                    : "text-foreground hover:bg-muted"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              to="/schedule"
-              className="mt-2 text-center px-5 py-2.5 rounded-md font-body text-sm font-medium tracking-wide"
-              style={{
-                background: "var(--gradient-gold)",
-                color: "hsl(0 0% 100%)",
-              }}
-            >
-              Schedule My First Pickup
-            </Link>
-          </nav>
-        </div>
-      )}
     </header>
   );
 };
