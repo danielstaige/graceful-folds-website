@@ -18,6 +18,7 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const { theme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const location = useLocation();
