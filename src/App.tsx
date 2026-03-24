@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 import Index from "./pages/Index.tsx";
 import OurStory from "./pages/OurStory.tsx";
 import HowItWorks from "./pages/HowItWorks.tsx";
@@ -52,6 +53,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
+        <ThemeSwitcher />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
