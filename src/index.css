@@ -163,7 +163,7 @@
   /* Gold divider */
   .gold-divider {
     @apply h-px w-16 mx-auto;
-    background: hsl(var(--deep-gold));
+    background: hsl(var(--accent));
   }
 
   /* Nav link hover */
@@ -174,12 +174,12 @@
   .nav-link::after {
     content: '';
     @apply absolute bottom-0 left-0 w-0 h-px transition-all duration-300;
-    background: hsl(var(--deep-gold));
+    background: hsl(var(--accent));
   }
   .nav-link:hover::after {
     @apply w-full;
   }
   .nav-link:hover {
-    color: hsl(var(--deep-gold));
+    color: hsl(var(--accent));
   }
 }
