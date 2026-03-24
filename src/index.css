@@ -11,7 +11,7 @@
     /* Palette */
     --charcoal: 0 0% 11%;          /* #1C1C1C */
     --warm-beige: 36 33% 96%;      /* #f7f5f2 cream */
-    --deep-gold: 40 95% 45%;       /* #E09706 orange */
+    --deep-gold: 40 95% 45%;       /* #E09706 orange — alias for accent */
     --soft-cream: 36 33% 96%;      /* #f7f5f2 */
 
     /* Semantic */
