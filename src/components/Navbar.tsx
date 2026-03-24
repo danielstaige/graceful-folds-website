@@ -58,7 +58,7 @@ const Navbar = () => {
                 to={link.path}
                 className={`nav-link font-body text-sm font-medium tracking-wide pb-0.5 ${
                   location.pathname === link.path
-                    ? "text-gold-dark border-b border-gold"
+                    ? "text-accent border-b border-accent"
                     : ""
                 }`}
               >
