@@ -11,7 +11,7 @@
     /* Palette */
     --charcoal: 0 0% 11%;          /* #1C1C1C */
     --warm-beige: 36 33% 96%;      /* #f7f5f2 cream */
-    --deep-gold: 40 95% 45%;       /* #E09706 orange */
+    --deep-gold: 40 95% 45%;       /* #E09706 orange — alias for accent */
     --soft-cream: 36 33% 96%;      /* #f7f5f2 */
 
     /* Semantic */
@@ -73,6 +73,7 @@
     --sky-blue: 208 51% 51%;       /* #4285c1 */
     --navy: 208 51% 22%;           /* dark navy derived from blue */
     --off-white: 0 0% 95%;         /* #f2f2f2 */
+    --deep-gold: 208 51% 51%;      /* alias → sky-blue so text-gold switches */
 
     /* Semantic */
     --background: 0 0% 95%;
