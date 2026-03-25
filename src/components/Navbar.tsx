@@ -97,11 +97,10 @@ const Navbar = () => {
             >
               {/* Sheet Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-border">
-                <img
-                  src={theme === "light-gold" ? lightGoldLogo : grayBlueLogo}
-                  alt="Folds of Grace"
-                  className="h-9 w-auto"
-                />
+                <div className="flex flex-col leading-tight">
+                  <span className="font-display text-base font-bold text-primary tracking-wide">Folds of Grace</span>
+                  <span className="font-body text-[10px] text-accent tracking-widest uppercase">Laundry Pickup &amp; Delivery</span>
+                </div>
                 <SheetClose asChild>
                   <button
                     className="p-1.5 rounded-md text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
