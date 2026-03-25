@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-import { useTheme } from "@/contexts/ThemeContext";
-import lightGoldLogo from "@/assets/light-and-gold-variant-logo.png";
-import grayBlueLogo from "@/assets/gray-blue-variant-logo.png";
+
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -18,7 +16,6 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const { theme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const location = useLocation();
@@ -42,12 +39,13 @@ const Navbar = () => {
       <div className="container max-w-7xl mx-auto">
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center shrink-0">
-            <img
-              src={theme === "light-gold" ? lightGoldLogo : grayBlueLogo}
-              alt="Folds of Grace"
-              className="h-14 lg:h-16 w-auto"
-            />
+          <Link to="/" className="flex flex-col items-start shrink-0 leading-tight">
+            <span className="font-display text-xl lg:text-2xl font-bold text-primary tracking-wide">
+              Folds of Grace
+            </span>
+            <span className="font-body text-xs text-accent tracking-widest uppercase">
+              Laundry Pickup &amp; Delivery
+            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -98,11 +96,10 @@ const Navbar = () => {
             >
               {/* Sheet Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-border">
-                <img
-                  src={theme === "light-gold" ? lightGoldLogo : grayBlueLogo}
-                  alt="Folds of Grace"
-                  className="h-9 w-auto"
-                />
+                <div className="flex flex-col leading-tight">
+                  <span className="font-display text-base font-bold text-primary tracking-wide">Folds of Grace</span>
+                  <span className="font-body text-[10px] text-accent tracking-widest uppercase">Laundry Pickup &amp; Delivery</span>
+                </div>
                 <SheetClose asChild>
                   <button
                     className="p-1.5 rounded-md text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
