@@ -40,7 +40,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <Link to="/" className="flex flex-col items-start shrink-0 leading-tight">
-            <span className="font-display text-xl lg:text-2xl font-normal text-primary tracking-wide">
+            <span className="font-display text-xl lg:text-2xl font-bold text-primary tracking-wide">
               Folds of Grace
             </span>
             <span className="font-body text-xs text-accent tracking-widest uppercase">
@@ -97,7 +97,7 @@ const Navbar = () => {
               {/* Sheet Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-border">
                 <div className="flex flex-col leading-tight">
-                  <span className="font-display text-base font-normal text-primary tracking-wide">Folds of Grace</span>
+                  <span className="font-display text-base font-bold text-primary tracking-wide">Folds of Grace</span>
                   <span className="font-body text-[10px] text-accent tracking-widest uppercase">Laundry Pickup &amp; Delivery</span>
                 </div>
                 <SheetClose asChild>
