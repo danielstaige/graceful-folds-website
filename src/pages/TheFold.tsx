@@ -72,6 +72,37 @@ const TheFold = () => {
         </div>
       </section>
 
+      {/* Meet Dana */}
+      <section className="section-padding bg-secondary">
+        <div className="container max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="rounded-xl overflow-hidden shadow-card">
+              <img
+                src={danaPhoto}
+                alt="Dana, founder of Folds of Grace, folding laundry"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <div className="text-center lg:text-left">
+              <span className="font-body text-xs tracking-widest uppercase text-gold mb-3 block">Meet Dana</span>
+              <h2 className="font-display text-4xl font-semibold text-primary mb-4 leading-snug">
+                The Heart Behind the Fold
+              </h2>
+              <div className="gold-divider mb-5 lg:ml-0" />
+              <p className="font-body text-muted-foreground leading-relaxed mb-4">
+                Dana started Folds of Grace with a simple belief: that serving your neighbor through something as everyday as laundry could be an act of love. She leads by example — folding, delivering, and caring for every family like her own.
+              </p>
+              <p
+                className="font-display text-lg italic leading-relaxed"
+                style={{ color: "hsl(var(--deep-gold) / 0.7)" }}
+              >
+                "Every load is an opportunity to lighten someone's day."
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Folder Profiles */}
       <section className="section-padding bg-background">
         <div className="container max-w-6xl mx-auto">
