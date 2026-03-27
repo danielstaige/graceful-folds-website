@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Clock, Tag, Star, DoorOpen, Shirt, Home, User, Plus } from "lucide-react";
 import heroImg from "@/assets/hero-laundry.jpg";
+import danaPhoto from "@/assets/dana-folder.jpg";
 
 const promises = [
   { icon: Sparkles, title: "Done For You", desc: "Every item washed, dried, and folded — ready to put away." },
@@ -438,15 +439,14 @@ const HomePage = () => {
             {/* Right: Photo placeholder */}
             <div className="shrink-0 flex flex-col items-center gap-3">
               <div
-                className="w-56 h-56 md:w-64 md:h-64 rounded-full flex items-center justify-center"
+                className="w-56 h-56 md:w-64 md:h-64 rounded-full overflow-hidden"
                 style={{
-                  background: "radial-gradient(circle at 60% 40%, hsl(40 95% 65% / 0.4), hsl(38 33% 92%))",
                   outline: "2px solid hsl(var(--deep-gold) / 0.3)",
                   outlineOffset: "4px",
                   boxShadow: "var(--shadow-soft)",
                 }}
               >
-                <User size={52} style={{ color: "hsl(var(--deep-gold) / 0.6)" }} />
+                <img src={danaPhoto} alt="Dana, founder of Folds of Grace" className="w-full h-full object-cover" />
               </div>
               <p className="font-display text-xs italic text-muted-foreground">Photo coming soon</p>
             </div>
