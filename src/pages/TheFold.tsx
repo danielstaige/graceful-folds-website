@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Heart, MapPin, Car, Sparkles, Home, Shield, User } from "lucide-react";
+import danaPhoto from "@/assets/dana-folder.jpg";
 
 const folders = [
   {
