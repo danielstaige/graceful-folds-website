@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Clock, Tag, Star, DoorOpen, Shirt, Home, User, Plus } from "lucide-react";
 import heroImg from "@/assets/hero-laundry.jpg";
 import danaPhoto from "@/assets/dana-folder.jpg";
+import GalleryGrid from "@/components/GalleryGrid";
 
 const promises = [
   { icon: Sparkles, title: "Done For You", desc: "Every item washed, dried, and folded — ready to put away." },
@@ -212,6 +213,9 @@ const HomePage = () => {
           Every item treated with care.
         </p>
       </div>
+
+      {/* ── GALLERY ── */}
+      <GalleryGrid />
 
       {/* ── 5. THE DIFFERENCE — Linen Texture ── */}
       <section
