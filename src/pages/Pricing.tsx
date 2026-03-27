@@ -210,11 +210,11 @@ const Pricing = () => {
             You Know the Price.<br />Now Know the Peace.
           </h2>
           <Link
-            to="/schedule"
+            to="/contact"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 shadow-gold"
             style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
           >
-            Schedule My First Pickup <ArrowRight size={15} />
+            Get Started Today <ArrowRight size={15} />
           </Link>
           <div className="gold-divider mt-8" />
         </div>

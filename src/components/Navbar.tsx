@@ -68,14 +68,14 @@ const Navbar = () => {
           {/* Desktop CTA */}
           <div className="hidden lg:block shrink-0">
             <Link
-              to="/schedule"
+              to="/contact"
               className="inline-flex items-center px-5 py-2.5 rounded-md font-body text-sm font-medium tracking-wide transition-all duration-200 shadow-gold hover:shadow-lg hover:-translate-y-0.5"
               style={{
                 background: "var(--gradient-gold)",
                 color: "hsl(0 0% 100%)",
               }}
             >
-              Schedule My First Pickup
+              Get Started Today
             </Link>
           </div>
 
@@ -139,14 +139,14 @@ const Navbar = () => {
               {/* CTA at bottom */}
               <div className="px-4 pb-8 pt-2 border-t border-border">
                 <Link
-                  to="/schedule"
+                  to="/contact"
                   className="flex items-center justify-center w-full px-5 py-3 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 shadow-gold hover:shadow-lg hover:-translate-y-0.5"
                   style={{
                     background: "var(--gradient-gold)",
                     color: "hsl(0 0% 100%)",
                   }}
                 >
-                  Schedule My First Pickup
+                  Get Started Today
                 </Link>
                 <p className="text-center font-body text-xs text-muted-foreground mt-3">
                   We wash, we fold… and we pray. 🙏

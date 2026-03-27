@@ -223,7 +223,7 @@ const Contact = () => {
                     onChange={handleChange}
                     className={inputClass}
                   >
-                    <option value="schedule">Schedule Service</option>
+                    <option value="schedule">Schedule a Pickup</option>
                     <option value="folder">Become a Folder</option>
                     <option value="prayer">Prayer Request</option>
                     <option value="general">General Question</option>
