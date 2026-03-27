@@ -214,6 +214,9 @@ const HomePage = () => {
         </p>
       </div>
 
+      {/* ── GALLERY ── */}
+      <GalleryGrid />
+
       {/* ── 5. THE DIFFERENCE — Linen Texture ── */}
       <section
         className="py-28 px-4"
