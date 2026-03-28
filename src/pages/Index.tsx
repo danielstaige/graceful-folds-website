@@ -270,9 +270,11 @@ const HomePage = () => {
                       outlineOffset: "2px",
                     }}
                   >
-                    {/* User icon */}
+                    {/* Avatar initials */}
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <User size={36} style={{ color: "hsl(var(--deep-gold) / 0.3)" }} />
+                      <div className="w-16 h-16 rounded-full flex items-center justify-center font-display text-xl font-semibold" style={{ background: "hsl(var(--deep-gold) / 0.2)", color: "hsl(var(--deep-gold))" }}>
+                        {t.initials}
+                      </div>
                     </div>
                     {/* Name label */}
                     <div className="absolute bottom-0 left-0 right-0 p-3" style={{ background: "linear-gradient(to top, hsl(20 10% 15% / 0.6), transparent)" }}>
@@ -348,7 +350,9 @@ const HomePage = () => {
                     }}
                   >
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <User size={36} style={{ color: "hsl(var(--deep-gold) / 0.3)" }} />
+                      <div className="w-16 h-16 rounded-full flex items-center justify-center font-display text-xl font-semibold" style={{ background: "hsl(var(--deep-gold) / 0.2)", color: "hsl(var(--deep-gold))" }}>
+                        {t.initials}
+                      </div>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 p-3" style={{ background: "linear-gradient(to top, hsl(20 10% 15% / 0.6), transparent)" }}>
                       <p className="font-body text-xs font-semibold text-primary-foreground leading-tight">{t.name}</p>
@@ -408,6 +412,34 @@ const HomePage = () => {
                 />
               ))}
             </div>
+          </div>
+
+          {/* Google Reviews Badge */}
+          <div className="flex justify-center mt-12">
+            <a
+              href="https://www.google.com/maps/place/Folds+of+Grace"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-full border transition-all hover:-translate-y-0.5 hover:shadow-md"
+              style={{ borderColor: "hsl(var(--border))", background: "hsl(var(--background))" }}
+            >
+              <svg width="20" height="20" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+                <path fill="#FF3D00" d="m6.306 14.691 6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
+                <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
+                <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+              </svg>
+              <div className="flex items-center gap-2">
+                <span className="font-display text-lg font-semibold text-foreground">5.0</span>
+                <div className="flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={14} fill="hsl(var(--deep-gold))" style={{ color: "hsl(var(--deep-gold))" }} />
+                  ))}
+                </div>
+              </div>
+              <span className="font-body text-sm text-muted-foreground">88 Google reviews</span>
+              <ArrowRight size={14} className="text-muted-foreground" />
+            </a>
           </div>
         </div>
       </section>
