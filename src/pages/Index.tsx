@@ -155,64 +155,59 @@ const HomePage = () => {
       {/* ── 3. HOW IT WORKS — Image Left + Numbered List Right ── */}
       <section className="section-padding bg-background">
         <div className="container max-w-5xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
-            {/* Left: image panel */}
-            <div className="w-full lg:w-2/5 shrink-0">
-              <div className="rounded-2xl overflow-hidden h-64 lg:h-auto lg:min-h-[520px]">
-                <img
-                  src={howItWorksBag}
-                  alt="Folds of Grace laundry bag with neatly folded clothes on a porch"
-                  className="w-full h-full object-cover"
-                  style={{ objectPosition: "center 40%" }}
-                />
-              </div>
-            </div>
+          <div className="text-center mb-16">
+            <span className="font-body text-xs tracking-widest uppercase mb-3 block" style={{ color: "hsl(var(--deep-gold))" }}>Simple Process</span>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold text-primary mb-4">How It Works</h2>
+            <p className="font-body text-base text-muted-foreground max-w-md mx-auto leading-relaxed">Three easy steps to fresh, folded laundry — without lifting a finger.</p>
+          </div>
 
-            {/* Right: content */}
-            <div className="flex-1">
-              <span className="font-body text-xs tracking-widest uppercase mb-3 block" style={{ color: "hsl(var(--deep-gold))" }}>Simple Process</span>
-              <h2 className="font-display text-4xl font-semibold text-primary mb-12">How It Works</h2>
-
-              <div className="flex flex-col">
-                {steps.map((step, i) => (
-                  <div
-                    key={step.num}
-                    className="flex items-start gap-6 py-8"
-                    style={{ borderBottom: i < steps.length - 1 ? "1px solid hsl(var(--border))" : "none" }}
-                  >
-                    {/* Ghost number */}
-                    <span
-                      className="font-display text-5xl font-semibold leading-none w-16 shrink-0 select-none pt-1"
-                      style={{ color: "hsl(var(--deep-gold) / 0.5)" }}
-                    >
-                      {step.num}
-                    </span>
-
-                    {/* Content */}
-                    <div className="flex-1">
-                      <h4 className="font-display text-xl font-semibold text-primary mb-1">{step.title}</h4>
-                      <p className="font-body text-sm text-muted-foreground leading-relaxed mb-3">{step.desc}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {step.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="font-body text-xs text-muted-foreground rounded-full px-3 py-1"
-                            style={{ border: "1px solid hsl(var(--border))" }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+          <div className="flex flex-col gap-20">
+            {steps.map((step, i) => (
+              <div
+                key={step.num}
+                className={`flex flex-col ${i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} gap-8 md:gap-12 items-center`}
+              >
+                {/* Image */}
+                <div className="w-full md:w-1/2 shrink-0">
+                  <div className="rounded-2xl overflow-hidden aspect-square">
+                    <img
+                      src={step.img}
+                      alt={step.title}
+                      loading="lazy"
+                      width={800}
+                      height={800}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                ))}
+                </div>
+
+                {/* Content */}
+                <div className="w-full md:w-1/2 flex flex-col justify-center">
+                  <span
+                    className="font-display text-6xl font-semibold leading-none mb-4 select-none"
+                    style={{ color: "hsl(var(--deep-gold) / 0.35)" }}
+                  >
+                    {step.num}
+                  </span>
+                  <h3 className="font-display text-2xl md:text-3xl font-semibold text-primary mb-3">{step.title}</h3>
+                  <p className="font-body text-base text-muted-foreground leading-relaxed mb-5">{step.desc}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {step.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="font-body text-xs text-muted-foreground rounded-full px-3 py-1"
+                        style={{ border: "1px solid hsl(var(--border))" }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
-
-      {/* ── 4. LIFESTYLE IMAGE BREAK ── */}
       <div className="relative h-72 md:h-96 overflow-hidden">
         <img
           src={heroImg}
