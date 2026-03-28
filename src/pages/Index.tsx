@@ -4,6 +4,9 @@ import { ArrowRight, Sparkles, Clock, Tag, Star, DoorOpen, Shirt, Home, Plus } f
 import heroImg from "@/assets/hero-laundry.jpg";
 import danaPhoto from "@/assets/dana-folder.jpg";
 import howItWorksBag from "@/assets/how-it-works-bag.jpg";
+import stepPorch from "@/assets/step-1-porch.jpg";
+import stepWashFold from "@/assets/step-2-wash-fold.jpg";
+import stepDelivery from "@/assets/step-3-delivery.jpg";
 import GalleryGrid from "@/components/GalleryGrid";
 
 const promises = [
