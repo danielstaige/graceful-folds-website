@@ -1,6 +1,7 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
 import gallery1 from "@/assets/gallery-1.avif";
 import gallery2 from "@/assets/gallery-2.avif";
 import gallery3 from "@/assets/gallery-3.avif";
@@ -31,6 +32,28 @@ const images = [
 
 const GalleryGrid = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+    slidesToScroll: 1,
+  });
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => {
+      setCanScrollPrev(emblaApi.canScrollPrev());
+      setCanScrollNext(emblaApi.canScrollNext());
+    };
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi]);
 
   const close = useCallback(() => setSelectedIndex(null), []);
   const prev = useCallback(
@@ -63,8 +86,7 @@ const GalleryGrid = () => {
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span
-              className="font-body text-xs tracking-widest uppercase mb-3 block"
-              style={{ color: "hsl(var(--deep-gold))" }}
+              className="font-body text-xs tracking-widest uppercase mb-3 block text-deep-gold"
             >
               Our Work
             </span>
@@ -76,35 +98,55 @@ const GalleryGrid = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-            {images.map((img, i) => {
-              const tall = i === 0 || i === 5 || i === 8;
-              return (
-                <button
-                  key={i}
-                  onClick={() => setSelectedIndex(i)}
-                  className={`group relative overflow-hidden rounded-xl cursor-pointer ${
-                    tall ? "row-span-2" : ""
-                  }`}
-                >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    loading="lazy"
-                    className={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
-                      tall ? "h-full min-h-[320px] md:min-h-[420px]" : "h-48 md:h-56"
-                    }`}
-                  />
+          {/* Carousel */}
+          <div className="relative">
+            <div ref={emblaRef} className="overflow-hidden rounded-xl">
+              <div className="flex -ml-4">
+                {images.map((img, i) => (
                   <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{
-                      background:
-                        "linear-gradient(to top, hsl(var(--charcoal) / 0.4), transparent 50%)",
-                    }}
-                  />
-                </button>
-              );
-            })}
+                    key={i}
+                    className="min-w-0 shrink-0 grow-0 basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4"
+                  >
+                    <button
+                      onClick={() => setSelectedIndex(i)}
+                      className="group relative overflow-hidden rounded-xl cursor-pointer w-full"
+                    >
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        loading="lazy"
+                        className="w-full h-56 md:h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div
+                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                        style={{
+                          background:
+                            "linear-gradient(to top, hsl(var(--charcoal) / 0.4), transparent 50%)",
+                        }}
+                      />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Nav buttons */}
+            <button
+              onClick={() => emblaApi?.scrollPrev()}
+              disabled={!canScrollPrev}
+              className="absolute -left-4 md:-left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-colors disabled:opacity-30 z-10"
+              style={{ background: "hsl(var(--primary))", color: "hsl(var(--primary-foreground))" }}
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={() => emblaApi?.scrollNext()}
+              disabled={!canScrollNext}
+              className="absolute -right-4 md:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-colors disabled:opacity-30 z-10"
+              style={{ background: "hsl(var(--primary))", color: "hsl(var(--primary-foreground))" }}
+            >
+              <ChevronRight size={20} />
+            </button>
           </div>
         </div>
       </section>
@@ -121,7 +163,6 @@ const GalleryGrid = () => {
             style={{ background: "hsl(var(--charcoal) / 0.92)" }}
             onClick={close}
           >
-            {/* Close */}
             <button
               onClick={close}
               className="absolute top-5 right-5 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
@@ -129,8 +170,6 @@ const GalleryGrid = () => {
             >
               <X size={20} />
             </button>
-
-            {/* Prev */}
             <button
               onClick={(e) => { e.stopPropagation(); prev(); }}
               className="absolute left-4 md:left-8 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
@@ -138,8 +177,6 @@ const GalleryGrid = () => {
             >
               <ChevronLeft size={22} />
             </button>
-
-            {/* Image */}
             <motion.img
               key={selectedIndex}
               src={images[selectedIndex].src}
@@ -151,8 +188,6 @@ const GalleryGrid = () => {
               className="max-h-[85vh] max-w-[90vw] object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
             />
-
-            {/* Next */}
             <button
               onClick={(e) => { e.stopPropagation(); next(); }}
               className="absolute right-4 md:right-8 w-10 h-10 rounded-full flex items-center justify-center transition-colors"
@@ -160,8 +195,6 @@ const GalleryGrid = () => {
             >
               <ChevronRight size={22} />
             </button>
-
-            {/* Counter */}
             <p
               className="absolute bottom-5 font-body text-sm"
               style={{ color: "hsl(var(--soft-cream) / 0.6)" }}
