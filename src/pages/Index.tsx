@@ -218,7 +218,7 @@ const HomePage = () => {
           className="w-full h-full object-cover"
           style={{ objectPosition: "center 30%" }}
         >
-          <source src="https://cdn.pixabay.com/video/2020/05/25/39831-424884993_large.mp4" type="video/mp4" />
+          <source src="/banner-video.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0" style={{ background: "hsl(20 10% 15% / 0.35)" }} />
         <p className="absolute bottom-5 right-6 font-display text-sm italic"
