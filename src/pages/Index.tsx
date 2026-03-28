@@ -148,10 +148,10 @@ const HomePage = () => {
             <div className="w-full lg:w-2/5 shrink-0">
               <div className="rounded-2xl overflow-hidden h-64 lg:h-auto lg:min-h-[520px]">
                 <img
-                  src={heroImg}
-                  alt="Fresh laundry folded with care"
+                  src={howItWorksBag}
+                  alt="Folds of Grace laundry bag with neatly folded clothes on a porch"
                   className="w-full h-full object-cover"
-                  style={{ objectPosition: "center 30%" }}
+                  style={{ objectPosition: "center 40%" }}
                 />
               </div>
             </div>
