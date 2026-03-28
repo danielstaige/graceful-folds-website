@@ -22,6 +22,7 @@ const steps = [
     title: "Set It on the Porch",
     desc: "Leave your bag out at your scheduled pickup time — no waiting around.",
     tags: ["Free Pickup", "No Contact Needed"],
+    img: stepPorch,
   },
   {
     icon: Shirt,
@@ -29,6 +30,7 @@ const steps = [
     title: "We Wash & Fold",
     desc: "We handle everything with care — washed, dried, and neatly folded.",
     tags: ["Wash & Fold", "24–48 hrs"],
+    img: stepWashFold,
   },
   {
     icon: Home,
@@ -36,6 +38,7 @@ const steps = [
     title: "It's Back at Your Door",
     desc: "Fresh laundry delivered back to your doorstep, right on schedule.",
     tags: ["Doorstep Delivery", "Same Route"],
+    img: stepDelivery,
   },
 ];
 
