@@ -168,7 +168,7 @@ const HomePage = () => {
             {steps.map((step, i) => (
               <div
                 key={step.num}
-                className={`flex flex-col ${i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} gap-8 md:gap-12 items-center`}
+                className={`flex flex-col-reverse ${i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} gap-8 md:gap-12 items-center`}
               >
                 {/* Image */}
                 <div className="w-full md:w-1/2 shrink-0">
