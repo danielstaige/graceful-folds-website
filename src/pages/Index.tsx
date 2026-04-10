@@ -114,7 +114,7 @@ const HomePage = () => {
               <em className="not-italic" style={{ color: "hsl(var(--deep-gold))" }}>for Your Laundry.</em>
             </h1>
             <p className="font-body text-base md:text-lg leading-relaxed mb-10 max-w-md" style={{ color: "hsl(var(--soft-cream) / 0.8)" }}>
-              Get your laundry done for you, so you can focus on what matters most. Pickup, wash, fold, and delivery — all taken care of.
+              Never do laundry again! We pick up, wash, fold/hang, and deliver—hassle-free and ready to go.
             </p>
             <Link
               to="/contact"
