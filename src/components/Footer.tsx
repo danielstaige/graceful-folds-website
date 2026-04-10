@@ -31,7 +31,7 @@ const Footer = () => {
               Premium laundry pickup and delivery for busy families in the Dallas-Fort Worth area.
             </p>
             <p className="font-display text-base italic text-gold mt-2">
-              "We'll lighten the load."
+              "Never Do Laundry Again"
             </p>
           </div>
 

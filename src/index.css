@@ -2,78 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Folds of Grace Design System — Warm Minimalism */
+/* Folds of Grace Design System — Gray & Blue */
 
 @layer base {
-  /* ─── Light & Gold / Cream & Orange Theme (default) ────────────────────── */
-  :root,
-  body.theme-light-gold {
+  :root {
     /* Palette */
-    --charcoal: 0 0% 11%;          /* #1C1C1C */
-    --warm-beige: 36 33% 96%;      /* #f7f5f2 cream */
-    --deep-gold: 40 95% 45%;       /* #E09706 orange — alias for accent */
-    --soft-cream: 36 33% 96%;      /* #f7f5f2 */
-
-    /* Semantic */
-    --background: 36 33% 96%;
-    --foreground: 0 0% 11%;
-
-    --card: 36 33% 98%;
-    --card-foreground: 0 0% 11%;
-
-    --popover: 36 33% 98%;
-    --popover-foreground: 0 0% 11%;
-
-    --primary: 0 0% 11%;
-    --primary-foreground: 36 33% 96%;
-
-    --secondary: 36 25% 90%;
-    --secondary-foreground: 0 0% 11%;
-
-    --muted: 36 20% 86%;
-    --muted-foreground: 0 0% 40%;
-
-    --accent: 40 95% 45%;
-    --accent-foreground: 0 0% 11%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 36 20% 84%;
-    --input: 36 20% 84%;
-    --ring: 40 95% 45%;
-
-    --radius: 0.5rem;
-
-    /* Sidebar */
-    --sidebar-background: 0 0% 11%;
-    --sidebar-foreground: 36 33% 96%;
-    --sidebar-primary: 40 95% 45%;
-    --sidebar-primary-foreground: 0 0% 11%;
-    --sidebar-accent: 0 0% 18%;
-    --sidebar-accent-foreground: 36 33% 96%;
-    --sidebar-border: 0 0% 18%;
-    --sidebar-ring: 40 95% 45%;
-
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 11% / 0.82) 0%, hsl(0 0% 11% / 0.45) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(40 95% 45%), hsl(40 95% 37%));
-    --gradient-sage: linear-gradient(180deg, hsl(36 25% 90%), hsl(36 33% 96%));
-
-    /* Shadows */
-    --shadow-soft: 0 4px 24px -4px hsl(0 0% 11% / 0.12);
-    --shadow-card: 0 2px 16px -2px hsl(0 0% 11% / 0.08);
-    --shadow-gold: 0 4px 20px -4px hsl(40 95% 45% / 0.35);
-  }
-
-  /* ─── Gray & Blue Theme ─────────────────────────────────────────────────── */
-  body.theme-gray-blue {
-    /* Palette */
-    --soft-gray: 0 0% 95%;         /* #f2f2f2 */
-    --sky-blue: 208 51% 51%;       /* #4285c1 */
-    --navy: 208 51% 22%;           /* dark navy derived from blue */
-    --off-white: 0 0% 95%;         /* #f2f2f2 */
-    --deep-gold: 208 51% 51%;      /* alias → sky-blue so text-gold switches */
+    --soft-gray: 0 0% 95%;
+    --sky-blue: 208 51% 51%;
+    --navy: 208 51% 22%;
+    --off-white: 0 0% 95%;
+    --deep-gold: 208 51% 51%;
 
     /* Semantic */
     --background: 0 0% 95%;
