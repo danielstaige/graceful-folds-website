@@ -1,5 +1,4 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ThemeProvider } from "@/contexts/ThemeContext";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -7,7 +6,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
 import Index from "./pages/Index.tsx";
 import OurStory from "./pages/OurStory.tsx";
 import HowItWorks from "./pages/HowItWorks.tsx";

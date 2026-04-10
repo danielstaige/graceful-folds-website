@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-
+import logoImg from "@/assets/gray-blue-variant-logo.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "Our Story", path: "/our-story" },
-  { label: "How It Works", path: "/how-it-works" },
   { label: "Pricing", path: "/pricing" },
   { label: "The Fold", path: "/the-fold" },
   { label: "Prayer Wall", path: "/prayer-wall" },
@@ -39,13 +38,8 @@ const Navbar = () => {
       <div className="container max-w-7xl mx-auto">
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
-          <Link to="/" className="flex flex-col items-start shrink-0 leading-tight">
-            <span className="font-display text-xl lg:text-2xl font-bold text-primary tracking-wide">
-              Folds of Grace
-            </span>
-            <span className="font-body text-xs text-accent tracking-widest uppercase">
-              Laundry Pickup &amp; Delivery
-            </span>
+          <Link to="/" className="shrink-0">
+            <img src={logoImg} alt="Folds of Grace" className="h-14 lg:h-18 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
@@ -96,10 +90,7 @@ const Navbar = () => {
             >
               {/* Sheet Header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-border">
-                <div className="flex flex-col leading-tight">
-                  <span className="font-display text-base font-bold text-primary tracking-wide">Folds of Grace</span>
-                  <span className="font-body text-[10px] text-accent tracking-widest uppercase">Laundry Pickup &amp; Delivery</span>
-                </div>
+                <img src={logoImg} alt="Folds of Grace" className="h-10 w-auto" />
                 <SheetClose asChild>
                   <button
                     className="p-1.5 rounded-md text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
