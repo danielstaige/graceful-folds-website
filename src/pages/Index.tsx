@@ -168,8 +168,16 @@ const HomePage = () => {
             {steps.map((step, i) => (
               <div
                 key={step.num}
-                className={`flex flex-col-reverse ${i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} gap-8 md:gap-12 items-center`}
+                className={`flex flex-col ${i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} gap-8 md:gap-12 items-center`}
               >
+                {/* Number - visible only on mobile, above image */}
+                <span
+                  className="md:hidden font-display text-6xl font-semibold leading-none select-none"
+                  style={{ color: "hsl(var(--deep-gold) / 0.35)" }}
+                >
+                  {step.num}
+                </span>
+
                 {/* Image */}
                 <div className="w-full md:w-1/2 shrink-0">
                   <div className="rounded-2xl overflow-hidden aspect-square">
@@ -187,7 +195,7 @@ const HomePage = () => {
                 {/* Content */}
                 <div className="w-full md:w-1/2 flex flex-col justify-center">
                   <span
-                    className="font-display text-6xl font-semibold leading-none mb-4 select-none"
+                    className="hidden md:block font-display text-6xl font-semibold leading-none mb-4 select-none"
                     style={{ color: "hsl(var(--deep-gold) / 0.35)" }}
                   >
                     {step.num}
