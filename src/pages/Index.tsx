@@ -158,7 +158,7 @@ const HomePage = () => {
       {/* ── 3. HOW IT WORKS — Image Left + Numbered List Right ── */}
       <section className="section-padding bg-background">
         <div className="container max-w-5xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-left md:text-center mb-16">
             <span className="font-body text-xs tracking-widest uppercase mb-3 block" style={{ color: "hsl(var(--deep-gold))" }}>Simple Process</span>
             <h2 className="font-display text-4xl md:text-5xl font-semibold text-primary mb-4">How It Works</h2>
             <p className="font-body text-base text-muted-foreground max-w-md mx-auto leading-relaxed">Three easy steps to fresh, folded laundry — without lifting a finger.</p>
@@ -193,7 +193,7 @@ const HomePage = () => {
                 </div>
 
                 {/* Content */}
-                <div className="w-full md:w-1/2 flex flex-col justify-center">
+                <div className="w-full md:w-1/2 flex flex-col justify-center text-left">
                   <span
                     className="hidden md:block font-display text-6xl font-semibold leading-none mb-4 select-none"
                     style={{ color: "hsl(var(--deep-gold) / 0.35)" }}
