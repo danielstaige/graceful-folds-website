@@ -106,7 +106,7 @@ const HomePage = () => {
         <div className="relative z-10 w-full px-8 md:px-16 lg:px-24 py-32">
           <div className="max-w-xl">
             <span className="font-display text-sm italic mb-6 block tracking-wide" style={{ color: "hsl(var(--deep-gold))" }}>
-              Dallas-Fort Worth · Premium Laundry Service
+              Dallas - Fort Worth, Laundry Pickup and Delivery Services
             </span>
             <h1 className="font-display text-5xl md:text-6xl font-semibold text-primary-foreground leading-tight mb-6">
               Finally, a Solution
