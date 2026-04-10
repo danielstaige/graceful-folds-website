@@ -474,12 +474,12 @@ const HomePage = () => {
               <span className="font-body text-xs tracking-widest uppercase mb-3 block" style={{ color: "hsl(var(--deep-gold))" }}>Our Founder</span>
               <h2 className="font-display text-4xl font-semibold text-primary mb-5">Meet Dana</h2>
               <p className="font-body text-base text-muted-foreground leading-relaxed mb-8 max-w-md">
-                Dana started Folds of Grace after watching busy families in her community struggle to keep up with the endless pile of laundry. Her mission is simple: give people back the time and peace of mind they deserve.
+                Hi, I'm Dana—founder of Folds of Grace, a lover of Jesus, a mom to four amazing kiddos, a friend, a CrossFit enthusiast, an intercessor, and an encourager. If you know me, you know I'm praying for you. That's not something I take lightly—it's at the center of who I am and how I serve.
               </p>
               <Link
                 to="/our-story"
-                className="inline-flex items-center gap-2 font-body text-sm font-medium text-primary hover:text-gold transition-colors"
-                style={{ color: "hsl(var(--charcoal))" }}
+                className="inline-flex items-center gap-2 font-body text-sm font-medium hover:underline transition-colors"
+                style={{ color: "hsl(var(--deep-gold))" }}
               >
                 Read Our Story <ArrowRight size={15} />
               </Link>
@@ -497,7 +497,7 @@ const HomePage = () => {
               >
                 <img src={danaPhoto} alt="Dana, founder of Folds of Grace" className="w-full h-full object-cover" />
               </div>
-              <p className="font-display text-xs italic text-muted-foreground">Photo coming soon</p>
+              
             </div>
           </div>
         </div>
@@ -508,10 +508,10 @@ const HomePage = () => {
         <div className="container max-w-3xl mx-auto text-center">
           <div className="gold-divider mb-10" />
           <h2 className="font-display text-5xl md:text-6xl font-semibold text-primary-foreground mb-6 leading-tight">
-            You Deserve a Little Grace.
+            You Were Never Meant to Do It Alone
           </h2>
           <p className="font-body text-lg mb-10 max-w-md mx-auto leading-relaxed" style={{ color: "hsl(var(--soft-cream) / 0.75)" }}>
-            Let us handle the laundry. Your first pickup is just a few clicks away — serving families across Dallas-Fort Worth.
+            We're here to help—laundry pickup is just a few clicks away servicing all across DFW Dallas-Fort Worth.
           </p>
           <Link
             to="/contact"
