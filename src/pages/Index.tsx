@@ -10,9 +10,9 @@ import stepDelivery from "@/assets/step-3-delivery.jpg";
 import GalleryGrid from "@/components/GalleryGrid";
 
 const promises = [
-  { icon: Sparkles, title: "Done For You", desc: "Every item washed, dried, and folded — ready to put away." },
-  { icon: Clock, title: "Back in 24–48 Hours", desc: "Fast turnaround so you're never without what you need." },
-  { icon: Tag, title: "Simple, Flat-Rate Pricing", desc: "No surprises. Just one clear price per bag." },
+  { icon: Sparkles, title: "Full Service Laundry", desc: "Washed, folded/hung, sorted by family member — ready for put away." },
+  { icon: Clock, title: "Back in 24–48 Hours", desc: "Fast turnaround so you're never without what you need.", sub: "(Most orders 24–36 hrs; rush service available depending on service and size)" },
+  { icon: Tag, title: "Simple, Flat-Rate Pricing", desc: "$1.85/lb. Flat rate and free pickup and delivery." },
 ];
 
 const steps = [
@@ -145,7 +145,10 @@ const HomePage = () => {
                   <p.icon size={26} style={{ color: "hsl(var(--deep-gold))" }} />
                 </div>
                 <h3 className="font-display text-lg font-semibold text-primary-foreground">{p.title}</h3>
-                <p className="font-body text-sm leading-relaxed max-w-[200px]" style={{ color: "hsl(var(--soft-cream) / 0.7)" }}>{p.desc}</p>
+                <p className="font-body text-sm leading-relaxed max-w-[220px] text-primary-foreground/80">{p.desc}</p>
+                {p.sub && (
+                  <p className="font-body text-xs leading-relaxed max-w-[220px] text-primary-foreground/60 italic">{p.sub}</p>
+                )}
               </div>
             ))}
           </div>
