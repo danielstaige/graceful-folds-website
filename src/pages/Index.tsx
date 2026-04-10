@@ -172,7 +172,7 @@ const HomePage = () => {
               >
                 {/* Number - visible only on mobile, above image */}
                 <span
-                  className="md:hidden font-display text-6xl font-semibold leading-none select-none"
+                  className="md:hidden font-display text-6xl font-semibold leading-none select-none self-start"
                   style={{ color: "hsl(var(--deep-gold) / 0.35)" }}
                 >
                   {step.num}
