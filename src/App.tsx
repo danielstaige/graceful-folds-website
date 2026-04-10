@@ -28,7 +28,6 @@ const ScrollToTop = () => {
 };
 
 const App = () => (
-  <ThemeProvider>
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -50,11 +49,9 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
-        <ThemeSwitcher />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
-  </ThemeProvider>
 );
 
 export default App;
