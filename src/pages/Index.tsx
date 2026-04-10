@@ -145,7 +145,10 @@ const HomePage = () => {
                   <p.icon size={26} style={{ color: "hsl(var(--deep-gold))" }} />
                 </div>
                 <h3 className="font-display text-lg font-semibold text-primary-foreground">{p.title}</h3>
-                <p className="font-body text-sm leading-relaxed max-w-[200px]" style={{ color: "hsl(var(--soft-cream) / 0.7)" }}>{p.desc}</p>
+                <p className="font-body text-sm leading-relaxed max-w-[220px] text-primary-foreground/80">{p.desc}</p>
+                {p.sub && (
+                  <p className="font-body text-xs leading-relaxed max-w-[220px] text-primary-foreground/60 italic">{p.sub}</p>
+                )}
               </div>
             ))}
           </div>
