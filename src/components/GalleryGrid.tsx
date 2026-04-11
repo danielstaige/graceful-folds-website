@@ -1,7 +1,6 @@
-import { useState, useCallback, useEffect, useRef } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
-import useEmblaCarousel from "embla-carousel-react";
 import gallery1 from "@/assets/gallery-1.avif";
 import gallery2 from "@/assets/gallery-2.avif";
 import gallery3 from "@/assets/gallery-3.avif";
@@ -32,28 +31,6 @@ const images = [
 
 const GalleryGrid = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "start",
-    slidesToScroll: 1,
-  });
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => {
-      setCanScrollPrev(emblaApi.canScrollPrev());
-      setCanScrollNext(emblaApi.canScrollNext());
-    };
-    onSelect();
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-    return () => {
-      emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
-    };
-  }, [emblaApi]);
 
   const close = useCallback(() => setSelectedIndex(null), []);
   const prev = useCallback(
@@ -85,68 +62,40 @@ const GalleryGrid = () => {
       <section className="bg-background py-24 px-4">
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <span
-              className="font-body text-xs tracking-widest uppercase mb-3 block text-deep-gold"
-            >
+            <span className="font-body text-xs tracking-widest uppercase mb-3 block text-deep-gold">
               Our Work
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-semibold text-primary mb-4">
               Every Fold, Done with Care
             </h2>
             <p className="font-body text-base text-muted-foreground max-w-md mx-auto leading-relaxed">
-              A look at the love and attention we put into every bag we handle.
+              See the difference when every load is handled with purpose and prayer.
             </p>
           </div>
 
-          {/* Carousel */}
-          <div className="relative">
-            <div ref={emblaRef} className="overflow-hidden rounded-xl">
-              <div className="flex -ml-4">
-                {images.map((img, i) => (
-                  <div
-                    key={i}
-                    className="min-w-0 shrink-0 grow-0 basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4"
-                  >
-                    <button
-                      onClick={() => setSelectedIndex(i)}
-                      className="group relative overflow-hidden rounded-xl cursor-pointer w-full"
-                    >
-                      <img
-                        src={img.src}
-                        alt={img.alt}
-                        loading="lazy"
-                        className="w-full h-56 md:h-64 object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div
-                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        style={{
-                          background:
-                            "linear-gradient(to top, hsl(var(--charcoal) / 0.4), transparent 50%)",
-                        }}
-                      />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Nav buttons */}
-            <button
-              onClick={() => emblaApi?.scrollPrev()}
-              disabled={!canScrollPrev}
-              className="absolute -left-4 md:-left-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-colors disabled:opacity-30 z-10"
-              style={{ background: "hsl(var(--primary))", color: "hsl(var(--primary-foreground))" }}
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              onClick={() => emblaApi?.scrollNext()}
-              disabled={!canScrollNext}
-              className="absolute -right-4 md:-right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center transition-colors disabled:opacity-30 z-10"
-              style={{ background: "hsl(var(--primary))", color: "hsl(var(--primary-foreground))" }}
-            >
-              <ChevronRight size={20} />
-            </button>
+          {/* Photo Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {images.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setSelectedIndex(i)}
+                className="group relative overflow-hidden rounded-xl cursor-pointer"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  className="w-full h-56 md:h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    background:
+                      "linear-gradient(to top, hsl(var(--charcoal) / 0.4), transparent 50%)",
+                  }}
+                />
+              </button>
+            ))}
           </div>
         </div>
       </section>
