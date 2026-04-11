@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowRight, Heart, CheckCircle2 } from "lucide-react";
+import { Heart } from "lucide-react";
 import {
   Dialog,
   DialogContent,
