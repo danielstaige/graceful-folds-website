@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, Clock, Tag, Star, DoorOpen, Shirt, Home, Plus } from "lucide-react";
+import { ArrowRight, Sparkles, Clock, Tag, Star, DoorOpen, Shirt, Home } from "lucide-react";
 import heroImg from "@/assets/hero-laundry.jpg";
 import danaPhoto from "@/assets/dana-folder.jpg";
 import howItWorksBag from "@/assets/how-it-works-bag.jpg";
@@ -44,45 +44,81 @@ const steps = [
 
 const testimonials = [
   {
-    name: "Stephanie Snow",
-    location: "Southlake, TX",
-    initials: "SS",
-    quote: "Folds of Grace was such a help to me this week! To see it all clean and meticulously folded without having done any of the work was wonderful. And to know that while we went about our day someone was praying for us is such an encouragement!",
+    name: "Michelle Roy",
+    location: "Southlake",
+    initials: "MR",
+    quote: "Folds of Grace has truly been a gift to our family. Not only do they sort, fold, and organize all of my kids' clothes, but everything is done with such care and precision. Ms. Brenda is something special — the sweetest handwritten cards and notes, each one so thoughtful and heartfelt. This is more than a laundry service — it's a blessing. 💛",
   },
   {
-    name: "Jennifer Stockett",
-    location: "Grapevine, TX",
-    initials: "JS",
-    quote: "As a working mom, this takes one thing off my never-ending to-do list and gives me more time to be a mom. My Folder is so attentive to all our high-maintenance requests. I've been impressed with the attention to detail, timeliness, and all-around customer service.",
+    name: "Lacy Garcia",
+    location: "Mansfield",
+    initials: "LG",
+    quote: "Folds of Grace is an absolute blessing. The response time is quick, and pick-up and drop-off are always fast and efficient. It's the little things like this that help me keep my rental house running smoothly. Not to mention the blessing of knowing they pray not only over my linens, but for my family as well. 10/10 recommend.",
   },
   {
-    name: "Baylee Cypress",
-    location: "Mansfield, TX",
-    initials: "BC",
-    quote: "This service was gifted to us and it was such a treat! I loved being able to set my laundry on the porch and find it neatly folded the next morning. They even got some stubborn stains out and left a note about what they prayed for us. I highly recommend Folds of Grace!",
+    name: "Lindsay Hardee",
+    location: "Waxahachie",
+    initials: "LH",
+    quote: "Folds of Grace has been a Godsend to our family. With our busy schedule, laundry is the hardest chore to keep up with. Our folder, Kaitlyn, has been amazing, and we even pray for each other. I love that you usually get the same folder each time, which builds trust. The quality and quick turnaround make it completely worth it. 🙏❤️",
   },
   {
-    name: "Jana Mayfield",
-    location: "Midlothian, TX",
-    initials: "JM",
-    quote: "Folds of Grace exceeded my expectation for a laundry service! They picked up my laundry, treated stains, washed, dried, folded incredibly, and delivered it all back to my front door. They even wrote a handwritten note of how they prayed for our family. I'm thankful for their care!",
+    name: "Bridget Petty",
+    location: "Euless",
+    initials: "BP",
+    quote: "I've been so touched by Folds of Grace! As a single mom, it's truly such a blessing to have my laundry folded, sorted, and perfectly ready to be put away! The love & thoughtfulness that go into their services is a gift from God! Super thankful for Dana's heartfelt ministry & the love behind Folds of Grace! 🤍",
+  },
+  {
+    name: "Cherlyn Simmons",
+    location: "Midlothian",
+    initials: "CS",
+    quote: "Folds of Grace was an absolute Godsend for my friend. After her brain surgery, I wanted to take one daily burden off her plate. The owner was incredibly kind and helpful. My friend was thrilled and mentioned multiple times how wonderful the service was. The level of customer care was outstanding.",
+  },
+  {
+    name: "Buindo's",
+    location: "Venus",
+    initials: "B",
+    quote: "Great service! We use it for our restaurant towels. Very quick turnaround and anybody that I've ever interacted with has been super kind. I especially love the handwritten notes and asking if they can pray over us for anything!",
+  },
+  {
+    name: "Zabby Damania",
+    location: "Grand Prairie",
+    initials: "ZD",
+    quote: "I absolutely love them. Not only do they do a phenomenal job on my laundry but their customer service is top notch. I always receive prompt responses and they have always 100% accommodated my last minute service requests. I recommend them.",
+  },
+  {
+    name: "Audrey Nabholz",
+    location: "Fort Worth",
+    initials: "AN",
+    quote: "If I could give 10 stars, I would! When we were in a bind across the US and found ourselves in the hospital, the Folds of Grace team saved us! I will shout their awesomeness from Heaven one day!!",
+  },
+  {
+    name: "Danielle Jenkins",
+    location: "Colleyville",
+    initials: "DJ",
+    quote: "Folds of Grace is literally the best thing I have ever done for me, my sanity, and my household. As a small business owner, I could never keep up. Now I know the laundry fairies are coming! They will even hang on hangers so all I have to do is put them away. Not to mention they pray for your kids and you while folding! Don't walk — RUN! ❤️",
+  },
+  {
+    name: "LaQuanda Brownlee",
+    location: "Venus",
+    initials: "LB",
+    quote: "If I could leave them 100 stars, I would. They are absolutely phenomenal and a wonderful service to have available when you have a lot going on and can't keep up with laundry. Thank you ladies for always being there for us when we need it. ❤️",
   },
   {
     name: "Susan Lawson",
-    location: "Waxahachie, TX",
+    location: "Midlothian",
     initials: "SL",
-    quote: "Folds of Grace exceeded my expectations! The laundry was returned the same day! The kids were able to take their bags to their room and immediately put their clothes away. They even added a personal touch with a handwritten note of how the Lord led them to pray over my family. Do yourself a favor — give them a try!",
+    quote: "I am a full time working mom. Folds of Grace exceeded my expectations! The laundry was returned the same day! The kids were able to take their bags to their room and immediately put their clothes away! They even added a personal touch with a handwritten note of how the Lord led them to pray over my family! Do yourself a favor — give them a try!",
   },
   {
-    name: "Angela Swan",
-    location: "Arlington, TX",
-    initials: "AS",
-    quote: "They picked my clothes up on Tuesday and actually had them back that afternoon — which I was pleasantly surprised about! They smelled amazing, folded so neat. The prayer cards were just the sweetest! I loved it. Just the best and hope to continue!",
+    name: "Stephanie Snow",
+    location: "Southlake",
+    initials: "SS",
+    quote: "Folds of Grace was such a help to me this week! To see it all clean and meticulously folded without having done any of the work was wonderful. And to know that while we went about our day someone was praying for us is such an encouragement!",
   },
 ];
 
-const leftTestimonials = testimonials.slice(0, 3);
-const rightTestimonials = testimonials.slice(3, 6);
+const leftTestimonials = testimonials.slice(0, 6);
+const rightTestimonials = testimonials.slice(6, 12);
 
 const HomePage = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -269,10 +305,10 @@ const HomePage = () => {
         <div className="container max-w-6xl mx-auto">
 
           {/* Desktop: 3-column grid */}
-          <div className="hidden lg:grid lg:grid-cols-[1fr_1.6fr_1fr] gap-4 items-stretch">
+          <div className="hidden lg:grid lg:grid-cols-[1fr_1.6fr_1fr] gap-4 items-start">
 
-            {/* Left column — 3 name cards */}
-            <div className="flex flex-col gap-4">
+            {/* Left column — 6 review cards */}
+            <div className="flex flex-col gap-3 max-h-[600px] overflow-y-auto pr-1 custom-scrollbar">
               {leftTestimonials.map((t, i) => {
                 const globalIndex = i;
                 const isActive = activeIndex === globalIndex;
@@ -280,142 +316,134 @@ const HomePage = () => {
                   <button
                     key={t.name}
                     onClick={() => setActiveIndex(globalIndex)}
-                    className="relative rounded-xl overflow-hidden h-36 text-left transition-all duration-200 group"
+                    className="rounded-xl p-4 text-left transition-all duration-200 group"
                     style={{
-                      background: "hsl(38 33% 90%)",
-                      outline: isActive ? "2px solid hsl(var(--deep-gold))" : "2px solid transparent",
+                      background: "hsl(var(--card))",
+                      outline: isActive ? "2px solid hsl(var(--accent))" : "2px solid transparent",
                       outlineOffset: "2px",
                     }}
                   >
-                    {/* Avatar initials */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full flex items-center justify-center font-display text-xl font-semibold" style={{ background: "hsl(var(--deep-gold) / 0.2)", color: "hsl(var(--deep-gold))" }}>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div
+                        className="w-9 h-9 rounded-full flex items-center justify-center font-display text-xs font-semibold shrink-0"
+                        style={{ background: "hsl(var(--accent) / 0.15)", color: "hsl(var(--accent))" }}
+                      >
                         {t.initials}
                       </div>
+                      <div>
+                        <p className="font-body text-sm font-semibold text-foreground leading-tight">{t.name}</p>
+                        <p className="font-body text-xs text-muted-foreground">{t.location}</p>
+                      </div>
                     </div>
-                    {/* Name label */}
-                    <div className="absolute bottom-0 left-0 right-0 p-3" style={{ background: "linear-gradient(to top, hsl(20 10% 15% / 0.6), transparent)" }}>
-                      <p className="font-body text-xs font-semibold text-primary-foreground leading-tight">{t.name}</p>
-                      <p className="font-body text-xs" style={{ color: "hsl(var(--soft-cream) / 0.7)" }}>{t.location}</p>
-                    </div>
-                    {/* Plus/check indicator */}
-                    <div
-                      className="absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center transition-all"
-                      style={{
-                        background: isActive ? "hsl(var(--deep-gold))" : "hsl(var(--soft-cream) / 0.9)",
-                        color: isActive ? "hsl(var(--soft-cream))" : "hsl(var(--deep-gold))",
-                      }}
-                    >
-                      <Plus size={12} />
-                    </div>
+                    <p className="font-body text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                      "{t.quote}"
+                    </p>
                   </button>
                 );
               })}
             </div>
 
-            {/* Center — featured card */}
+            {/* Center — featured card (blue) */}
             <div
-              className="rounded-2xl p-8 flex flex-col justify-between"
-              style={{ background: "hsl(var(--charcoal))" }}
+              className="rounded-2xl p-8 flex flex-col justify-between min-h-[600px]"
+              style={{ background: "hsl(var(--accent))" }}
             >
               <div>
-                <span className="font-body text-xs tracking-widest uppercase mb-4 block" style={{ color: "hsl(var(--deep-gold))" }}>
+                <span className="font-body text-xs tracking-widest uppercase mb-4 block" style={{ color: "hsl(0 0% 100% / 0.7)" }}>
                   Testimonial
                 </span>
-                <h2 className="font-display text-2xl font-semibold text-primary-foreground mb-8 leading-snug">
+                <h2 className="font-display text-2xl font-semibold mb-8 leading-snug" style={{ color: "hsl(0 0% 100%)" }}>
                   Praised by families<br />across DFW.
                 </h2>
                 <p
                   className="font-display text-6xl leading-none mb-3 select-none"
-                  style={{ color: "hsl(var(--deep-gold))" }}
+                  style={{ color: "hsl(0 0% 100% / 0.3)" }}
                 >
                   "
                 </p>
-                <p className="font-display text-lg italic text-primary-foreground leading-relaxed">
+                <p className="font-display text-lg italic leading-relaxed" style={{ color: "hsl(0 0% 100%)" }}>
                   {testimonials[activeIndex].quote}
                 </p>
               </div>
               <div className="mt-8">
                 <div className="flex gap-1 mb-3">
                   {[...Array(5)].map((_, j) => (
-                    <Star key={j} size={14} fill="hsl(var(--deep-gold))" style={{ color: "hsl(var(--deep-gold))" }} />
+                    <Star key={j} size={14} fill="hsl(0 0% 100%)" style={{ color: "hsl(0 0% 100%)" }} />
                   ))}
                 </div>
-                <p className="font-body text-sm font-semibold" style={{ color: "hsl(var(--deep-gold))" }}>
+                <p className="font-body text-sm font-semibold" style={{ color: "hsl(0 0% 100%)" }}>
                   {testimonials[activeIndex].name}
                 </p>
-                <p className="font-body text-xs" style={{ color: "hsl(var(--soft-cream) / 0.6)" }}>
+                <p className="font-body text-xs" style={{ color: "hsl(0 0% 100% / 0.6)" }}>
                   {testimonials[activeIndex].location}
                 </p>
               </div>
             </div>
 
-            {/* Right column — 3 name cards */}
-            <div className="flex flex-col gap-4">
+            {/* Right column — 6 review cards */}
+            <div className="flex flex-col gap-3 max-h-[600px] overflow-y-auto pr-1 custom-scrollbar">
               {rightTestimonials.map((t, i) => {
-                const globalIndex = testimonials.indexOf(t);
+                const globalIndex = leftTestimonials.length + i;
                 const isActive = activeIndex === globalIndex;
                 return (
                   <button
                     key={t.name}
                     onClick={() => setActiveIndex(globalIndex)}
-                    className="relative rounded-xl overflow-hidden h-36 text-left transition-all duration-200"
+                    className="rounded-xl p-4 text-left transition-all duration-200"
                     style={{
-                      background: "hsl(38 33% 90%)",
-                      outline: isActive ? "2px solid hsl(var(--deep-gold))" : "2px solid transparent",
+                      background: "hsl(var(--card))",
+                      outline: isActive ? "2px solid hsl(var(--accent))" : "2px solid transparent",
                       outlineOffset: "2px",
                     }}
                   >
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full flex items-center justify-center font-display text-xl font-semibold" style={{ background: "hsl(var(--deep-gold) / 0.2)", color: "hsl(var(--deep-gold))" }}>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div
+                        className="w-9 h-9 rounded-full flex items-center justify-center font-display text-xs font-semibold shrink-0"
+                        style={{ background: "hsl(var(--accent) / 0.15)", color: "hsl(var(--accent))" }}
+                      >
                         {t.initials}
                       </div>
+                      <div>
+                        <p className="font-body text-sm font-semibold text-foreground leading-tight">{t.name}</p>
+                        <p className="font-body text-xs text-muted-foreground">{t.location}</p>
+                      </div>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 p-3" style={{ background: "linear-gradient(to top, hsl(20 10% 15% / 0.6), transparent)" }}>
-                      <p className="font-body text-xs font-semibold text-primary-foreground leading-tight">{t.name}</p>
-                      <p className="font-body text-xs" style={{ color: "hsl(var(--soft-cream) / 0.7)" }}>{t.location}</p>
-                    </div>
-                    <div
-                      className="absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center transition-all"
-                      style={{
-                        background: isActive ? "hsl(var(--deep-gold))" : "hsl(var(--soft-cream) / 0.9)",
-                        color: isActive ? "hsl(var(--soft-cream))" : "hsl(var(--deep-gold))",
-                      }}
-                    >
-                      <Plus size={12} />
-                    </div>
+                    <p className="font-body text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                      "{t.quote}"
+                    </p>
                   </button>
                 );
               })}
             </div>
           </div>
 
+
           {/* Mobile: simple featured card + dots */}
           <div className="lg:hidden">
             <div className="text-center mb-8">
-              <span className="font-body text-xs tracking-widest uppercase mb-2 block" style={{ color: "hsl(var(--deep-gold))" }}>
+              <span className="font-body text-xs tracking-widest uppercase mb-2 block" style={{ color: "hsl(var(--accent))" }}>
                 Testimonial
               </span>
               <h2 className="font-display text-3xl font-semibold text-primary">Praised by families across DFW.</h2>
             </div>
             <div
               className="rounded-2xl p-8"
-              style={{ background: "hsl(var(--charcoal))" }}
+              style={{ background: "hsl(var(--accent))" }}
             >
-              <p className="font-display text-5xl leading-none mb-2 select-none" style={{ color: "hsl(var(--deep-gold))" }}>"</p>
-              <p className="font-display text-lg italic text-primary-foreground leading-relaxed mb-6">
+              <p className="font-display text-5xl leading-none mb-2 select-none" style={{ color: "hsl(0 0% 100% / 0.3)" }}>"</p>
+              <p className="font-display text-lg italic leading-relaxed mb-6" style={{ color: "hsl(0 0% 100%)" }}>
                 {testimonials[activeIndex].quote}
               </p>
               <div className="flex gap-1 mb-2">
                 {[...Array(5)].map((_, j) => (
-                  <Star key={j} size={14} fill="hsl(var(--deep-gold))" style={{ color: "hsl(var(--deep-gold))" }} />
+                  <Star key={j} size={14} fill="hsl(0 0% 100%)" style={{ color: "hsl(0 0% 100%)" }} />
                 ))}
               </div>
-              <p className="font-body text-sm font-semibold" style={{ color: "hsl(var(--deep-gold))" }}>
+              <p className="font-body text-sm font-semibold" style={{ color: "hsl(0 0% 100%)" }}>
                 — {testimonials[activeIndex].name}, {testimonials[activeIndex].location}
               </p>
             </div>
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center gap-2 mt-6 flex-wrap">
               {testimonials.map((_, i) => (
                 <button
                   key={i}
@@ -423,8 +451,8 @@ const HomePage = () => {
                   aria-label={`Go to testimonial ${i + 1}`}
                   className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                   style={{
-                    background: i === activeIndex ? "hsl(var(--deep-gold))" : "transparent",
-                    border: `1.5px solid hsl(var(--deep-gold) / ${i === activeIndex ? "1" : "0.4"})`,
+                    background: i === activeIndex ? "hsl(var(--accent))" : "transparent",
+                    border: `1.5px solid hsl(var(--accent) / ${i === activeIndex ? "1" : "0.4"})`,
                   }}
                 />
               ))}
