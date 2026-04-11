@@ -360,12 +360,6 @@ const HomePage = () => {
               style={{ background: "hsl(var(--accent))" }}
             >
               <div>
-                <span className="font-body text-xs tracking-widest uppercase mb-4 block" style={{ color: "hsl(0 0% 100% / 0.7)" }}>
-                  Testimonial
-                </span>
-                <h2 className="font-display text-2xl font-semibold mb-8 leading-snug" style={{ color: "hsl(0 0% 100%)" }}>
-                  Praised by families<br />across DFW.
-                </h2>
                 <p
                   className="font-display text-6xl leading-none mb-3 select-none"
                   style={{ color: "hsl(0 0% 100% / 0.3)" }}
