@@ -303,7 +303,7 @@ const HomePage = () => {
       {/* ── 6. TESTIMONIALS — Grid with Featured Central Card ── */}
       <section className="bg-background py-16 md:py-24 px-4">
         <div className="container max-w-6xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 md:mb-14">
             <span className="font-body text-xs tracking-widest uppercase mb-3 block" style={{ color: "hsl(var(--accent))" }}>
               Testimonials
             </span>
