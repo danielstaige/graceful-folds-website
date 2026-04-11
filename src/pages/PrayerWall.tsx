@@ -240,12 +240,6 @@ const PrayerWall = () => {
         </div>
       </section>
 
-      {/* ── 5. CLOSING ── */}
-      <section className="py-16 text-center px-4">
-        <p className="font-display italic text-sm text-muted-foreground/60">
-          We wash, we fold… and we pray.
-        </p>
-      </section>
 
     </main>
   );
