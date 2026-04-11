@@ -36,8 +36,8 @@ const steps = [
     icon: Home,
     num: "03",
     title: "It's Back at Your Door",
-    desc: "Fresh laundry delivered back to your doorstep, right on schedule.",
-    tags: ["Doorstep Delivery", "Same Route"],
+    desc: "Fresh laundry is delivered to your doorstep within 24–48 hour guarantee. Need it faster? Rush service with same-day turnaround is available depending on order size and pickup time.",
+    tags: [],
     img: stepDelivery,
   },
 ];
