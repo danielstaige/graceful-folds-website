@@ -39,7 +39,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20 lg:h-24">
           {/* Logo */}
           <Link to="/" className="shrink-0">
-            <img src={logoImg} alt="Folds of Grace" className="h-14 lg:h-18 w-auto" />
+            <img src={logoImg} alt="Folds of Grace" className="h-10 lg:h-16 w-auto" />
           </Link>
 
           {/* Desktop Nav */}

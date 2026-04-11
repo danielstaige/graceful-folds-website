@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles, Clock, Tag, Star, DoorOpen, Shirt, Home } from "lucide-react";
+import { ArrowRight, Sparkles, Clock, Tag, Star, DoorOpen, Shirt, Home, ChevronLeft, ChevronRight } from "lucide-react";
 import heroImg from "@/assets/hero-laundry.jpg";
 import danaPhoto from "@/assets/dana-folder.jpg";
 import howItWorksBag from "@/assets/how-it-works-bag.jpg";
@@ -144,7 +144,7 @@ const HomePage = () => {
             <span className="font-display text-sm italic mb-6 block tracking-wide" style={{ color: "hsl(var(--deep-gold))" }}>
               Dallas - Fort Worth, Laundry Pickup and Delivery Services
             </span>
-            <h1 className="font-display text-5xl md:text-6xl font-semibold text-primary-foreground leading-tight mb-6">
+            <h1 className="font-display text-3xl md:text-5xl lg:text-6xl font-semibold text-primary-foreground leading-tight mb-6">
               Finally, a Solution
               <br />
               <em className="not-italic" style={{ color: "hsl(var(--deep-gold))" }}>for Your Laundry.</em>
@@ -301,7 +301,7 @@ const HomePage = () => {
       </section>
 
       {/* ── 6. TESTIMONIALS — Grid with Featured Central Card ── */}
-      <section className="bg-background py-24 px-4">
+      <section className="bg-background py-16 md:py-24 px-4">
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="font-body text-xs tracking-widest uppercase mb-3 block" style={{ color: "hsl(var(--accent))" }}>
@@ -537,10 +537,10 @@ const HomePage = () => {
       </section>
 
       {/* ── 9. FINAL CTA ── */}
-      <section className="bg-primary py-28 px-4">
+      <section className="bg-primary py-16 md:py-28 px-4">
         <div className="container max-w-3xl mx-auto text-center">
           <div className="gold-divider mb-10" />
-          <h2 className="font-display text-5xl md:text-6xl font-semibold text-primary-foreground mb-6 leading-tight">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-primary-foreground mb-6 leading-tight">
             You Were Never Meant to Do It Alone
           </h2>
           <p className="font-body text-lg mb-10 max-w-md mx-auto leading-relaxed text-primary-foreground/75">
