@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-import logoImg from "@/assets/FoldsofGrace-Black-Logo.png";
+import logoImg from "@/assets/gray-blue-variant-logo.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
