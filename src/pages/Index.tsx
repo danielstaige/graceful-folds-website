@@ -149,13 +149,13 @@ const HomePage = () => {
               <br />
               <em className="not-italic" style={{ color: "hsl(var(--deep-gold))" }}>for Your Laundry.</em>
             </h1>
-            <p className="font-body text-base md:text-lg leading-relaxed mb-10 max-w-md" style={{ color: "hsl(var(--soft-cream) / 0.8)" }}>
+            <p className="font-body text-base md:text-lg leading-relaxed mb-10 max-w-md" style={{ color: "hsl(0 0% 100% / 0.9)" }}>
               Never do laundry again! We pick up, wash, fold/hang, and deliver—hassle-free and ready to go.
             </p>
             <Link
               to="/contact"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md font-body text-sm font-semibold tracking-wide hover:-translate-y-0.5 transition-all duration-200"
-              style={{ background: "var(--gradient-gold)", color: "hsl(var(--soft-cream))", boxShadow: "var(--shadow-gold)" }}
+              style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)", boxShadow: "var(--shadow-gold)" }}
             >
               Get Started Today
               <ArrowRight size={16} />
