@@ -163,7 +163,7 @@ const Pricing = () => {
 
       {/* Gift Cards */}
       <section className="py-0 bg-primary overflow-hidden">
-        <div className="container max-w-5xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Left: image */}
             <div className="relative min-h-64 lg:min-h-[480px]">
