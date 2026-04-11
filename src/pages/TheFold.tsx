@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { ArrowRight, Heart, Car, Sparkles, Home, Shield, Wind } from "lucide-react";
 import danaPhoto from "@/assets/dana-folder.jpg";
+import FolderApplicationModal from "@/components/FolderApplicationModal";
 
 const folders = [
   {
@@ -54,6 +55,8 @@ const qualifications = [
 ];
 
 const TheFold = () => {
+  const [folderAppOpen, setFolderAppOpen] = useState(false);
+
   return (
     <main className="pt-20">
 
@@ -194,13 +197,13 @@ const TheFold = () => {
                 ))}
               </ul>
 
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 shadow-gold"
+              <button
+                onClick={() => setFolderAppOpen(true)}
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 shadow-[var(--shadow-gold)]"
                 style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
               >
                 Apply to Become a Folder <ArrowRight size={15} />
-              </Link>
+              </button>
             </div>
 
             {/* Right: Qualifications box */}
@@ -234,6 +237,7 @@ const TheFold = () => {
         </div>
       </section>
 
+      <FolderApplicationModal open={folderAppOpen} onOpenChange={setFolderAppOpen} />
     </main>
   );
 };
