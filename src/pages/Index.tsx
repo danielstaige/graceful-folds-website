@@ -417,72 +417,33 @@ const HomePage = () => {
             </div>
           </div>
 
-            {/* Right column — 3 name cards */}
-            <div className="flex flex-col gap-4">
-              {rightTestimonials.map((t, i) => {
-                const globalIndex = testimonials.indexOf(t);
-                const isActive = activeIndex === globalIndex;
-                return (
-                  <button
-                    key={t.name}
-                    onClick={() => setActiveIndex(globalIndex)}
-                    className="relative rounded-xl overflow-hidden h-36 text-left transition-all duration-200"
-                    style={{
-                      background: "hsl(38 33% 90%)",
-                      outline: isActive ? "2px solid hsl(var(--deep-gold))" : "2px solid transparent",
-                      outlineOffset: "2px",
-                    }}
-                  >
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full flex items-center justify-center font-display text-xl font-semibold" style={{ background: "hsl(var(--deep-gold) / 0.2)", color: "hsl(var(--deep-gold))" }}>
-                        {t.initials}
-                      </div>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 p-3" style={{ background: "linear-gradient(to top, hsl(20 10% 15% / 0.6), transparent)" }}>
-                      <p className="font-body text-xs font-semibold text-primary-foreground leading-tight">{t.name}</p>
-                      <p className="font-body text-xs" style={{ color: "hsl(var(--soft-cream) / 0.7)" }}>{t.location}</p>
-                    </div>
-                    <div
-                      className="absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center transition-all"
-                      style={{
-                        background: isActive ? "hsl(var(--deep-gold))" : "hsl(var(--soft-cream) / 0.9)",
-                        color: isActive ? "hsl(var(--soft-cream))" : "hsl(var(--deep-gold))",
-                      }}
-                    >
-                      <Plus size={12} />
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
 
           {/* Mobile: simple featured card + dots */}
           <div className="lg:hidden">
             <div className="text-center mb-8">
-              <span className="font-body text-xs tracking-widest uppercase mb-2 block" style={{ color: "hsl(var(--deep-gold))" }}>
+              <span className="font-body text-xs tracking-widest uppercase mb-2 block" style={{ color: "hsl(var(--accent))" }}>
                 Testimonial
               </span>
               <h2 className="font-display text-3xl font-semibold text-primary">Praised by families across DFW.</h2>
             </div>
             <div
               className="rounded-2xl p-8"
-              style={{ background: "hsl(var(--charcoal))" }}
+              style={{ background: "hsl(var(--accent))" }}
             >
-              <p className="font-display text-5xl leading-none mb-2 select-none" style={{ color: "hsl(var(--deep-gold))" }}>"</p>
-              <p className="font-display text-lg italic text-primary-foreground leading-relaxed mb-6">
+              <p className="font-display text-5xl leading-none mb-2 select-none" style={{ color: "hsl(0 0% 100% / 0.3)" }}>"</p>
+              <p className="font-display text-lg italic leading-relaxed mb-6" style={{ color: "hsl(0 0% 100%)" }}>
                 {testimonials[activeIndex].quote}
               </p>
               <div className="flex gap-1 mb-2">
                 {[...Array(5)].map((_, j) => (
-                  <Star key={j} size={14} fill="hsl(var(--deep-gold))" style={{ color: "hsl(var(--deep-gold))" }} />
+                  <Star key={j} size={14} fill="hsl(0 0% 100%)" style={{ color: "hsl(0 0% 100%)" }} />
                 ))}
               </div>
-              <p className="font-body text-sm font-semibold" style={{ color: "hsl(var(--deep-gold))" }}>
+              <p className="font-body text-sm font-semibold" style={{ color: "hsl(0 0% 100%)" }}>
                 — {testimonials[activeIndex].name}, {testimonials[activeIndex].location}
               </p>
             </div>
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center gap-2 mt-6 flex-wrap">
               {testimonials.map((_, i) => (
                 <button
                   key={i}
@@ -490,8 +451,8 @@ const HomePage = () => {
                   aria-label={`Go to testimonial ${i + 1}`}
                   className="w-2.5 h-2.5 rounded-full transition-all duration-300"
                   style={{
-                    background: i === activeIndex ? "hsl(var(--deep-gold))" : "transparent",
-                    border: `1.5px solid hsl(var(--deep-gold) / ${i === activeIndex ? "1" : "0.4"})`,
+                    background: i === activeIndex ? "hsl(var(--accent))" : "transparent",
+                    border: `1.5px solid hsl(var(--accent) / ${i === activeIndex ? "1" : "0.4"})`,
                   }}
                 />
               ))}
