@@ -7,15 +7,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-const prereqs = [
-  "Has a heart to pray for and care for others",
-  "Enjoys doing laundry and takes pride in their work",
-  "Has an extra-large capacity washer and dryer in their home",
-  "Has reliable transportation for pickup and delivery",
-  "Maintains a clean, smoke-free, and pet-hair-free environment for all laundry and transportation",
-];
-
-const inputClass =
   "w-full px-4 py-3 rounded-md border border-border bg-background font-body text-sm focus:outline-none focus:ring-2 focus:ring-ring/40 focus:border-ring transition-all";
 const errorClass = "font-body text-xs mt-1.5";
 
@@ -25,7 +16,7 @@ interface GetStartedModalProps {
 }
 
 const GetStartedModal = ({ open, onOpenChange }: GetStartedModalProps) => {
-  const [step, setStep] = useState<1 | 2 | 3>(1);
+  const [step, setStep] = useState<1 | 2>(1);
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -67,7 +58,7 @@ const GetStartedModal = ({ open, onOpenChange }: GetStartedModalProps) => {
     try {
       // Email delivery will be connected via edge function
       console.log("Client intake submission:", form);
-      setStep(3);
+      setStep(2);
     } catch {
       // handle error
     } finally {
@@ -91,37 +82,6 @@ const GetStartedModal = ({ open, onOpenChange }: GetStartedModalProps) => {
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
         {step === 1 && (
-          <>
-            <DialogHeader>
-              <DialogTitle className="font-display text-2xl text-primary">
-                Before We Get Started
-              </DialogTitle>
-            </DialogHeader>
-            <p className="font-body text-sm text-muted-foreground leading-relaxed mt-2">
-              Because Folds of Grace operates with a standard of excellence and care, we ask that every applicant meets the following:
-            </p>
-            <ul className="space-y-3 mt-4">
-              {prereqs.map((item) => (
-                <li key={item} className="flex items-start gap-3 font-body text-sm text-foreground/80">
-                  <CheckCircle2 size={16} className="text-accent shrink-0 mt-0.5" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="font-body text-sm text-muted-foreground leading-relaxed mt-4">
-              If you can confidently say yes to each of the above, we invite you to continue with your application.
-            </p>
-            <button
-              onClick={() => setStep(2)}
-              className="mt-6 w-full inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-md font-body text-sm font-semibold shadow-[var(--shadow-gold)] hover:-translate-y-0.5 transition-all duration-200"
-              style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
-            >
-              Get Started <ArrowRight size={15} />
-            </button>
-          </>
-        )}
-
-        {step === 2 && (
           <>
             <DialogHeader>
               <DialogTitle className="font-display text-2xl text-primary">
