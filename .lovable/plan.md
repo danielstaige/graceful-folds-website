@@ -1,46 +1,71 @@
 
 
-## Add Background Video Banner After "How It Works"
+# Plan: Client Intake Form + Folder Application Modals
 
-### What
-Replace the static image divider (between "How It Works" and the Gallery) with a muted, autoplaying, looping background video. This creates a cinematic break that adds motion and polish.
+## Summary
 
-### Where
-The banner at lines 211-223 in `src/pages/Index.tsx` — the horizontal image strip with the "Every item treated with care" caption.
+Build two multi-step modal dialogs: a **"Get Started" client intake form** and an **"Apply to Be a Folder" application form**. Both open as popups, collect required info, and email submissions to you.
 
-### How
+---
 
-**1. Add a video asset**
-- You'd provide a short video clip (5-15 seconds) — ideally something like hands folding laundry, a neat stack of towels, or a porch delivery scene. A landscape/wide format works best.
-- Save it as `src/assets/banner-video.mp4` (or we can use a hosted URL to keep the bundle small).
+## 1. Get Started (Client Intake) Modal
 
-**2. Replace the `<img>` with a `<video>` element**
-- Attributes: `autoPlay`, `loop`, `muted`, `playsInline` — this ensures silent autoplay on all devices (including mobile Safari).
-- Keep the same dark overlay and italic caption on top.
-- Add a poster/fallback image (the current hero image) so there's no blank flash while loading.
+**Location:** Contact page -- add a prominent "Get Started Today" button in the hero or contact options section.
 
-**3. Styling**
-- Same dimensions: `h-72 md:h-96`, `object-cover`, `overflow-hidden`.
-- The video replaces the `<img>` 1:1 — everything else (overlay, caption) stays identical.
+**Flow:**
+- **Step 1 (Prereqs screen):** Shows the list of requirements (heart to pray, enjoys laundry, extra-large washer/dryer, reliable transportation, smoke-free/pet-hair-free environment). User reads and clicks "Get Started" to proceed.
+- **Step 2 (Form):** All fields required:
+  - Name
+  - Phone
+  - Email
+  - Address
+  - Detergent preference: "We use Tide or Gain by default..." with a checkbox for Free & Clear
+  - Family members: Names and sizes (text area, for sorting by size and praying by name)
+  - Hanging preferences (text area)
+  - Submit button
+- **Step 3 (Confirmation popup):** "Thank you for scheduling with us! We're so glad you're here. Someone from our team will be in touch shortly to confirm your pickup day."
 
-### Technical Detail
-```
-<video
-  autoPlay loop muted playsInline
-  poster={heroImg}
-  className="w-full h-full object-cover"
-  style={{ objectPosition: "center 30%" }}
->
-  <source src={bannerVideo} type="video/mp4" />
-</video>
-```
+---
 
-### What You Need
-A short MP4 clip to use. Options:
-- **Provide your own clip** — a behind-the-scenes video of your team working, folding, or delivering would be most authentic and on-brand.
-- **Use a stock clip** — I can embed a royalty-free laundry/lifestyle stock video URL as a placeholder until you have your own footage.
+## 2. Apply to Be a Folder Modal
 
-### File Changes
-- `src/pages/Index.tsx` — swap `<img>` for `<video>` in the banner section (~5 lines changed)
-- Optionally add a video asset file if provided
+**Location:** The Fold page (replace current link to /contact) AND Contact page (add a second button).
+
+**Flow:**
+- **Step 1 (Application form):** All fields required:
+  - Name
+  - Phone
+  - Email
+  - Address
+  - Availability: Day-of-week checkboxes (Sun-Sat)
+  - Job Requirements narrative text (displayed, not editable) with the full faith-based requirements list
+  - Checkbox: "Everything applies to me" (required to submit)
+  - Submit Application button
+- **Step 2 (Confirmation popup):** "Thank you for applying! We'll be in touch within 24-48 hours (Monday-Friday)."
+
+---
+
+## 3. Email Delivery
+
+Since no database is connected, both forms will use a **Supabase Edge Function** to email submissions to your inbox. This requires:
+- Setting up Lovable Cloud (if not already enabled)
+- Creating a `send-form-submission` Edge Function that receives form data and emails it to your address
+- We will need your email address to send submissions to
+
+---
+
+## Technical Details
+
+### New files:
+- `src/components/GetStartedModal.tsx` -- Multi-step dialog component for client intake
+- `src/components/FolderApplicationModal.tsx` -- Multi-step dialog component for folder applications
+
+### Modified files:
+- `src/pages/Contact.tsx` -- Add "Get Started Today" and "Apply to Be a Folder" buttons that trigger modals
+- `src/pages/TheFold.tsx` -- Change "Apply to Become a Folder" link to open the folder application modal instead of navigating to /contact
+
+### Edge Function (for email):
+- `supabase/functions/send-form-submission/index.ts` -- Receives form data + form type, sends formatted email to your inbox
+
+Both modals will use the existing Dialog/Sheet UI components and match the site's gold/cream brand styling.
 
