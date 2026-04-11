@@ -121,4 +121,16 @@
   .nav-link:hover {
     color: hsl(var(--accent));
   }
+
+  /* Custom scrollbar for testimonials */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 2px;
+  }
 }
