@@ -3,8 +3,12 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 
 const faqs = [
   {
-    q: "What areas do you serve?",
-    a: "We provide pickup and delivery laundry service across the Dallas–Fort Worth metroplex, including Southlake, Colleyville, Flower Mound, Fort Worth, Mansfield, Arlington, Rockwall, Midlothian, Waxahachie, and surrounding communities.",
+    q: "How do you wash my laundry?",
+    a: "We wash on Cold and Dry on Hot.\n\nOur Folders use Gain or Tide on your laundry unless you request Free and Clear or want to send your own.",
+  },
+  {
+    q: "Do you serve my area?",
+    a: "Probably so! We provide pickup and delivery laundry services all over the Dallas–Fort Worth metroplex. The fastest way is to click on Get Started Today or Text us 214.400.7651.",
   },
   {
     q: "How long does it take to get my laundry back?",
@@ -16,15 +20,7 @@ const faqs = [
   },
   {
     q: "What detergent do you use?",
-    a: "We use Tide or Gain by default for all orders. If you need Free & Clear for sensitive skin, just let us know in your notes. You're also welcome to leave out any specific product preferences — your laundry, your way.",
-  },
-  {
-    q: "How do I know my laundry won't get mixed up with someone else's?",
-    a: "We never mix bags from different clients. Each order is handled separately, from pickup to delivery, so your clothes remain completely yours.",
-  },
-  {
-    q: "What if something is lost or damaged?",
-    a: "We have policies in place in case anything is lost or damaged. Please reach out to our team.",
+    a: "We use Tide or Gain by default for all orders. If you need Free & Clear for sensitive skin, just let us know in your notes. You're also welcome to leave out any specific product preferences.",
   },
   {
     q: "Can I cancel or reschedule?",
@@ -43,11 +39,14 @@ const faqs = [
     a: "Yes! They make thoughtful gifts for any occasion — new moms, a family experiencing loss, caring for someone in the hospital or going through treatments, a new home, foster care or adoption, or when someone is sick.",
   },
   {
+    q: "What if something is lost or damaged?",
+    a: "We have policies in place in case anything is lost or damaged. Please reach out to our team.",
+  },
+  {
     q: "Is there anything that you don't clean?",
-    a: "We cannot accept items contaminated with: bodily fluids from a human or pet, excessive pet hair, moisture (if the item is still wet or damp), mildew, fuel or grease/oil, bed bugs or lice, poison ivy or poison oak oils, or hazardous chemical residue.",
+    a: "We cannot accept items that have been contaminated with:\n\n• Bodily fluids from a human or pet\n• Excessive pet hair\n• Moisture if the item is still wet or damp\n• Mildew\n• Items with fuel, mechanic or other grease or oil\n• Bed Bugs/Lice\n• Poison ivy or poison oak oils\n• Hazardous chemical residue",
   },
 ];
-
 const FAQItem = ({ q, a }: { q: string; a: string }) => {
   const [open, setOpen] = useState(false);
   return (
@@ -64,8 +63,10 @@ const FAQItem = ({ q, a }: { q: string; a: string }) => {
         )}
       </button>
       {open && (
-        <div className="pb-5">
-          <p className="font-body text-sm text-foreground/80 leading-relaxed">{a}</p>
+        <div className="pb-5 space-y-2">
+          {a.split("\n\n").map((para, i) => (
+            <p key={i} className="font-body text-sm text-foreground/80 leading-relaxed">{para}</p>
+          ))}
         </div>
       )}
     </div>
