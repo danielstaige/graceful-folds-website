@@ -66,7 +66,7 @@ const Contact = () => {
             We Would Love to Hear From You.
           </h1>
           <p className="font-body text-primary-foreground/75 text-lg leading-relaxed">
-            A real person will read every message. We respond within 24 hours.
+            We personally read every message and will be in touch soon.
           </p>
         </div>
       </section>
