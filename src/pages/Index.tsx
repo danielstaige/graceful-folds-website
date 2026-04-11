@@ -549,7 +549,7 @@ const HomePage = () => {
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-md font-body text-sm font-semibold tracking-wide hover:-translate-y-0.5 transition-all duration-200"
-            style={{ background: "var(--gradient-gold)", color: "hsl(var(--soft-cream))" }}
+            style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
           >
             Get Started Today <ArrowRight size={16} />
           </Link>
