@@ -225,7 +225,7 @@ const TheFold = () => {
               <div className="flex items-start gap-2.5 pt-5 border-t border-border/50">
                 <Shield size={14} style={{ color: "hsl(var(--deep-gold) / 0.7)" }} className="shrink-0 mt-0.5" />
                 <p className="font-body text-xs text-muted-foreground leading-relaxed">
-                  All Folders are background-checked and trained before their first order.
+                  Each Folder is carefully selected, trained, and held to our quality standards before serving clients.
                 </p>
               </div>
             </div>
