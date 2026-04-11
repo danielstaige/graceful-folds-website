@@ -63,13 +63,21 @@ const PrayerWall = () => {
   return (
     <main className="pt-20 bg-background">
 
-      {/* ── 1. HERO with background image ── */}
-      <section
-        className="py-32 px-4 text-center relative bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/prayer-wall-bg.jpg')" }}
-      >
-        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
-        <div className="max-w-2xl mx-auto relative z-10">
+      {/* ── 1. HERO IMAGE ── */}
+      <section className="relative">
+        <div className="w-full h-[340px] md:h-[420px] overflow-hidden">
+          <img
+            src="/images/prayer-wall-bg.jpg"
+            alt="Prayer wall with handwritten prayer notes surrounding a gold-framed mirror"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background" />
+        </div>
+      </section>
+
+      {/* ── 2. HEADLINE ── */}
+      <section className="py-16 px-4 text-center">
+        <div className="max-w-2xl mx-auto">
           <Heart size={32} className="text-gold mx-auto mb-8" strokeWidth={1.5} />
           <h1 className="font-display text-5xl md:text-6xl font-semibold italic text-foreground/80 leading-tight mb-6">
             You Don't Have to Carry&nbsp;This Alone.
