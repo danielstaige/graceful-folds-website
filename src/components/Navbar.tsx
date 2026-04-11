@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-import logoImg from "@/assets/gray-blue-variant-logo.png";
+import logoImg from "@/assets/FoldsofGrace-Black-Logo.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -109,7 +109,7 @@ const Navbar = () => {
                     <Link
                       key={link.path}
                       to={link.path}
-                      className={`group flex items-center gap-3 px-3 py-3 rounded-lg font-body text-sm font-medium transition-all duration-150 ${
+                      className={`group flex items-center gap-3 px-3 py-3.5 rounded-lg font-body text-base font-medium transition-all duration-150 ${
                         isActive
                           ? "bg-secondary text-primary"
                           : "text-foreground hover:bg-muted"
