@@ -21,7 +21,7 @@ const steps = [
     num: "01",
     title: "Set It on the Porch",
     desc: "Leave your bag out at your scheduled pickup time — no waiting around.",
-    tags: ["Schedule Pickup", "Leave on Porch"],
+    tags: [],
     img: stepPorch,
   },
   {
@@ -29,7 +29,7 @@ const steps = [
     num: "02",
     title: "We Wash, Fold and Hang",
     desc: "Your laundry is washed, folded and hung to perfection, then sorted by family member for easy put-away—all while we cover your home or business in prayer.",
-    tags: ["Wash & Fold", "24–48 hrs"],
+    tags: [],
     img: stepWashFold,
   },
   {
