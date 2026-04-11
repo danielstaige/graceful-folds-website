@@ -64,11 +64,8 @@ const TheFold = () => {
         <div className="container max-w-3xl mx-auto text-center">
           <span className="font-body text-xs tracking-widest uppercase text-gold mb-4 block">The Fold</span>
           <h1 className="font-display text-5xl md:text-6xl font-semibold text-primary-foreground mb-6 leading-tight">
-            Meet the Women Who Serve Our Community.
+            Meet the Women Who Serve Your Community.
           </h1>
-          <p className="font-body text-primary-foreground/80 text-lg leading-relaxed">
-            Your Folder is your neighbor. She cares about your family.
-          </p>
         </div>
       </section>
 
@@ -84,19 +81,33 @@ const TheFold = () => {
               />
             </div>
             <div className="text-center lg:text-left">
-              <span className="font-body text-xs tracking-widest uppercase text-gold mb-3 block">Meet Dana</span>
               <h2 className="font-display text-4xl font-semibold text-primary mb-4 leading-snug">
-                The Heart Behind the Fold
+                Building the Fold Team
               </h2>
               <div className="gold-divider mb-5 lg:ml-0" />
               <p className="font-body text-muted-foreground leading-relaxed mb-4">
-                Dana started Folds of Grace with a simple belief: that serving your neighbor through something as everyday as laundry could be an act of love. She leads by example — folding, delivering, and caring for every family like her own.
+                As Folds of Grace was built, I knew we had to be more than just a service.
+              </p>
+              <p className="font-body text-muted-foreground leading-relaxed mb-4">
+                We needed to serve both our clients and the women who work here. Because of my story, I didn't want to build this company any other way. It needed to create a way for women to be home and present for their families while still providing extra income. And our service to our clients had to stand out from the norm.
+              </p>
+              <p className="font-body text-muted-foreground leading-relaxed mb-4">
+                My desire is for Folds of Grace to not only relieve our clients of the pressure of constant laundry, but for them to feel cared for and seen through the simple act of laundry services covered in our prayers.
+              </p>
+              <p className="font-body text-muted-foreground leading-relaxed mb-4">
+                Folds of Grace is meant to impact both our clients and our Folders.
+              </p>
+              <p className="font-body text-muted-foreground leading-relaxed mb-4">
+                I believe the best way to accomplish this is through who joins our Fold Team. The women who work here carry the same heartbeat as what Folds of Grace was built upon. They get it. They genuinely care for others. They love to serve. And they understand that even the simple act of laundry can make a difference in more ways than one. It's about meeting real needs and trusting God to do the rest.
+              </p>
+              <p className="font-body text-muted-foreground leading-relaxed mb-4">
+                And we'd love for you to be part of it.
               </p>
               <p
                 className="font-display text-lg italic leading-relaxed"
                 style={{ color: "hsl(var(--deep-gold) / 0.7)" }}
               >
-                "Every load is an opportunity to lighten someone's day."
+                "Every Fold is an opportunity to bring relief to someone's day and show them that God sees them and cares for them."
               </p>
             </div>
           </div>
