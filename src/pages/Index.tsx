@@ -253,6 +253,8 @@ const HomePage = () => {
         <div className="container max-w-2xl mx-auto text-center">
           <div className="gold-divider mb-10" />
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-primary leading-snug mb-6">
+            We Wash, We Fold…
+            <br />
             <em className="not-italic" style={{ color: "hsl(var(--deep-gold))" }}>We Pray.</em>
           </h2>
           <p className="font-body text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg mx-auto">
