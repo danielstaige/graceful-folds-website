@@ -27,8 +27,8 @@ const steps = [
   {
     icon: Shirt,
     num: "02",
-    title: "We Wash & Fold",
-    desc: "We handle everything with care — washed, dried, and neatly folded.",
+    title: "We Wash, Fold and Hang",
+    desc: "Your laundry is washed, folded and hung to perfection, then sorted by family member for easy put-away—all while we cover your home or business in prayer.",
     tags: ["Wash & Fold", "24–48 hrs"],
     img: stepWashFold,
   },
