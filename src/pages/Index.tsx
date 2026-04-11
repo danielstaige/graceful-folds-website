@@ -503,8 +503,11 @@ const HomePage = () => {
             <div className="flex-1 text-center md:text-left">
               <span className="font-body text-xs tracking-widest uppercase mb-3 block" style={{ color: "hsl(var(--deep-gold))" }}>Our Founder</span>
               <h2 className="font-display text-4xl font-semibold text-primary mb-5">Meet Dana</h2>
+              <p className="font-body text-base text-muted-foreground leading-relaxed mb-4 max-w-md">
+                Hi, I'm Dana—founder of Folds of Grace, a lover of Jesus, a mom to four amazing kiddos, a friend, a CrossFit enthusiast, an intercessor, and an encourager.
+              </p>
               <p className="font-body text-base text-muted-foreground leading-relaxed mb-8 max-w-md">
-                Hi, I'm Dana—founder of Folds of Grace, a lover of Jesus, a mom to four amazing kiddos, a friend, a CrossFit enthusiast, an intercessor, and an encourager. If you know me, you know I'm praying for you. That's not something I take lightly—it's at the center of who I am and how I serve.
+                If you know me, you know I'm praying for you. That's not something I take lightly—it's at the center of who I am and how I serve.
               </p>
               <Link
                 to="/our-story"
