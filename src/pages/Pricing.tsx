@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Gift } from "lucide-react";
+import giftCardImg from "@/assets/folds-of-grace-giftcards.jpg";
 import {
   Table,
   TableBody,
@@ -167,9 +168,9 @@ const Pricing = () => {
             {/* Left: image */}
             <div className="relative min-h-64 lg:min-h-[480px]">
               <img
-                src={heroLaundry}
-                alt="Warm laundry basket — a beautiful gift"
-                className="absolute inset-0 w-full h-full object-cover object-center opacity-60"
+                src={giftCardImg}
+                alt="Folds of Grace e-gift cards"
+                className="absolute inset-0 w-full h-full object-cover object-center"
               />
             </div>
 
