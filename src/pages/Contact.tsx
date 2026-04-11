@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Send, Heart } from "lucide-react";
+import { Phone, Mail, MapPin, Send, Heart, ArrowRight, Users } from "lucide-react";
 import { z } from "zod";
+import GetStartedModal from "@/components/GetStartedModal";
+import FolderApplicationModal from "@/components/FolderApplicationModal";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required.").max(100, "Name must be under 100 characters."),
@@ -18,6 +20,8 @@ const inputClass =
 const errorClass = "font-body text-xs mt-1.5" ;
 
 const Contact = () => {
+  const [getStartedOpen, setGetStartedOpen] = useState(false);
+  const [folderAppOpen, setFolderAppOpen] = useState(false);
   const [form, setForm] = useState<FormFields>({
     name: "",
     email: "",
@@ -137,6 +141,23 @@ const Contact = () => {
             <span className="font-body text-sm">
               Serving the Dallas–Fort Worth area · Mon–Sat, 7am–7pm
             </span>
+          </div>
+
+          {/* Action buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
+            <button
+              onClick={() => setGetStartedOpen(true)}
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 shadow-[var(--shadow-gold)]"
+              style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
+            >
+              Get Started Today <ArrowRight size={15} />
+            </button>
+            <button
+              onClick={() => setFolderAppOpen(true)}
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-body text-sm font-semibold tracking-wide border-2 border-accent text-accent transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent/5"
+            >
+              <Users size={15} /> Apply to Be a Folder
+            </button>
           </div>
         </div>
       </section>
@@ -300,6 +321,8 @@ const Contact = () => {
           <div className="gold-divider mt-10" />
         </div>
       </section>
+      <GetStartedModal open={getStartedOpen} onOpenChange={setGetStartedOpen} />
+      <FolderApplicationModal open={folderAppOpen} onOpenChange={setFolderAppOpen} />
     </main>
   );
 };
