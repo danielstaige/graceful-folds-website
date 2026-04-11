@@ -311,7 +311,7 @@ const HomePage = () => {
               Praised by Families Across DFW
             </h2>
             <p className="font-body text-base text-muted-foreground max-w-md mx-auto leading-relaxed">
-              Hear from the families and businesses who trust us with their laundry — and their prayers.
+              Hear from the families and businesses who trust us with their laundry.
             </p>
           </div>
 
@@ -494,20 +494,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* ── 7. LIFESTYLE IMAGE 2 ── */}
-      <div className="relative h-64 md:h-80 overflow-hidden">
-        <img
-          src={heroImg}
-          alt="Laundry delivered fresh to your doorstep"
-          className="w-full h-full object-cover"
-          style={{ objectPosition: "center 60%" }}
-        />
-        <div className="absolute inset-0" style={{ background: "hsl(var(--charcoal) / 0.3)" }} />
-        <p className="absolute bottom-5 left-6 font-display text-sm italic"
-          style={{ color: "hsl(var(--soft-cream) / 0.85)" }}>
-          Delivered to your door, fresh every time.
-        </p>
-      </div>
 
       {/* ── 8. MEET DANA — Asymmetric ── */}
       <section className="section-padding bg-secondary">
