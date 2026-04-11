@@ -303,6 +303,17 @@ const HomePage = () => {
       {/* ── 6. TESTIMONIALS — Grid with Featured Central Card ── */}
       <section className="bg-background py-24 px-4">
         <div className="container max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="font-body text-xs tracking-widest uppercase mb-3 block" style={{ color: "hsl(var(--accent))" }}>
+              Testimonials
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-semibold text-primary mb-4">
+              Praised by Families Across DFW
+            </h2>
+            <p className="font-body text-base text-muted-foreground max-w-md mx-auto leading-relaxed">
+              Hear from the families and businesses who trust us with their laundry — and their prayers.
+            </p>
+          </div>
 
           {/* Desktop: 3-column grid */}
           <div className="hidden lg:grid lg:grid-cols-[1fr_1.6fr_1fr] gap-4 items-start">
@@ -349,12 +360,6 @@ const HomePage = () => {
               style={{ background: "hsl(var(--accent))" }}
             >
               <div>
-                <span className="font-body text-xs tracking-widest uppercase mb-4 block" style={{ color: "hsl(0 0% 100% / 0.7)" }}>
-                  Testimonial
-                </span>
-                <h2 className="font-display text-2xl font-semibold mb-8 leading-snug" style={{ color: "hsl(0 0% 100%)" }}>
-                  Praised by families<br />across DFW.
-                </h2>
                 <p
                   className="font-display text-6xl leading-none mb-3 select-none"
                   style={{ color: "hsl(0 0% 100% / 0.3)" }}
@@ -462,7 +467,7 @@ const HomePage = () => {
           {/* Google Reviews Badge */}
           <div className="flex justify-center mt-12">
             <a
-              href="https://www.google.com/maps/place/Folds+of+Grace"
+              href="https://maps.app.goo.gl/KRSdGhEv1Y8TcZaPA"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-6 py-3 rounded-full border transition-all hover:-translate-y-0.5 hover:shadow-md"
@@ -482,7 +487,7 @@ const HomePage = () => {
                   ))}
                 </div>
               </div>
-              <span className="font-body text-sm text-muted-foreground">88 Google reviews</span>
+              <span className="font-body text-sm text-muted-foreground">92 Google reviews</span>
               <ArrowRight size={14} className="text-muted-foreground" />
             </a>
           </div>
