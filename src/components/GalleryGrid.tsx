@@ -66,7 +66,7 @@ const GalleryGrid = () => {
               Our Work
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-semibold text-primary mb-4">
-              Every Fold, Done with Care
+              Every Fold, Handled with Care
             </h2>
             <p className="font-body text-base text-muted-foreground max-w-md mx-auto leading-relaxed">
               See the difference when every load is handled with purpose and prayer.
