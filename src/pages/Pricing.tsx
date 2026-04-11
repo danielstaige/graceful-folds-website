@@ -16,10 +16,16 @@ const specialItems = [
   { item: "Throw Blankets", price: "$8" },
 ];
 
-const includedItems = [
+const standardIncluded = [
   "Free Pickup & Delivery",
   "Washed, Dried & Folded/Hung",
   "24–48-Hour Turnaround",
+];
+
+const rushIncluded = [
+  "Free Pickup & Delivery",
+  "Washed, Dried & Folded/Hung",
+  "Same Day Turnaround",
 ];
 
 const Pricing = () => {
@@ -29,14 +35,11 @@ const Pricing = () => {
       {/* Hero */}
       <section className="bg-primary py-24 px-4">
         <div className="container max-w-3xl mx-auto text-center">
-          <span className="font-body text-xs tracking-widest uppercase text-gold mb-4 block">
-            Transparent Pricing
-          </span>
           <h1 className="font-display text-5xl md:text-6xl font-semibold text-primary-foreground mb-6">
             Pricing
           </h1>
           <p className="font-body text-primary-foreground/80 text-lg leading-relaxed">
-            No hidden fees. No surprises. Just a simple, reliable weekly solution for homes and businesses with done-for-you laundry care you can count on.
+            No hidden fees. No contracts! We price our laundry by the pound. Bulkier items are priced by size.
           </p>
         </div>
       </section>
@@ -50,20 +53,15 @@ const Pricing = () => {
 
           <div className="gold-divider mb-10" />
 
-          <div className="flex items-end justify-center gap-3 mb-4">
+          <div className="flex items-end justify-center gap-3 mb-12">
             <span className="font-display text-8xl md:text-9xl font-semibold text-gold leading-none">
               $1.85
             </span>
             <span className="font-display text-4xl text-muted-foreground mb-4">/ lb</span>
           </div>
 
-          <p className="font-body text-sm text-muted-foreground mb-12">
-            <span className="font-semibold text-foreground">$35 minimum per order</span>
-            {" "}— approximately 20 lbs
-          </p>
-
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {includedItems.map((item) => (
+            {standardIncluded.map((item) => (
               <div key={item} className="flex items-center justify-center gap-2.5">
                 <span
                   className="w-1.5 h-1.5 rounded-full shrink-0"
@@ -78,11 +76,11 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Same Day Service */}
+      {/* Rush Order / Same Day */}
       <section className="py-24 px-4 bg-secondary text-center">
         <div className="container max-w-2xl mx-auto">
           <p className="font-body text-sm text-muted-foreground tracking-widest uppercase mb-8">
-            For Urgent Orders
+            Rush Order / Same Day Delivery
           </p>
 
           <div className="gold-divider mb-10" />
@@ -94,15 +92,12 @@ const Pricing = () => {
             <span className="font-display text-3xl text-muted-foreground mb-3">/ lb</span>
           </div>
 
-          <p className="font-body text-sm text-muted-foreground mb-2">
-            Based on Order Size and Pickup Time
-          </p>
           <p className="font-body text-sm text-muted-foreground mb-12">
-            <span className="font-semibold text-foreground">$35 minimum per order</span>
+            Based on Order Size and Pickup Time
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {includedItems.map((item) => (
+            {rushIncluded.map((item) => (
               <div key={item} className="flex items-center justify-center gap-2.5">
                 <span
                   className="w-1.5 h-1.5 rounded-full shrink-0"
@@ -117,15 +112,12 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* Special Items Table */}
+      {/* Bulky Items Table */}
       <section className="py-24 px-4 bg-background">
         <div className="container max-w-2xl mx-auto">
           <div className="text-center mb-10">
-            <span className="font-body text-xs tracking-widest uppercase text-gold mb-3 block">
-              Add-Ons
-            </span>
             <h2 className="font-display text-4xl font-semibold text-primary mb-3">
-              Special Items
+              Bulky Items
             </h2>
             <p className="font-body text-sm text-muted-foreground max-w-md mx-auto">
               Oversized or specialty items are priced individually and added to your order total.
@@ -163,7 +155,7 @@ const Pricing = () => {
           </div>
 
           <p className="text-center font-body text-xs text-muted-foreground mt-5">
-            Prices may vary by size and condition. Confirmed at pickup.
+            Prices may vary by size and condition. Confirmed after pickup.
           </p>
         </div>
       </section>
@@ -207,14 +199,14 @@ const Pricing = () => {
         <div className="container max-w-2xl mx-auto">
           <div className="gold-divider mb-8" />
           <h2 className="font-display text-4xl md:text-5xl italic font-semibold text-secondary-foreground mb-8 leading-snug">
-            You Know the Price.<br />Now Know the Peace.
+            Let Us Lighten the Load
           </h2>
           <Link
             to="/contact"
             className="inline-flex items-center gap-2 px-10 py-4 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 shadow-gold"
             style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
           >
-            Get Started Today <ArrowRight size={15} />
+            Never Do Laundry Again <ArrowRight size={15} />
           </Link>
           <div className="gold-divider mt-8" />
         </div>
