@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Heart, Car, Sparkles, Home, Shield } from "lucide-react";
+import { ArrowRight, Heart, Car, Sparkles, Home, Shield, Wind } from "lucide-react";
 import danaPhoto from "@/assets/dana-folder.jpg";
 
 const folders = [
@@ -39,17 +39,18 @@ const folders = [
 ];
 
 const benefits = [
-  "Flexible hours — you set your own schedule",
-  "Work from home, in your neighborhood",
-  "Meaningful income doing work that matters",
+  "Flexible hours",
+  "Work from home",
+  "Extra income doing work that matters",
   "Be part of a faith-inspired, women-led team",
 ];
 
 const qualifications = [
-  { icon: Home, text: "Working washer and dryer in your home" },
+  { icon: Home, text: "Extra large capacity washer and dryer in your home" },
   { icon: Car, text: "Reliable vehicle for pickup and delivery" },
-  { icon: Sparkles, text: "Attention to detail and care for quality" },
-  { icon: Heart, text: "A heart for service and community" },
+  { icon: Sparkles, text: "Strong attention to detail and pride in quality work" },
+  { icon: Heart, text: "Dependable, consistent, and trustworthy" },
+  { icon: Wind, text: "Smoke and pet hair-free environment" },
 ];
 
 const TheFold = () => {
@@ -178,7 +179,7 @@ const TheFold = () => {
                 Ready to Serve Your Community?
               </h2>
               <p className="font-body text-muted-foreground leading-relaxed mb-8">
-                Folding for Folds of Grace is flexible, fulfilling work you can do in your own home on your own schedule. You'll serve families in your neighborhood, earn meaningful income, and be part of a team that genuinely cares about each other and the people we serve.
+                Folding for Folds of Grace is flexible, fulfilling work you can do in your own home on your own schedule. You'll serve families in your community, earn additional income, and be part of a team that genuinely cares about each other and the people we serve.
               </p>
 
               <ul className="space-y-3 mb-10">
@@ -224,7 +225,7 @@ const TheFold = () => {
               <div className="flex items-start gap-2.5 pt-5 border-t border-border/50">
                 <Shield size={14} style={{ color: "hsl(var(--deep-gold) / 0.7)" }} className="shrink-0 mt-0.5" />
                 <p className="font-body text-xs text-muted-foreground leading-relaxed">
-                  All Folders are background-checked and trained before their first order.
+                  Each Folder is carefully selected, trained, and held to our quality standards before serving clients.
                 </p>
               </div>
             </div>
