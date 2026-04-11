@@ -69,7 +69,7 @@ const PrayerWall = () => {
           <img
             src="/images/prayer-wall-bg.jpg"
             alt="Prayer wall with handwritten prayer notes surrounding a gold-framed mirror"
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover object-top md:object-[center_25%]"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background" />
         </div>
