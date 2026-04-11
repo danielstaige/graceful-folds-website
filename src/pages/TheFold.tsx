@@ -4,40 +4,37 @@ import danaPhoto from "@/assets/dana-folder.jpg";
 
 const folders = [
   {
-    name: "Sarah M.",
-    neighborhood: "Frisco & Allen",
-    bio: "A mom of three who joined Folds of Grace to serve her community and make time for what matters. Philippians 4:13 is the verse she returns to on hard days.",
-    quote: "Serving others is how I remember what matters most.",
+    name: "Whitney",
+    testimonial: "I'm a proud mom of three and a grandmother to one, with a heart for serving others. I love pouring into my community, praying over people and being a source of encouragement and faith wherever I go.",
+    verse: "\"Serve one another humbly in love.\" — Galatians 5:13",
   },
   {
-    name: "Keisha T.",
-    neighborhood: "McKinney & Prosper",
-    bio: "Former teacher turned full-time mama who loves the flexibility of folding on her own schedule. She says the job lets her pour into her family while still contributing meaningfully.",
-    quote: "This work gave me my mornings back — and my purpose.",
+    name: "Bre",
+    testimonial: "I'm a mom of two and have a heart to serve. I'm passionate about being the hands and feet of Jesus in my community, and I see this work as more than folding laundry. It is an opportunity to love people well and serve with purpose. As a single mom, being a Folder has been a financial blessing, proving stability and provision. Rooted in faith, I believe that prayer changes lives and I trust that God is working in every detail.",
   },
   {
-    name: "Marisol V.",
-    neighborhood: "Plano & Richardson",
-    bio: "Marisol has been with Folds of Grace since the beginning. She takes quiet pride in returning laundry so neat, customers text her to say it made their week.",
-    quote: "When the laundry is perfect, I know someone's day got a little lighter.",
+    name: "Kaitlyn 🙏",
+    testimonial: "As a mother of two rambunctious boys I know exactly how much weight a fresh stack of clean clothes can take off a person's shoulders. I joined the team to turn a homemaking skill into a way to bless my neighbors, and I feel truly honored to pray over each client with every fold. I don't just fold clothes. I'm helping a family hit the reset button on their week while lifting them up in prayer.",
   },
   {
-    name: "Brittany H.",
-    neighborhood: "Garland & Rowlett",
-    bio: "A caregiver by nature, Brittany joined because she wanted work that felt like love. Her customers know her by name and always look forward to her smile.",
-    quote: "Every bag is someone trusting me with their home. I take that seriously.",
+    name: "Danielle",
+    testimonial: "I started this job because I had a financial need as a former teacher, turned stay at home mom. However, this job quickly became more than that for me. It has been a way to help families take something off their plate and in a small way make their lives easier. It has also deepened my prayer life.",
   },
   {
-    name: "Danielle R.",
-    neighborhood: "Carrollton & Farmers Branch",
-    bio: "Danielle leads by example, treating every bag as if it belongs to her own family. She's the one who trained the rest of the team.",
-    quote: "I fold every item the way I'd want mine folded — with intention.",
+    name: "Taylor",
+    testimonial: "I'm a mom of two. Folds of Grace found me in a time when I wasn't looking but I am very grateful that I did. Being able to bless my community with little touches of grace has been amazing. All of the clients are incredible and I am so thankful that I get to send little blessings each and every day to them!",
   },
   {
-    name: "Tanya W.",
-    neighborhood: "Irving & Grand Prairie",
-    bio: "Tanya likes to say she doesn't just wash clothes — she lightens loads. She joined Folds of Grace because she believes service is a calling.",
-    quote: "I don't just wash clothes. I lighten loads.",
+    name: "Kathy",
+    testimonial: "I'm a full-time homemaker, home schooler and urban homesteader. I love that working for Folds of Grace helps me to serve others while I'm serving my family.",
+  },
+  {
+    name: "Veronica",
+    testimonial: "Moving back to Ellis County after my divorce, I had asked God to help me find something to bring in extra income to help us get on our feet while adjusting to the rise in cost of living. Just days later, God answered my prayer with Dana. It's been an honor and blessing to be with Folds of Grace. Not only has it provided financially but it's given me flexibility of working around my kid's schedules. My kids love to be with me and Folds of Grace allows me to be present.",
+  },
+  {
+    name: "Lynnette",
+    testimonial: "I remember the time constraints with being a busy mom. It gives me joy as a grandma (Mimi) to think I can make life easier for moms who need to spend more personal time with their children and family. I also have the flexibility to work a schedule that works for me.",
   },
 ];
 
@@ -119,11 +116,11 @@ const TheFold = () => {
         <div className="container max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="font-display text-4xl font-semibold text-primary mb-4">
-              Your Neighbors. Your Folders.
+              What Some of Our Folders Have to Say.
             </h2>
             <div className="gold-divider mb-5" />
-            <p className="font-body text-muted-foreground max-w-lg mx-auto text-sm leading-relaxed">
-              Every Folder is background-checked, trained, and chosen for her character. These are the women who show up for your family, week after week.
+            <p className="font-body text-muted-foreground max-w-xl mx-auto text-sm leading-relaxed">
+              Each Folder is carefully selected, trained, and chosen for her character. These are the women who show up for your family, week after week.
             </p>
           </div>
 
@@ -133,35 +130,18 @@ const TheFold = () => {
                 key={folder.name}
                 className="bg-card rounded-xl p-7 shadow-card hover:-translate-y-1 transition-transform duration-300 flex flex-col items-center text-center"
               >
-                {/* Photo placeholder */}
-                <div
-                  className="w-28 h-28 rounded-full flex items-center justify-center mb-5 shrink-0"
-                  style={{
-                    background: "hsl(var(--secondary))",
-                    boxShadow: "0 0 0 2px hsl(var(--deep-gold) / 0.2)",
-                  }}
-                >
-                  <User size={36} style={{ color: "hsl(var(--deep-gold))" }} />
-                </div>
+                <h3 className="font-display text-xl font-semibold text-primary mb-3">{folder.name}</h3>
 
-                <h3 className="font-display text-xl font-semibold text-primary mb-1">{folder.name}</h3>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">{folder.testimonial}</p>
 
-                <div className="flex items-center gap-1.5 mb-4">
-                  <MapPin size={12} className="text-gold shrink-0" />
-                  <span className="font-body text-xs text-gold uppercase tracking-widest">
-                    Serving {folder.neighborhood}
-                  </span>
-                </div>
-
-                <p className="font-body text-sm text-muted-foreground leading-relaxed mb-4">{folder.bio}</p>
-
-                {/* Pull-quote */}
-                <p
-                  className="font-display text-sm italic leading-relaxed"
-                  style={{ color: "hsl(var(--deep-gold) / 0.7)" }}
-                >
-                  "{folder.quote}"
-                </p>
+                {folder.verse && (
+                  <p
+                    className="font-display text-sm italic leading-relaxed"
+                    style={{ color: "hsl(var(--deep-gold) / 0.7)" }}
+                  >
+                    {folder.verse}
+                  </p>
+                )}
               </div>
             ))}
           </div>
