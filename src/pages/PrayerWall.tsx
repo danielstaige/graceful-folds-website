@@ -3,6 +3,19 @@ import { Heart, Send } from "lucide-react";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const stories = [
+  {
+    title: "Story One",
+    text: "One of our clients faced every parent's worst fear—a child diagnosed with terminal cancer. For over a year, we faithfully cared for their laundry and covered their family in prayer, asking God for a miracle.\n\nToday, that child is cancer-free and has a full life ahead.",
+    verse: "\"Lord my God, I called to you for help, and you healed me.\" — Psalm 30:2",
+  },
+  {
+    title: "Story Two",
+    text: "One of our clients walked through years of waiting and longing for a baby. For over three years, we faithfully prayed with them and for them, asking God to move.\n\nThis past winter, they welcomed a beautiful baby.",
+    verse: "\"I prayed for this child, and the Lord has granted me what I asked of Him.\" — 1 Samuel 1:27",
+  },
+];
+
 const PrayerWall = () => {
   const [form, setForm] = useState({ name: "", email: "", request: "" });
   const [errors, setErrors] = useState<{ email?: string; request?: string }>({});
@@ -47,37 +60,38 @@ const PrayerWall = () => {
   const inputClass =
     "w-full px-4 py-3 rounded-lg border bg-muted/30 font-body text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold/50 focus:bg-background transition-all duration-200";
 
-  const placeholderNotes = [
-    "Coming soon — your story could be here.",
-    "Coming soon — your story could be here.",
-    "Coming soon — your story could be here.",
-  ];
-
   return (
     <main className="pt-20 bg-background">
 
-      {/* ── 1. HERO ── */}
-      <section className="py-32 px-4 text-center">
-        <div className="max-w-2xl mx-auto">
+      {/* ── 1. HERO with background image ── */}
+      <section
+        className="py-32 px-4 text-center relative bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/prayer-wall-bg.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+        <div className="max-w-2xl mx-auto relative z-10">
           <Heart size={32} className="text-gold mx-auto mb-8" strokeWidth={1.5} />
           <h1 className="font-display text-5xl md:text-6xl font-semibold italic text-foreground/80 leading-tight mb-6">
             You Don't Have to Carry&nbsp;This Alone.
           </h1>
           <p className="font-body text-lg text-muted-foreground leading-relaxed max-w-lg mx-auto">
-            Whatever you're facing — big, small, unspeakable — we'd be honored to pray with you.
+            Whatever you are facing, big or small, we would be honored to pray for you.
           </p>
         </div>
       </section>
 
       {/* ── 2. INVITATION ── */}
-      <section className="pb-24 px-4">
+      <section className="pb-24 px-4 pt-16">
         <div className="max-w-xl mx-auto text-center">
           <div className="gold-divider mb-10" />
           <p className="font-body text-base text-foreground/70 leading-relaxed mb-4">
-            This page was created for you — not as a feature, but as a gesture of genuine care. Every request shared here is read and prayed over by our team, privately and faithfully.
+            This page was created for you—because we genuinely care about you. Because you matter to Jesus, you matter to us.
+          </p>
+          <p className="font-body text-base text-foreground/70 leading-relaxed mb-4">
+            Every request is kept private, read, and prayed over by our team.
           </p>
           <p className="font-body text-base text-foreground/70 leading-relaxed mb-10">
-            You don't need the right words. You don't need to explain everything. You only need to share what's on your heart.
+            You don't need the right words. Just share what you can, and we will bring it to Jesus with you and for you.
           </p>
           <blockquote className="mb-2">
             <p className="font-display italic text-lg text-muted-foreground/80 leading-relaxed">
@@ -190,7 +204,7 @@ const PrayerWall = () => {
         </div>
       </section>
 
-      {/* ── 4. TESTIMONIES ── */}
+      {/* ── 4. ANSWERED PRAYERS ── */}
       <section className="section-padding bg-secondary">
         <div className="container max-w-3xl mx-auto text-center">
           <span className="font-body text-xs tracking-widest uppercase text-gold/80 block mb-3">
@@ -200,17 +214,25 @@ const PrayerWall = () => {
             Stories of Hope
           </h2>
           <p className="font-body text-foreground/60 leading-relaxed max-w-lg mx-auto mb-14">
-            This space is reserved for stories of answered prayer. We'll share them here — anonymized, with permission — as a quiet reminder that you are heard.
+            This space is for stories of answered prayers. We'll share them here — anonymous — but as a reminder, He hears His children and He answers us.
           </p>
-          <div className="grid gap-6 sm:grid-cols-3">
-            {placeholderNotes.map((note, i) => (
+          <div className="grid gap-8 sm:grid-cols-2">
+            {stories.map((story, i) => (
               <div
                 key={i}
-                className="bg-background rounded-xl p-7 border border-border/50 text-left"
+                className="bg-background rounded-xl p-8 border border-border/50 text-left"
               >
                 <Heart size={14} className="text-gold/50 mb-4" strokeWidth={1.5} />
-                <p className="font-display italic text-base text-muted-foreground/60 leading-relaxed">
-                  {note}
+                <h3 className="font-display text-lg font-semibold text-primary mb-3">
+                  {story.title}
+                </h3>
+                {story.text.split("\n\n").map((para, j) => (
+                  <p key={j} className="font-body text-sm text-foreground/70 leading-relaxed mb-3">
+                    {para}
+                  </p>
+                ))}
+                <p className="font-display italic text-sm text-gold/70 leading-relaxed mt-4">
+                  {story.verse}
                 </p>
               </div>
             ))}
