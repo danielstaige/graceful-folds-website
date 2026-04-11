@@ -21,7 +21,7 @@ const steps = [
     num: "01",
     title: "Set It on the Porch",
     desc: "Leave your bag out at your scheduled pickup time — no waiting around.",
-    tags: ["Free Pickup", "No Contact Needed"],
+    tags: ["Schedule Pickup", "Leave on Porch"],
     img: stepPorch,
   },
   {
