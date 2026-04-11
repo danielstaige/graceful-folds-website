@@ -253,12 +253,10 @@ const HomePage = () => {
         <div className="container max-w-2xl mx-auto text-center">
           <div className="gold-divider mb-10" />
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-primary leading-snug mb-6">
-            We Wash, We Fold…
-            <br />
-            <em className="not-italic" style={{ color: "hsl(var(--deep-gold))" }}>and We Pray.</em>
+            <em className="not-italic" style={{ color: "hsl(var(--deep-gold))" }}>We Pray.</em>
           </h2>
           <p className="font-body text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg mx-auto">
-            Folds of Grace isn't just a laundry service. Every bag we handle is treated with care and intention. We believe in lightening the load — in more ways than one.
+            Folds of Grace isn't just laundry. Every item is handled with care and intention, giving you back time and surrounding your home or business in prayer.
           </p>
           <div className="gold-divider" />
         </div>
