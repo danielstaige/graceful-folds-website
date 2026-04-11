@@ -239,6 +239,7 @@ const TheFold = () => {
 
       <FolderApplicationModal open={folderAppOpen} onOpenChange={setFolderAppOpen} />
     </main>
+  );
 };
 
 export default TheFold;
