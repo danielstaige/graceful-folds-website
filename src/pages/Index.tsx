@@ -543,7 +543,7 @@ const HomePage = () => {
           <h2 className="font-display text-5xl md:text-6xl font-semibold text-primary-foreground mb-6 leading-tight">
             You Were Never Meant to Do It Alone
           </h2>
-          <p className="font-body text-lg mb-10 max-w-md mx-auto leading-relaxed" style={{ color: "hsl(var(--soft-cream) / 0.75)" }}>
+          <p className="font-body text-lg mb-10 max-w-md mx-auto leading-relaxed text-primary-foreground/75">
             We're here to help—laundry pickup is just a few clicks away servicing all across DFW Dallas-Fort Worth.
           </p>
           <Link
