@@ -107,6 +107,50 @@ const OurStory = () => {
             <p className="font-display text-xl italic text-primary/80 mb-10">
               And He alone gets all the glory.
             </p>
+          </div>
+        </div>
+
+        {/* Dana Quote */}
+        <div className="my-16 -mx-4 md:-mx-16 lg:-mx-40 px-4">
+          <div className="h-px w-full max-w-3xl mx-auto" style={{ background: "hsl(var(--deep-gold) / 0.4)" }} />
+          <blockquote className="max-w-3xl mx-auto px-8 py-12 text-center">
+            <p className="font-display text-xl md:text-2xl italic text-primary/80 leading-relaxed">
+              "This is what Folds of Grace was built on—and it's what we're about."
+            </p>
+            <cite className="font-body text-sm text-gold not-italic block mt-6 tracking-wide">— Dana, Founder</cite>
+          </blockquote>
+          <div className="h-px w-full max-w-3xl mx-auto" style={{ background: "hsl(var(--deep-gold) / 0.4)" }} />
+        </div>
+
+        <div className="max-w-2xl mx-auto">
+          <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
+            We're not here to replace you—we're here to support you.
+          </p>
+          <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
+            To give you time back each week so you can be fully present where it matters most—around the table, with your kids, in the moments that go by too quickly.
+          </p>
+          <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
+            Every bag we pick up is handled with care. Every item is folded like it belongs to someone we love—because it does.
+          </p>
+          <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
+            We serve families and businesses across DFW with consistency, attention to detail, and a genuine heart to care well.
+          </p>
+          <p className="font-body text-base text-foreground/80 font-medium leading-[1.85] mb-6">
+            But this is about more than laundry.
+          </p>
+          <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
+            We believe in bringing order to homes, lightening the load you carry, and covering every home we serve in prayer.
+          </p>
+          <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
+            From your first pickup to your hundredth, our goal stays the same: to be a dependable, trusted part of your week—serving you with excellence, intention, and care.
+          </p>
+
+          {/* Closing */}
+          <div className="mt-16 text-center">
+            <div className="h-px w-16 mx-auto mb-8" style={{ background: "hsl(var(--deep-gold))" }} />
+            <p className="font-display text-xl italic text-primary/80 mb-10">
+              We wash, we fold…..we pray.
+            </p>
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 px-7 py-3 rounded-md font-body text-sm font-semibold shadow-gold hover:-translate-y-0.5 transition-all duration-200"
