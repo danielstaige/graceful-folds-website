@@ -64,11 +64,8 @@ const TheFold = () => {
         <div className="container max-w-3xl mx-auto text-center">
           <span className="font-body text-xs tracking-widest uppercase text-gold mb-4 block">The Fold</span>
           <h1 className="font-display text-5xl md:text-6xl font-semibold text-primary-foreground mb-6 leading-tight">
-            Meet the Women Who Serve Our Community.
+            Meet the Women Who Serve Your Community.
           </h1>
-          <p className="font-body text-primary-foreground/80 text-lg leading-relaxed">
-            Your Folder is your neighbor. She cares about your family.
-          </p>
         </div>
       </section>
 
