@@ -305,10 +305,10 @@ const HomePage = () => {
         <div className="container max-w-6xl mx-auto">
 
           {/* Desktop: 3-column grid */}
-          <div className="hidden lg:grid lg:grid-cols-[1fr_1.6fr_1fr] gap-4 items-stretch">
+          <div className="hidden lg:grid lg:grid-cols-[1fr_1.6fr_1fr] gap-4 items-start">
 
-            {/* Left column — 3 name cards */}
-            <div className="flex flex-col gap-4">
+            {/* Left column — 6 review cards */}
+            <div className="flex flex-col gap-3 max-h-[600px] overflow-y-auto pr-1 custom-scrollbar">
               {leftTestimonials.map((t, i) => {
                 const globalIndex = i;
                 const isActive = activeIndex === globalIndex;
@@ -316,75 +316,106 @@ const HomePage = () => {
                   <button
                     key={t.name}
                     onClick={() => setActiveIndex(globalIndex)}
-                    className="relative rounded-xl overflow-hidden h-36 text-left transition-all duration-200 group"
+                    className="rounded-xl p-4 text-left transition-all duration-200 group"
                     style={{
-                      background: "hsl(38 33% 90%)",
-                      outline: isActive ? "2px solid hsl(var(--deep-gold))" : "2px solid transparent",
+                      background: "hsl(var(--card))",
+                      outline: isActive ? "2px solid hsl(var(--accent))" : "2px solid transparent",
                       outlineOffset: "2px",
                     }}
                   >
-                    {/* Avatar initials */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full flex items-center justify-center font-display text-xl font-semibold" style={{ background: "hsl(var(--deep-gold) / 0.2)", color: "hsl(var(--deep-gold))" }}>
+                    <div className="flex items-center gap-3 mb-2">
+                      <div
+                        className="w-9 h-9 rounded-full flex items-center justify-center font-display text-xs font-semibold shrink-0"
+                        style={{ background: "hsl(var(--accent) / 0.15)", color: "hsl(var(--accent))" }}
+                      >
                         {t.initials}
                       </div>
+                      <div>
+                        <p className="font-body text-sm font-semibold text-foreground leading-tight">{t.name}</p>
+                        <p className="font-body text-xs text-muted-foreground">{t.location}</p>
+                      </div>
                     </div>
-                    {/* Name label */}
-                    <div className="absolute bottom-0 left-0 right-0 p-3" style={{ background: "linear-gradient(to top, hsl(20 10% 15% / 0.6), transparent)" }}>
-                      <p className="font-body text-xs font-semibold text-primary-foreground leading-tight">{t.name}</p>
-                      <p className="font-body text-xs" style={{ color: "hsl(var(--soft-cream) / 0.7)" }}>{t.location}</p>
-                    </div>
-                    {/* Plus/check indicator */}
-                    <div
-                      className="absolute top-3 right-3 w-6 h-6 rounded-full flex items-center justify-center transition-all"
-                      style={{
-                        background: isActive ? "hsl(var(--deep-gold))" : "hsl(var(--soft-cream) / 0.9)",
-                        color: isActive ? "hsl(var(--soft-cream))" : "hsl(var(--deep-gold))",
-                      }}
-                    >
-                      <Plus size={12} />
-                    </div>
+                    <p className="font-body text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                      "{t.quote}"
+                    </p>
                   </button>
                 );
               })}
             </div>
 
-            {/* Center — featured card */}
+            {/* Center — featured card (blue) */}
             <div
-              className="rounded-2xl p-8 flex flex-col justify-between"
-              style={{ background: "hsl(var(--charcoal))" }}
+              className="rounded-2xl p-8 flex flex-col justify-between min-h-[600px]"
+              style={{ background: "hsl(var(--accent))" }}
             >
               <div>
-                <span className="font-body text-xs tracking-widest uppercase mb-4 block" style={{ color: "hsl(var(--deep-gold))" }}>
+                <span className="font-body text-xs tracking-widest uppercase mb-4 block" style={{ color: "hsl(0 0% 100% / 0.7)" }}>
                   Testimonial
                 </span>
-                <h2 className="font-display text-2xl font-semibold text-primary-foreground mb-8 leading-snug">
+                <h2 className="font-display text-2xl font-semibold mb-8 leading-snug" style={{ color: "hsl(0 0% 100%)" }}>
                   Praised by families<br />across DFW.
                 </h2>
                 <p
                   className="font-display text-6xl leading-none mb-3 select-none"
-                  style={{ color: "hsl(var(--deep-gold))" }}
+                  style={{ color: "hsl(0 0% 100% / 0.3)" }}
                 >
                   "
                 </p>
-                <p className="font-display text-lg italic text-primary-foreground leading-relaxed">
+                <p className="font-display text-lg italic leading-relaxed" style={{ color: "hsl(0 0% 100%)" }}>
                   {testimonials[activeIndex].quote}
                 </p>
               </div>
               <div className="mt-8">
                 <div className="flex gap-1 mb-3">
                   {[...Array(5)].map((_, j) => (
-                    <Star key={j} size={14} fill="hsl(var(--deep-gold))" style={{ color: "hsl(var(--deep-gold))" }} />
+                    <Star key={j} size={14} fill="hsl(0 0% 100%)" style={{ color: "hsl(0 0% 100%)" }} />
                   ))}
                 </div>
-                <p className="font-body text-sm font-semibold" style={{ color: "hsl(var(--deep-gold))" }}>
+                <p className="font-body text-sm font-semibold" style={{ color: "hsl(0 0% 100%)" }}>
                   {testimonials[activeIndex].name}
                 </p>
-                <p className="font-body text-xs" style={{ color: "hsl(var(--soft-cream) / 0.6)" }}>
+                <p className="font-body text-xs" style={{ color: "hsl(0 0% 100% / 0.6)" }}>
                   {testimonials[activeIndex].location}
                 </p>
               </div>
             </div>
+
+            {/* Right column — 6 review cards */}
+            <div className="flex flex-col gap-3 max-h-[600px] overflow-y-auto pr-1 custom-scrollbar">
+              {rightTestimonials.map((t, i) => {
+                const globalIndex = leftTestimonials.length + i;
+                const isActive = activeIndex === globalIndex;
+                return (
+                  <button
+                    key={t.name}
+                    onClick={() => setActiveIndex(globalIndex)}
+                    className="rounded-xl p-4 text-left transition-all duration-200"
+                    style={{
+                      background: "hsl(var(--card))",
+                      outline: isActive ? "2px solid hsl(var(--accent))" : "2px solid transparent",
+                      outlineOffset: "2px",
+                    }}
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div
+                        className="w-9 h-9 rounded-full flex items-center justify-center font-display text-xs font-semibold shrink-0"
+                        style={{ background: "hsl(var(--accent) / 0.15)", color: "hsl(var(--accent))" }}
+                      >
+                        {t.initials}
+                      </div>
+                      <div>
+                        <p className="font-body text-sm font-semibold text-foreground leading-tight">{t.name}</p>
+                        <p className="font-body text-xs text-muted-foreground">{t.location}</p>
+                      </div>
+                    </div>
+                    <p className="font-body text-xs text-muted-foreground leading-relaxed line-clamp-3">
+                      "{t.quote}"
+                    </p>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
             {/* Right column — 3 name cards */}
             <div className="flex flex-col gap-4">
