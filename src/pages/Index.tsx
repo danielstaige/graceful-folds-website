@@ -425,18 +425,12 @@ const HomePage = () => {
 
           {/* Mobile: simple featured card + dots */}
           <div className="lg:hidden">
-            <div className="text-center mb-8">
-              <span className="font-body text-xs tracking-widest uppercase mb-2 block" style={{ color: "hsl(var(--accent))" }}>
-                Testimonial
-              </span>
-              <h2 className="font-display text-3xl font-semibold text-primary">Praised by families across DFW.</h2>
-            </div>
             <div
-              className="rounded-2xl p-8"
+              className="rounded-2xl p-6 relative"
               style={{ background: "hsl(var(--accent))" }}
             >
               <p className="font-display text-5xl leading-none mb-2 select-none" style={{ color: "hsl(0 0% 100% / 0.3)" }}>"</p>
-              <p className="font-display text-lg italic leading-relaxed mb-6" style={{ color: "hsl(0 0% 100%)" }}>
+              <p className="font-display text-base italic leading-relaxed mb-6" style={{ color: "hsl(0 0% 100%)" }}>
                 {testimonials[activeIndex].quote}
               </p>
               <div className="flex gap-1 mb-2">
@@ -448,19 +442,38 @@ const HomePage = () => {
                 — {testimonials[activeIndex].name}, {testimonials[activeIndex].location}
               </p>
             </div>
-            <div className="flex justify-center gap-2 mt-6 flex-wrap">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveIndex(i)}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                  className="w-2.5 h-2.5 rounded-full transition-all duration-300"
-                  style={{
-                    background: i === activeIndex ? "hsl(var(--accent))" : "transparent",
-                    border: `1.5px solid hsl(var(--accent) / ${i === activeIndex ? "1" : "0.4"})`,
-                  }}
-                />
-              ))}
+            {/* Arrows + dots */}
+            <div className="flex items-center justify-center gap-4 mt-6">
+              <button
+                onClick={() => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                className="w-9 h-9 rounded-full flex items-center justify-center border transition-colors"
+                style={{ borderColor: "hsl(var(--accent))", color: "hsl(var(--accent))" }}
+                aria-label="Previous testimonial"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <div className="flex gap-1.5 flex-wrap justify-center">
+                {testimonials.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveIndex(i)}
+                    aria-label={`Go to testimonial ${i + 1}`}
+                    className="w-2 h-2 rounded-full transition-all duration-300"
+                    style={{
+                      background: i === activeIndex ? "hsl(var(--accent))" : "transparent",
+                      border: `1.5px solid hsl(var(--accent) / ${i === activeIndex ? "1" : "0.4"})`,
+                    }}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={() => setActiveIndex((prev) => (prev + 1) % testimonials.length)}
+                className="w-9 h-9 rounded-full flex items-center justify-center border transition-colors"
+                style={{ borderColor: "hsl(var(--accent))", color: "hsl(var(--accent))" }}
+                aria-label="Next testimonial"
+              >
+                <ChevronRight size={18} />
+              </button>
             </div>
           </div>
 
