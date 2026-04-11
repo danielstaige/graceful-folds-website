@@ -63,8 +63,10 @@ const FAQItem = ({ q, a }: { q: string; a: string }) => {
         )}
       </button>
       {open && (
-        <div className="pb-5">
-          <p className="font-body text-sm text-foreground/80 leading-relaxed">{a}</p>
+        <div className="pb-5 space-y-2">
+          {a.split("\n\n").map((para, i) => (
+            <p key={i} className="font-body text-sm text-foreground/80 leading-relaxed">{para}</p>
+          ))}
         </div>
       )}
     </div>
