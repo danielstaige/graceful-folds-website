@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import heroImg from "@/assets/hero-laundry.jpg";
 import danaFamilyImg from "@/assets/dana-family.jpeg";
+import danaLaundryImg from "@/assets/dana-laundry.png";
+import danaFamilyChristmasImg from "@/assets/dana-family-christmas.png";
+import danaTeamImg from "@/assets/dana-team.png";
+import danaFamilyShirtsImg from "@/assets/dana-family-shirts.png";
 
 const OurStory = () => {
   return (
@@ -22,13 +25,27 @@ const OurStory = () => {
       {/* Article Body */}
       <section className="bg-background py-24 px-4">
         <div className="max-w-2xl mx-auto">
-
           <p className="font-body text-base text-foreground/80 leading-[1.85] mb-6">
             Hi, I'm Dana—founder of Folds of Grace, a lover of Jesus, a mom to four amazing kiddos, a friend, a CrossFit enthusiast, an intercessor, and an encourager.
           </p>
           <p className="font-body text-base text-foreground/80 leading-[1.85] mb-6">
             If you know me, you know I'm praying for you. That's not something I take lightly—it's at the center of who I am and how I serve.
           </p>
+        </div>
+
+        {/* Dana with laundry photo */}
+        <div className="max-w-3xl mx-auto my-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-lg overflow-hidden shadow-lg">
+              <img src={danaLaundryImg} alt="Dana working with laundry" className="w-full h-full object-cover" />
+            </div>
+            <div className="rounded-lg overflow-hidden shadow-lg">
+              <img src={danaFamilyChristmasImg} alt="Dana and her family at Christmas" className="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+
+        <div className="max-w-2xl mx-auto">
           <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
             When I started Folds of Grace, it was born out of one of the hardest seasons of my life. Life took a sudden, sharp turn I never expected, and I found myself unsure of how I was going to provide for my children or even for myself.
           </p>
@@ -77,6 +94,16 @@ const OurStory = () => {
           <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
             What began in obedience, out of my home in the fall of 2022, has grown into a full team serving families and businesses across DFW and surrounding areas.
           </p>
+        </div>
+
+        {/* Team photo */}
+        <div className="max-w-3xl mx-auto my-16">
+          <div className="rounded-lg overflow-hidden shadow-lg">
+            <img src={danaTeamImg} alt="The Folds of Grace team" className="w-full h-auto object-cover" />
+          </div>
+        </div>
+
+        <div className="max-w-2xl mx-auto">
           <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
             In His kindness, God showed me this would be about more than laundry. It would give families time back, bring order to homes, and create space for peace, rest, and connection. It would also serve the women who are part of it—giving them a way to earn income while staying present with their families.
           </p>
@@ -114,6 +141,13 @@ const OurStory = () => {
             <p className="font-display text-xl italic text-primary/80 mb-10">
               And He alone gets all the glory.
             </p>
+          </div>
+        </div>
+
+        {/* Family in Folds of Grace shirts */}
+        <div className="max-w-3xl mx-auto my-16">
+          <div className="rounded-lg overflow-hidden shadow-lg">
+            <img src={danaFamilyShirtsImg} alt="Dana's family wearing Folds of Grace shirts" className="w-full h-auto object-cover" />
           </div>
         </div>
 
