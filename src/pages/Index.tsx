@@ -132,10 +132,14 @@ const HomePage = () => {
           alt="Neatly folded laundry on a clean wooden surface"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
-        {/* Gradient overlay */}
+        {/* Gradient overlay — stronger on mobile for text readability */}
         <div
           className="absolute inset-0"
           style={{ background: "linear-gradient(105deg, hsl(20 10% 15% / 0.82) 0%, hsl(20 10% 15% / 0.45) 60%, transparent 100%)" }}
+        />
+        <div
+          className="absolute inset-0 md:hidden"
+          style={{ background: "hsl(20 10% 15% / 0.55)" }}
         />
 
         {/* Text content */}
