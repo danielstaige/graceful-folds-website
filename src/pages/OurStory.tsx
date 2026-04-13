@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import heroImg from "@/assets/hero-laundry.jpg";
+import danaFamilyImg from "@/assets/dana-family.jpeg";
 
 const OurStory = () => {
   return (
