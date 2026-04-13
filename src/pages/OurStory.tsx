@@ -63,6 +63,16 @@ const OurStory = () => {
           <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
             Not long after, I came across someone looking for laundry services. I mentioned it to a friend, and she immediately said, "You have to do this—there's nothing like that here."
           </p>
+        </div>
+
+        {/* Community / friends photo */}
+        <div className="max-w-3xl mx-auto my-16">
+          <div className="rounded-lg overflow-hidden shadow-lg">
+            <img src={danaCommunityImg} alt="Dana with her community of friends" className="w-full h-auto object-cover" />
+          </div>
+        </div>
+
+        <div className="max-w-2xl mx-auto">
           <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
             I took it to the Lord and to the friends I pray with and said, "God, if this isn't You, I don't want it. I only want to be part of what You are doing. I only want to go where You send me."
           </p>
