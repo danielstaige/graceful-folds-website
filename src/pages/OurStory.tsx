@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import heroImg from "@/assets/hero-laundry.jpg";
+import danaFamilyImg from "@/assets/dana-family.jpeg";
 
 const OurStory = () => {
   return (
@@ -48,7 +49,13 @@ const OurStory = () => {
           </p>
         </div>
 
-        {/* Pull-Quote */}
+        {/* Dana & Family Photo */}
+        <div className="max-w-3xl mx-auto my-16">
+          <div className="rounded-lg overflow-hidden shadow-lg">
+            <img src={danaFamilyImg} alt="Dana and her family" className="w-full h-auto object-cover" />
+          </div>
+        </div>
+
         <div className="my-16 -mx-4 md:-mx-16 lg:-mx-40 px-4">
           <div className="h-px w-full max-w-3xl mx-auto" style={{ background: "hsl(var(--deep-gold) / 0.4)" }} />
           <blockquote className="max-w-3xl mx-auto px-8 py-12 text-center">

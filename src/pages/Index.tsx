@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Clock, Tag, Star, DoorOpen, Shirt, Home, ChevronLeft, ChevronRight } from "lucide-react";
 import heroImg from "@/assets/hero-laundry.jpg";
-import danaPhoto from "@/assets/dana-folder.jpg";
+import danaPhoto from "@/assets/dana-family.jpeg";
 import howItWorksBag from "@/assets/how-it-works-bag.jpg";
 import stepPorch from "@/assets/folds-of-grace-how-it-works-1.jpg";
 import stepWashFold from "@/assets/step-2-wash-fold.jpg";
