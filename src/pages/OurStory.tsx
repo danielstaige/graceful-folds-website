@@ -57,6 +57,16 @@ const OurStory = () => {
           <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
             I am so grateful for women who pray. They stood with me, covering me in prayer as I waited on the Lord. In that season of seeking, listening, and surrendering, God was doing something deeper—drawing me into a more abiding relationship with Him that I wouldn't trade for anything.
           </p>
+        </div>
+
+        {/* Team photo */}
+        <div className="max-w-3xl mx-auto my-16">
+          <div className="rounded-lg overflow-hidden shadow-lg">
+            <img src={danaTeamImg} alt="The Folds of Grace team" className="w-full h-auto object-cover" />
+          </div>
+        </div>
+
+        <div className="max-w-2xl mx-auto">
           <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
             I can look back now and see the years leading up to this, He had already been shaping my heart and preparing me. Growing in me a love for women, marriages, and discipleship. I had the privilege of walking alongside younger women and watching them grow in their love for Jesus. What I didn't realize then was that He was building the foundation for what would become Folds of Grace.
           </p>
@@ -108,12 +118,6 @@ const OurStory = () => {
           </p>
         </div>
 
-        {/* Team photo */}
-        <div className="max-w-3xl mx-auto my-16">
-          <div className="rounded-lg overflow-hidden shadow-lg">
-            <img src={danaTeamImg} alt="The Folds of Grace team" className="w-full h-auto object-cover" />
-          </div>
-        </div>
 
         <div className="max-w-2xl mx-auto">
           <p className="font-body text-base text-foreground/75 leading-[1.85] mb-6">
