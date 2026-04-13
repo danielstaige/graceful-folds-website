@@ -5,6 +5,8 @@ import danaLaundryImg from "@/assets/dana-laundry.png";
 import danaFamilyChristmasImg from "@/assets/dana-family-christmas.png";
 import danaTeamImg from "@/assets/dana-team.png";
 import danaFamilyShirtsImg from "@/assets/dana-family-shirts.png";
+import danaCommunityImg from "@/assets/dana-community.png";
+import danaKidsOutdoorsImg from "@/assets/dana-kids-outdoors.png";
 
 const OurStory = () => {
   return (
