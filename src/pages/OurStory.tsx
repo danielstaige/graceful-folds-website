@@ -156,10 +156,15 @@ const OurStory = () => {
           </div>
         </div>
 
-        {/* Family in Folds of Grace shirts */}
+        {/* Family in Folds of Grace shirts + kids outdoors */}
         <div className="max-w-3xl mx-auto my-16">
-          <div className="rounded-lg overflow-hidden shadow-lg">
-            <img src={danaFamilyShirtsImg} alt="Dana's family wearing Folds of Grace shirts" className="w-full h-auto object-cover" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-lg overflow-hidden shadow-lg">
+              <img src={danaFamilyShirtsImg} alt="Dana's family wearing Folds of Grace shirts" className="w-full h-full object-cover" />
+            </div>
+            <div className="rounded-lg overflow-hidden shadow-lg">
+              <img src={danaKidsOutdoorsImg} alt="Dana and her kids outdoors" className="w-full h-full object-cover" />
+            </div>
           </div>
         </div>
 
