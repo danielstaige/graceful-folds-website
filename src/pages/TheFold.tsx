@@ -37,6 +37,11 @@ const folders = [
     name: "Lynnette",
     testimonial: "I remember the time constraints with being a busy mom. It gives me joy as a grandma (Mimi) to think I can make life easier for moms who need to spend more personal time with their children and family. I also have the flexibility to work a schedule that works for me.",
   },
+  {
+    name: "Kim",
+    testimonial: "Working for Folds of Grace and with Dana has truly been a blessing for both me and my family. It has given me peace of mind bringing in extra income, while remaining present in my home. Dana is also an incredible boss, and is so supportive of me in my own personal life. I'm forever thankful for Dana for giving me the opportunity to come along side her.",
+    verse: "\"Each of you should use whatever gift you have received to serve others, as faithful stewards of God's grace in its various forms.\" — 1 Peter 4:10",
+  },
 ];
 
 const benefits = [
