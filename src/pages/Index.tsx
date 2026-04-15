@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Clock, Tag, Star, DoorOpen, Shirt, Home, ChevronLeft, ChevronRight } from "lucide-react";
 import { useGetStarted } from "@/contexts/GetStartedContext";
 import heroImg from "@/assets/hero-laundry.jpg";
