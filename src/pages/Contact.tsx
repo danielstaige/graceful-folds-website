@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Send, Heart, ArrowRight, Users } from "lucide-react";
+import { Phone, MapPin, Send, Heart, ArrowRight, Users } from "lucide-react";
 import { z } from "zod";
 import GetStartedModal from "@/components/GetStartedModal";
 import FolderApplicationModal from "@/components/FolderApplicationModal";
