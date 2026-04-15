@@ -72,7 +72,7 @@ const GetStartedModal = ({ open, onOpenChange }: GetStartedModalProps) => {
     if (!isOpen) {
       setTimeout(() => {
         setStep(1);
-        setForm({ name: "", phone: "", email: "", address: "", freeClear: false, familyMembers: "", hangingPreferences: "" });
+        setForm({ name: "", phone: "", email: "", address: "", apartmentNumber: "", gateCode: "", freeClear: false, familyMembers: "", hangingPreferences: "" });
         setErrors({});
       }, 300);
     }
