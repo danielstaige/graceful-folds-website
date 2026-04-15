@@ -122,6 +122,21 @@ const GetStartedModal = ({ open, onOpenChange }: GetStartedModalProps) => {
                 {errors.address && <p className={errorClass} style={{ color: "hsl(var(--destructive))" }}>{errors.address}</p>}
               </div>
 
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="font-body text-sm font-medium text-foreground/80 block mb-1.5">
+                    Apartment / Unit #
+                  </label>
+                  <input type="text" name="apartmentNumber" value={form.apartmentNumber} onChange={handleChange} placeholder="e.g., Apt 204" className={inputClass} />
+                </div>
+                <div>
+                  <label className="font-body text-sm font-medium text-foreground/80 block mb-1.5">
+                    Gate Code
+                  </label>
+                  <input type="text" name="gateCode" value={form.gateCode} onChange={handleChange} placeholder="e.g., #1234" className={inputClass} />
+                </div>
+              </div>
+
               <div className="bg-secondary/60 rounded-lg p-4">
                 <p className="font-body text-sm text-foreground/80 leading-relaxed mb-3">
                   We use Tide or Gain by default. If you prefer All Free & Clear, please check this box. You're always welcome to provide your own detergent.
