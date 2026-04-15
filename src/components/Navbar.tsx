@@ -87,14 +87,15 @@ const Navbar = () => {
 
             <SheetContent
               side="right"
-              className="w-[300px] sm:w-[340px] bg-card border-l border-border flex flex-col p-0"
+              className="w-[300px] sm:w-[340px] border-l border-white/10 flex flex-col p-0"
+              style={{ backgroundColor: "hsl(var(--primary))" }}
             >
               {/* Sheet Header */}
-              <div className="flex items-center justify-between px-6 py-5 border-b border-border">
+              <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
                 <img src={logoImg} alt="Folds of Grace" className="h-10 w-auto" />
                 <SheetClose asChild>
                   <button
-                    className="p-1.5 rounded-md text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
+                    className="p-1.5 rounded-md text-white/70 hover:text-white hover:bg-white/10 transition-colors"
                     aria-label="Close menu"
                   >
                     <X size={18} />
@@ -112,8 +113,8 @@ const Navbar = () => {
                       to={link.path}
                       className={`group flex items-center gap-3 px-3 py-3.5 rounded-lg font-body text-base font-medium transition-all duration-150 ${
                         isActive
-                          ? "bg-secondary text-primary"
-                          : "text-foreground hover:bg-muted"
+                          ? "bg-white/15 text-white"
+                          : "text-white/75 hover:bg-white/10 hover:text-white"
                       }`}
                     >
                       <span
@@ -129,7 +130,7 @@ const Navbar = () => {
               </nav>
 
               {/* CTA at bottom */}
-              <div className="px-4 pb-8 pt-2 border-t border-border">
+              <div className="px-4 pb-8 pt-2 border-t border-white/10">
                 <Link
                   to="/contact"
                   className="flex items-center justify-center w-full px-5 py-3 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 shadow-gold hover:shadow-lg hover:-translate-y-0.5"
@@ -140,7 +141,7 @@ const Navbar = () => {
                 >
                   Get Started Today
                 </Link>
-                <p className="text-center font-body text-xs text-muted-foreground mt-3">
+                <p className="text-center font-body text-xs text-white/60 mt-3">
                   We wash, we fold… and we pray. 🙏
                 </p>
               </div>
