@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import danaFamilyImg from "@/assets/dana-family.jpeg";
 import danaLaundryImg from "@/assets/dana-family-airport.jpg";
-import danaFamilyChristmasImg from "@/assets/dana-family-christmas.png";
+import danaFamilyChristmasImg from "@/assets/dana-laundry-selfie.png";
 import danaTeamImg from "@/assets/dana-team.png";
 import danaFamilyShirtsImg from "@/assets/dana-family-shirts.png";
 import danaCommunityImg from "@/assets/dana-community.png";
