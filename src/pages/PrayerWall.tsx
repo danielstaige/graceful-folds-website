@@ -218,7 +218,7 @@ const PrayerWall = () => {
 
       {/* ── 4. ANSWERED PRAYERS ── */}
       <section className="section-padding bg-secondary">
-        <div className="container max-w-3xl mx-auto text-center">
+        <div className="container max-w-6xl mx-auto text-center">
           <span className="font-body text-xs tracking-widest uppercase text-gold/80 block mb-3">
             Answered Prayers
           </span>
