@@ -123,6 +123,7 @@ const rightTestimonials = testimonials.slice(6, 12);
 
 const HomePage = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { openGetStarted } = useGetStarted();
 
   return (
     <main>
