@@ -64,6 +64,9 @@ const OurStory = () => {
           <div className="rounded-lg overflow-hidden shadow-lg">
             <img src={danaTeamImg} alt="The Folds of Grace team" className="w-full h-auto object-cover" />
           </div>
+          <p className="font-body text-sm text-muted-foreground text-center mt-3 italic">
+            These are just a few of the women who have covered me in prayer—every woman needs women like this.
+          </p>
         </div>
 
         <div className="max-w-2xl mx-auto">
@@ -81,7 +84,7 @@ const OurStory = () => {
             <img src={danaCommunityImg} alt="Dana with her community of friends" className="w-full h-auto object-cover" />
           </div>
           <p className="font-body text-sm text-muted-foreground text-center mt-3 italic">
-            These are just a few of the women who have covered me in prayer—every woman needs women like this.
+            And it's even sweeter when their beloveds stand with us in faith too.
           </p>
         </div>
 
