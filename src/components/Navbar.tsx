@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-import logoImg from "@/assets/gray-blue-variant-logo.png";
+import logoImg from "@/assets/folds-of-grace-logo-white.png";
 
 const navLinks = [
   { label: "Home", path: "/" },
@@ -32,8 +32,9 @@ const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-card shadow-soft" : "bg-card/95 backdrop-blur-sm"
+        scrolled ? "shadow-soft" : ""
       }`}
+      style={{ backgroundColor: "hsl(var(--primary))" }}
     >
       <div className="container max-w-7xl mx-auto">
         <div className="flex items-center justify-between h-20 lg:h-24">
@@ -51,7 +52,7 @@ const Navbar = () => {
                 className={`nav-link font-body text-sm font-medium tracking-wide pb-0.5 ${
                   location.pathname === link.path
                     ? "text-accent border-b border-accent"
-                    : ""
+                    : "text-white/80 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -77,7 +78,7 @@ const Navbar = () => {
           <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger asChild>
               <button
-                className="lg:hidden p-2 rounded-md text-primary"
+                className="lg:hidden p-2 rounded-md text-white"
                 aria-label="Open menu"
               >
                 <Menu size={22} />
