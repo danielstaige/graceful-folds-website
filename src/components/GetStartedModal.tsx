@@ -23,6 +23,8 @@ const GetStartedModal = ({ open, onOpenChange }: GetStartedModalProps) => {
     phone: "",
     email: "",
     address: "",
+    apartmentNumber: "",
+    gateCode: "",
     freeClear: false,
     familyMembers: "",
     hangingPreferences: "",
