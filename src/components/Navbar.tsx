@@ -19,6 +19,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
   const location = useLocation();
+  const { openGetStarted } = useGetStarted();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -63,8 +64,8 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden lg:block shrink-0">
-            <Link
-              to="/contact"
+            <button
+              onClick={openGetStarted}
               className="inline-flex items-center px-5 py-2.5 rounded-md font-body text-sm font-medium tracking-wide transition-all duration-200 shadow-gold hover:shadow-lg hover:-translate-y-0.5"
               style={{
                 background: "var(--gradient-gold)",
@@ -72,7 +73,7 @@ const Navbar = () => {
               }}
             >
               Get Started Today
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Sheet Trigger */}
@@ -132,8 +133,8 @@ const Navbar = () => {
 
               {/* CTA at bottom */}
               <div className="px-4 pb-8 pt-2 border-t border-white/10">
-                <Link
-                  to="/contact"
+                <button
+                  onClick={() => { setSheetOpen(false); openGetStarted(); }}
                   className="flex items-center justify-center w-full px-5 py-3 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 shadow-gold hover:shadow-lg hover:-translate-y-0.5"
                   style={{
                     background: "var(--gradient-gold)",
@@ -141,7 +142,7 @@ const Navbar = () => {
                   }}
                 >
                   Get Started Today
-                </Link>
+                </button>
                 <p className="text-center font-body text-xs text-white/60 mt-3">
                   We wash, we fold… and we pray. 🙏
                 </p>
