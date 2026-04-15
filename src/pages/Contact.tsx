@@ -85,11 +85,11 @@ const Contact = () => {
             <div className="gold-divider" />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          <div className="flex justify-center max-w-2xl mx-auto">
             {/* Phone */}
             <a
               href="tel:2144007651"
-              className="flex flex-col items-center text-center gap-4 p-8 bg-card rounded-xl shadow-[var(--shadow-card)] hover:-translate-y-1 transition-transform duration-200"
+              className="flex flex-col items-center text-center gap-4 p-8 bg-card rounded-xl shadow-[var(--shadow-card)] hover:-translate-y-1 transition-transform duration-200 max-w-sm w-full"
             >
               <div
                 className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
@@ -106,30 +106,6 @@ const Contact = () => {
                 </p>
                 <p className="font-body text-sm text-muted-foreground leading-relaxed">
                   Texting is always welcome — whatever's easiest for you.
-                </p>
-              </div>
-            </a>
-
-            {/* Email */}
-            <a
-              href="mailto:hello@foldsofgrace.com"
-              className="flex flex-col items-center text-center gap-4 p-8 bg-card rounded-xl shadow-[var(--shadow-card)] hover:-translate-y-1 transition-transform duration-200"
-            >
-              <div
-                className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
-                style={{ background: "var(--gradient-gold)" }}
-              >
-                <Mail size={22} className="text-accent-foreground" />
-              </div>
-              <div>
-                <p className="font-body text-xs text-muted-foreground uppercase tracking-widest mb-1">
-                  Email Us
-                </p>
-                <p className="font-display text-xl font-semibold text-primary mb-2 break-all">
-                  hello@foldsofgrace.com
-                </p>
-                <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                  We check email daily and love a good message.
                 </p>
               </div>
             </a>
