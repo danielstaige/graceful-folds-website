@@ -14,6 +14,10 @@ const stories = [
     text: "One of our clients walked through years of waiting and longing for a baby. For over three years, we faithfully prayed with them and for them, asking God to move.\n\nThis past winter, they welcomed a beautiful baby.",
     verse: "\"I prayed for this child, and the Lord has granted me what I asked of Him.\" — 1 Samuel 1:27",
   },
+  {
+    title: "Story Three",
+    text: "If we've had the privilege of praying for you and God has answered, we would love to hear your testimony. Submit your answered prayer through the form above—we may share it in our Stories of Hope to encourage others.",
+  },
 ];
 
 const PrayerWall = () => {
@@ -224,7 +228,7 @@ const PrayerWall = () => {
           <p className="font-body text-foreground/60 leading-relaxed max-w-lg mx-auto mb-14">
             This space is for stories of answered prayers. We'll share them here — anonymous — but as a reminder, He hears His children and He answers us.
           </p>
-          <div className="grid gap-8 sm:grid-cols-2">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {stories.map((story, i) => (
               <div
                 key={i}
