@@ -202,13 +202,6 @@ const TheFold = () => {
                 ))}
               </ul>
 
-              <button
-                onClick={() => setFolderAppOpen(true)}
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 shadow-[var(--shadow-gold)]"
-                style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
-              >
-                Apply to Become a Folder <ArrowRight size={15} />
-              </button>
             </div>
 
             {/* Right: Qualifications box */}
@@ -238,6 +231,16 @@ const TheFold = () => {
               </div>
             </div>
 
+          </div>
+
+          <div className="flex justify-center mt-10">
+            <button
+              onClick={() => setFolderAppOpen(true)}
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-md font-body text-sm font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 shadow-[var(--shadow-gold)]"
+              style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
+            >
+              Apply to Become a Folder <ArrowRight size={15} />
+            </button>
           </div>
         </div>
       </section>
