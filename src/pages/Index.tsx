@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Sparkles, Clock, Tag, Star, DoorOpen, Shirt, Home, ChevronLeft, ChevronRight } from "lucide-react";
+import { useGetStarted } from "@/contexts/GetStartedContext";
 import heroImg from "@/assets/hero-laundry.jpg";
 import danaPhoto from "@/assets/dana-family.jpeg";
 import howItWorksBag from "@/assets/how-it-works-bag.jpg";
@@ -122,6 +123,7 @@ const rightTestimonials = testimonials.slice(6, 12);
 
 const HomePage = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { openGetStarted } = useGetStarted();
 
   return (
     <main>
@@ -156,14 +158,14 @@ const HomePage = () => {
             <p className="font-body text-base md:text-lg leading-relaxed mb-10 max-w-md" style={{ color: "hsl(0 0% 100% / 0.9)" }}>
               Never do laundry again! We pick up, wash, fold/hang, and deliver—hassle-free and ready to go.
             </p>
-            <Link
-              to="/contact"
+            <button
+              onClick={openGetStarted}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-md font-body text-sm font-semibold tracking-wide hover:-translate-y-0.5 transition-all duration-200"
               style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)", boxShadow: "var(--shadow-gold)" }}
             >
               Get Started Today
               <ArrowRight size={16} />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -563,13 +565,13 @@ const HomePage = () => {
           <p className="font-body text-lg mb-10 max-w-md mx-auto leading-relaxed text-primary-foreground/75">
             We're here to help—laundry pickup is just a few clicks away servicing all across DFW Dallas-Fort Worth.
           </p>
-          <Link
-            to="/contact"
+          <button
+            onClick={openGetStarted}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-md font-body text-sm font-semibold tracking-wide hover:-translate-y-0.5 transition-all duration-200"
             style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
           >
             Get Started Today <ArrowRight size={16} />
-          </Link>
+          </button>
         </div>
       </section>
     </main>
