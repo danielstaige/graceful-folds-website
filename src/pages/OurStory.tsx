@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useGetStarted } from "@/contexts/GetStartedContext";
 import danaFamilyImg from "@/assets/dana-family.jpeg";
 import danaLaundryImg from "@/assets/dana-family-airport.jpg";
 import danaFamilyChristmasImg from "@/assets/dana-laundry-selfie.png";
@@ -9,6 +9,7 @@ import danaCommunityImg from "@/assets/dana-community.png";
 import danaKidsOutdoorsImg from "@/assets/dana-kids-outdoors.png";
 
 const OurStory = () => {
+  const { openGetStarted } = useGetStarted();
   return (
     <main className="pt-20">
       {/* Hero */}
@@ -219,13 +220,13 @@ const OurStory = () => {
             <p className="font-display text-xl italic text-primary/80 mb-10">
               We wash, we fold…..we pray.
             </p>
-            <Link
-              to="/contact"
+            <button
+              onClick={openGetStarted}
               className="inline-flex items-center gap-2 px-7 py-3 rounded-md font-body text-sm font-semibold shadow-gold hover:-translate-y-0.5 transition-all duration-200"
               style={{ background: "var(--gradient-gold)", color: "hsl(0 0% 100%)" }}
             >
               Get Started Today <ArrowRight size={15} />
-            </Link>
+            </button>
           </div>
         </div>
       </section>
