@@ -12,7 +12,7 @@ import gallery8 from "@/assets/gallery-8.avif";
 import gallery9 from "@/assets/gallery-9.avif";
 import gallery10 from "@/assets/gallery-10.avif";
 import gallery11 from "@/assets/gallery-11.avif";
-import gallery12 from "@/assets/gallery-12.avif";
+import gallery12 from "@/assets/gallery-12.png";
 
 const images = [
   { src: gallery1, alt: "Freshly folded laundry" },
