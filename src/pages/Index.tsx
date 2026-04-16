@@ -7,7 +7,7 @@ import danaPhoto from "@/assets/dana-family.jpeg";
 import howItWorksBag from "@/assets/how-it-works-bag.jpg";
 import stepPorch from "@/assets/folds-of-grace-how-it-works-1.jpg";
 import stepWashFold from "@/assets/step-2-wash-fold.jpg";
-import stepDelivery from "@/assets/step3-hands.png";
+import stepDelivery from "@/assets/doorstep-delivery.jpg";
 import GalleryGrid from "@/components/GalleryGrid";
 
 const promises = [
